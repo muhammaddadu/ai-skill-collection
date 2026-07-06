@@ -19,20 +19,22 @@ changes — skills are scanned at session start.
 
 ## Layout
 
-| Domain | Contents |
-|---|---|
-| `product/` | discovery, strategy, requirements (PRD, stories, personas, roadmaps…) |
-| `growth/` | `ads-*` marketing pack, SaaS/finance metrics, pricing, growth advisors |
-| `design/` | UI guidance (cleanui), design-system lookup, Tailwind skills |
-| `architecture/` | agent-docs conventions, context engineering; ADR/tech-spec (planned) |
-| `engineering/` | Expo pack, NestJS pack, framework-specific skills |
-| `quality/` | test-strategy, release-readiness (planned) |
-| `operations/` | sentry-cli; SLO design, incident postmortem (planned) |
-| `career/` | PM career coaching (off-SDLC, kept separate) |
-| `utilities/` | outlook, pdf, ffmpeg, screenshot, image gen, humanizer |
-| `meta/` | find-skills, skill authoring, workshop-facilitation protocol |
-| `commands/` | slash-command .md files (linked into both tools) |
-| `retired/` | kept for history only; never linked |
+Organized around the product blueprint — "Make Building Products Fun Again":
+Exploration -> Sign-Off -> Discovery -> Sign-Off -> Delivery -> Learn & Iterate.
+`BLUEPRINT.md` maps every stage, lane, sign-off, and output to its skill.
+
+| Dir | Blueprint phase | Contents |
+|---|---|---|
+| `1-exploration/` | Exploration (human) — intake/intent framing -> **Sign-Off 1** | problem framing, stakeholders, market/company research, positioning, strategy, roadmap, prioritization, product-brief |
+| `2-discovery/` | Discovery (humans + AI) — PRD Forming/Storming/Norming, design discovery, eng feasibility -> **Sign-Off 2** | prd-development, user research (JTBD, personas, journeys, interviews), stories/epics, design-signal, eng-feasibility-spike, tech-spec, adr, api-design |
+| `3-delivery/` | Delivery (AI codes, humans review/ship) — PI Planning -> build/test/release | pi-planning, test-strategy, release-readiness, agent-docs, UI/design + framework packs (cleanui, tailwind, Expo, NestJS), ralph |
+| `4-iteration/` | Learn & Iterate + operate | learn-iterate, SaaS/finance metrics, business health, pricing, incident-postmortem, sentry-cli, eol-message |
+| `growth/` | (pack, off-blueprint) | `ads-*` marketing pack, acquisition/organic growth |
+| `career/` | (pack, off-blueprint) | PM career coaching |
+| `utilities/` | (pack) | outlook, pdf, ffmpeg, screenshot, gpt-image, humanizer |
+| `meta/` | (pack) | find-skills, skill authoring, workshop-facilitation protocol |
+| `commands/` | — | slash-command .md files (linked into both tools) |
+| `retired/` | — | history only; never linked |
 
 ## Conventions (enforced by `TEMPLATE/SKILL.md`)
 

@@ -21,22 +21,22 @@ import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAINS = [
-    "product", "growth", "design", "architecture", "engineering",
-    "quality", "operations", "career", "utilities", "meta",
+    "1-exploration", "2-discovery", "3-delivery", "4-iteration",
+    "growth", "career", "utilities", "meta",
 ]
 DESC_CAP = 500
 DESC_CAP_ALLOWLIST = re.compile(r"^growth/ads(-|/)")  # pack-level convention
 ABS_PATH = re.compile(r"(/Users/[a-z]+/|~/\.claude/skills|~/\.codex/skills|~/\.agents/)")
 ABS_PATH_ALLOWLIST = {  # install-location documentation, not runtime references
-    "architecture/agent-docs/SKILL.md",
-    "architecture/agent-docs/README.md",
+    "3-delivery/agent-docs/SKILL.md",
+    "3-delivery/agent-docs/README.md",
     "utilities/ffmpeg-usage/README.md",
     "utilities/ffmpeg-usage/AGENTS.md",
     "utilities/humanizer/README.md",
     "utilities/pdf/SKILL.md",
     "utilities/screenshot/SKILL.md",
 }
-CROSS_REF = re.compile(r"\.\./([a-z0-9-]+)\b")
+CROSS_REF = re.compile(r"\.\./([a-z0-9][a-z0-9-]*)\b")
 NON_SKILL_REF = {"references", "data", "scripts", "assets", "docs", "src",
                  "components", "images", "utils"}
 

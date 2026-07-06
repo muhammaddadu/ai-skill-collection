@@ -2,7 +2,7 @@
 name: <domain>-<object>            # must equal the directory name, kebab-case
 description: "<Verb> the <artifact> … Use when <specific trigger phrases>. Do NOT use for <adjacent case handled by another skill>."  # <=350 chars target, 500 hard cap
 type: component | interactive | workflow | advisor
-domain: product | growth | design | architecture | engineering | quality | operations | career | utilities | meta
+domain: 1-exploration | 2-discovery | 3-delivery | 4-iteration | growth | career | utilities | meta
 tested_date: YYYY-MM-DD            # required if content pins a tool/SDK/platform version
 # requires: "<tool> >= x, < y"     # version constraints for moving targets
 ---
