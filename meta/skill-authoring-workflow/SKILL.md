@@ -1,6 +1,6 @@
 ---
 name: skill-authoring-workflow
-description: Turn raw PM content into a compliant, publish-ready skill, or design a new skill through guided conversation. Use when creating or updating a repo skill without breaking standards — including when you only have an idea or notes and want an adaptive Q&A to shape its type, scope, and structure first. For generic skill scaffolding the skill-creator plugin applies; this skill enforces THIS repo's conventions and validation gates.
+description: "Turn raw PM content into a compliant, publish-ready skill, or design a new skill through guided Q&A that shapes its type, scope, and structure. Enforces THIS repo's conventions and validation gates (generic scaffolding is skill-creator's job). Use when creating or updating a repo skill — even from just an idea or notes."
 intent: >-
   Create or update PM skills without chaos. This workflow turns rough notes, workshop content, or half-baked prompt dumps into compliant `skills/<skill-name>/SKILL.md` assets that actually pass validation and belong in this repo. When the user starts from a raw idea rather than finished content, it also runs a guided 5-question design conversation (see references/pm-skill-design.md, absorbed from the retired pm-skill-creator skill) to settle skill type, scope, naming, and structure before drafting.
 type: workflow

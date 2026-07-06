@@ -3,8 +3,8 @@
 
 Checks:
   1. every skill dir has SKILL.md with frontmatter `name` == directory name
-  2. description present and <= 500 chars (ads-* pack allowlisted: its
-     keyword-exhaustive descriptions are that pack's own convention)
+  2. description present and <= 400 chars (no exemptions — descriptions are
+     paid in every session and overflow blanks the harness skills listing)
   3. no absolute skill-root paths in SKILL.md / references (breaks the other
      tool's install; install-location docs are allowlisted)
   4. no cross-directory `../<skill>` path references (use the skill name;
@@ -24,8 +24,7 @@ DOMAINS = [
     "1-exploration", "2-discovery", "3-delivery", "4-iteration",
     "growth", "career", "utilities", "meta",
 ]
-DESC_CAP = 500
-DESC_CAP_ALLOWLIST = re.compile(r"^growth/ads(-|/)")  # pack-level convention
+DESC_CAP = 400
 ABS_PATH = re.compile(r"(/Users/[a-z]+/|~/\.claude/skills|~/\.codex/skills|~/\.agents/)")
 ABS_PATH_ALLOWLIST = {  # install-location documentation, not runtime references
     "3-delivery/agent-docs/SKILL.md",
@@ -86,7 +85,7 @@ def main():
             desc = fm.get("description", "")
             if not desc or desc in ("|", ">", "|-", ">-"):
                 errors.append(f"missing/multiline description: {rel} (single-line required)")
-            elif len(desc) > DESC_CAP and not DESC_CAP_ALLOWLIST.match(f"{d}/{s}"):
+            elif len(desc) > DESC_CAP:
                 errors.append(f"description {len(desc)}ch > {DESC_CAP}: {rel}")
 
     # content checks: absolute paths + cross-domain refs need bridges

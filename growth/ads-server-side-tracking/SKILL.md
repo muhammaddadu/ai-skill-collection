@@ -1,6 +1,6 @@
 ---
 name: ads-server-side-tracking
-description: "Server-side tracking pipeline audit covering server-side Google Tag Manager (sGTM), Meta CAPI Gateway, Conversions API health, event deduplication via event_id, server-side hit ratio targets, pixel debugging, and PII hashing discipline. Use when user says server-side tracking, sGTM, server-side GTM, server-side tagging, CAPI, Conversions API, CAPI Gateway, Meta Conversions API, event deduplication, event_id, pixel debug, pixel health, Pixel/CAPI audit, first-party tracking, iOS 14.5 recovery, or server-side hit ratio."
+description: "Server-side tracking pipeline audit: sGTM, Meta CAPI Gateway, Conversions API health, event_id deduplication, server-side hit ratio, pixel debugging, PII hashing. Use when user says server-side tracking, sGTM, CAPI, Conversions API, event deduplication, pixel health, or iOS 14.5 recovery."
 user-invokable: false
 tested_date: 2026-05-17
 tested_with: claude-code v2.x

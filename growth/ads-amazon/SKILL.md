@@ -1,6 +1,6 @@
 ---
 name: ads-amazon
-description: "Amazon Ads deep analysis covering Sponsored Products, Sponsored Brands (incl. Sponsored Brands Video), Sponsored Display (audiences + contextual), and basic Amazon DSP. Evaluates campaign structure, ACOS/TACOS targets, search-term harvesting, negative keyword discipline, Brand Analytics signals, day-parting, bid management, auto vs manual campaign mix, ASIN targeting, and DSP retargeting. Use when user says Amazon Ads, Amazon advertising, Amazon PPC, Amazon search ads, Sponsored Products, Sponsored Brands, Sponsored Display, Amazon DSP, ACOS, TACOS, retail media audit, Amazon Marketing Services, AMS, or Amazon seller advertising."
+description: "Amazon Ads deep analysis: Sponsored Products, Sponsored Brands, Sponsored Display, and Amazon DSP — campaign structure, ACOS/TACOS, search-term harvesting, negatives, bids, ASIN targeting. Use when user says Amazon Ads, Amazon PPC, Sponsored Products, DSP, ACOS, TACOS, AMS, or retail media."
 user-invokable: false
 tested_date: 2026-05-17
 tested_with: claude-code v2.x

@@ -1,6 +1,6 @@
 ---
 name: outlook
-description: Read, search, triage, draft, and send mail plus view and manage calendar events in the user's Outlook / Microsoft 365 mailbox. Use when asked to check inbox, summarise unread mail, find an email, draft a reply, send mail, view the agenda, list meetings, create or update events, RSVP, or check free/busy. Prefer draft-* commands over direct send so the user reviews first. Requires the `outlook` CLI on PATH. Does NOT cover Gmail or IMAP.
+description: "Read, search, triage, draft, and send mail plus manage calendar events in Outlook / Microsoft 365. Requires the `outlook` CLI; prefer draft-* over direct send. Use when asked to check inbox, summarise unread mail, find or reply to an email, view the agenda, create or update events, RSVP, or check free/busy. Does NOT cover Gmail or IMAP."
 ---
 
 # Using the `outlook` CLI

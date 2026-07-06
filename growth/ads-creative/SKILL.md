@@ -1,6 +1,6 @@
 ---
 name: ads-creative
-description: "Cross-platform creative quality audit covering ad copy, video, image, and format diversity across all platforms. Detects creative fatigue, evaluates platform-native compliance, scores creative diversity for Andromeda Entity-ID retrieval, and provides production priorities. Use when user says creative audit, ad creative, creative fatigue, creative diversity score, ad variation audit, ad copy, ad design, or creative review."
+description: "Cross-platform creative quality audit: ad copy, video, image, format diversity; detects creative fatigue, scores diversity for Andromeda Entity-ID retrieval, sets production priorities. Use when user says creative audit, ad creative, creative fatigue, creative diversity score, or creative review."
 user-invokable: false
 tested_date: 2026-05-17
 tested_with: claude-code v2.x

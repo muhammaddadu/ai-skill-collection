@@ -1,6 +1,6 @@
 ---
 name: agent-docs
-description: "Scaffold (or retrofit) a project with the docs-driven agent conventions: a root AGENTS.md as the single source of agent guidance, a thin CLAUDE.md that imports it, an append-only LEARNINGS.md, and a docs/ tree with a routing index, one-fact-one-home ownership headers, and self-evaluating epics. Use when the user asks to set up project conventions, an AGENTS.md, agent/contributor docs, a docs/ structure, or to make a repo agent-ready — on a new or existing project."
+description: "Scaffold or retrofit a project with docs-driven agent conventions: a root AGENTS.md as the single source of agent guidance, a thin CLAUDE.md importing it, an append-only LEARNINGS.md, and a docs/ tree with routing index and self-evaluating epics. Use when asked to set up AGENTS.md, agent/contributor docs, or make a repo agent-ready."
 allowed-tools:
   - Read
   - Write

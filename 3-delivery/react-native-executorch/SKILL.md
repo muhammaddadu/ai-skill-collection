@@ -1,6 +1,6 @@
 ---
 name: react-native-executorch
-description: Build on-device AI features in React Native and Expo apps with React Native ExecuTorch — LLM chat and assistants, vision-language image understanding, image classification, object detection, OCR, segmentation, image generation, speech-to-text, text-to-speech, semantic search with embeddings, PII redaction. Use when the user wants offline AI, on-device ML, privacy-preserving or no-cloud inference, or to run models locally on mobile.
+description: "Build on-device AI in React Native and Expo apps with React Native ExecuTorch — LLM chat, vision-language, image classification, object detection, OCR, segmentation, image generation, speech-to-text, text-to-speech, embeddings. Use when the user wants offline AI, on-device ML, privacy-preserving or no-cloud inference, or local models on mobile."
 ---
 
 # React Native ExecuTorch

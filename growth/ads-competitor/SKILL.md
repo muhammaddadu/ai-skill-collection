@@ -1,6 +1,6 @@
 ---
 name: ads-competitor
-description: "Competitor ad intelligence analysis across Google, Meta, LinkedIn, TikTok, Microsoft, and Apple Ads. Analyzes competitor ad copy, creative strategy, keyword targeting, estimated spend via Meta Ad Library / Google Ads Transparency Center / TikTok Top Ads, and identifies competitive gaps and opportunities. Use when user says competitor ads, ad spy, competitive analysis, competitor PPC, ad intelligence, Meta Ad Library, Facebook Ad Library, Google Ads Transparency, competitor creative, or competitor research."
+description: "Competitor ad intelligence across Google, Meta, LinkedIn, TikTok, Microsoft, and Apple Ads: copy, creative strategy, keywords, estimated spend via Meta Ad Library, Google Ads Transparency Center, TikTok Top Ads. Use when user says competitor ads, ad spy, competitor PPC, or ad intelligence."
 user-invokable: false
 tested_date: 2026-05-17
 tested_with: claude-code v2.x
