@@ -82,6 +82,8 @@ Walk the design once with an attacker's eyes and once with a regulator's:
 
 One honest paragraph beats a compliance checklist. If the answer is "no new surface, no sensitive data", write that.
 
+For new attack surface, run [`../threat-modeling/SKILL.md`](../threat-modeling/SKILL.md) and fold mitigations back in as requirements.
+
 ### Step 7: Plan verification and rollout
 
 - **Test approach** — what proves each goal is met: unit/integration/E2E split, what gets faked vs hit for real, load or failure testing if the constraints demand it. Route the full plan through `test-strategy`; the spec carries the summary and the link.
