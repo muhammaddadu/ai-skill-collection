@@ -67,20 +67,20 @@ solution details. PRD is ready for commitment.
 
 | Step | Skill | What happens | Artifact |
 |---|---|---|---|
-| 16. Increment planned | ▸ `pi-planning` | Readiness gate: Design Signal 90 ✓ (`design-signal`), tech spec current ✓, spike resolved ✓. MVP cut-line: manual toggle ships, system-sync follows. PRD → **Commitment-Ready** | PI plan + tickets |
-| 17. Stories cut | ▸ `epic-breakdown-advisor` → `user-story` | Epic split (patterns from `user-story-splitting`); each story carries Gherkin criteria | Tickets with acceptance criteria |
-| 18. Test plan | ▸ `test-strategy` | Criteria → pyramid: theme-token logic unit-tested, one E2E on toggle persistence; merge-gate vs release-gate done-bar | Test plan in the spec |
-| 18b. Suite built | ▸ `e2e-automation` | The plan's two E2E journeys become a Maestro suite: testIDs, API-seeded data, smoke tag on the toggle-persistence flow | e2e/ suite + suite README |
-| 19. Agent execution? | ↩ ▸ `ralph` | If an autonomous agent runs the build: PRD → `prd.json` | prd.json |
-| 20. Code, test-first | ▸ `tdd` + ▸ `cleanui` + ▸ `react-native-skills` | Red-green loop per story; UI follows the aesthetic direction + platform rules; RN perf rules on the theme switch (no re-render storms) | Implementation |
-| 21. Something breaks | ↩ ▸ `diagnosing-bugs` | Flaky theme flash on cold start: repro loop → root cause (async storage read after first paint) → fix at source + regression test | Diagnosis + fix |
-| 22. Conflict on merge | ↩ ▸ `resolving-merge-conflicts` | Long-lived branch meets a navigation refactor | Clean merge, checks green |
-| 23. A11y audit | ▸ `web-design-guidelines` | Contrast ratios, focus states, reduced-motion on the theme transition | Audit findings fixed |
-| 24. Rollout plan | ▸ `progressive-delivery` | Flag `rel_dark_mode` (owner + TTL set at creation), dark deploy, dogfood cohort, ramp 1→5→25→50→100% with abort criteria, kill switch | `docs/specs/rollouts/dark-mode.md` |
-| 24b. Health defined | ▸ `slo-design` | SLIs for app-start latency and settings-save success; burn-rate alerts; a runbook per page — all live before launch | SLO spec + runbooks |
-| 25. Go/no-go | ▸ `release-readiness` | Scored review: quality gates, rollback, observability (dashboards BEFORE launch), comms; hard gates checked | RELEASE-READINESS.md — **GO** |
-| 26. Ship + ramp | *(execution)* + ↩ ▸ `expo-deployment` | Store build via EAS; ramp runs; PRD → **Live** | Released app |
-| 27. Cleanup | ▸ `progressive-delivery` (step 5) | At 100% + soak: old light-only path deleted, flag deleted — the new thing is the main thing | Cleanup checklist merged |
+| 17. Increment planned | ▸ `pi-planning` | Readiness gate: Design Signal 90 ✓ (`design-signal`), tech spec current ✓, spike resolved ✓. MVP cut-line: manual toggle ships, system-sync follows. PRD → **Commitment-Ready** | PI plan + tickets |
+| 18. Stories cut | ▸ `epic-breakdown-advisor` → `user-story` | Epic split (patterns from `user-story-splitting`); each story carries Gherkin criteria | Tickets with acceptance criteria |
+| 19. Test plan | ▸ `test-strategy` | Criteria → pyramid: theme-token logic unit-tested, one E2E on toggle persistence; merge-gate vs release-gate done-bar | Test plan in the spec |
+| 19b. Suite built | ▸ `e2e-automation` | The plan's two E2E journeys become a Maestro suite: testIDs, API-seeded data, smoke tag on the toggle-persistence flow | e2e/ suite + suite README |
+| 20. Agent execution? | ↩ ▸ `ralph` | If an autonomous agent runs the build: PRD → `prd.json` | prd.json |
+| 21. Code, test-first | ▸ `tdd` + ▸ `cleanui` + ▸ `react-native-skills` | Red-green loop per story; UI follows the aesthetic direction + platform rules; RN perf rules on the theme switch (no re-render storms) | Implementation |
+| 22. Something breaks | ↩ ▸ `diagnosing-bugs` | Flaky theme flash on cold start: repro loop → root cause (async storage read after first paint) → fix at source + regression test | Diagnosis + fix |
+| 23. Conflict on merge | ↩ ▸ `resolving-merge-conflicts` | Long-lived branch meets a navigation refactor | Clean merge, checks green |
+| 24. A11y audit | ▸ `web-design-guidelines` | Contrast ratios, focus states, reduced-motion on the theme transition | Audit findings fixed |
+| 25. Rollout plan | ▸ `progressive-delivery` | Flag `rel_dark_mode` (owner + TTL set at creation), dark deploy, dogfood cohort, ramp 1→5→25→50→100% with abort criteria, kill switch | `docs/specs/rollouts/dark-mode.md` |
+| 25b. Health defined | ▸ `slo-design` | SLIs for app-start latency and settings-save success; burn-rate alerts; a runbook per page — all live before launch | SLO spec + runbooks |
+| 26. Go/no-go | ▸ `release-readiness` | Scored review: quality gates, rollback, observability (dashboards BEFORE launch), comms; hard gates checked | RELEASE-READINESS.md — **GO** |
+| 27. Ship + ramp | *(execution)* + ↩ ▸ `expo-deployment` | Store build via EAS; ramp runs; PRD → **Live** | Released app |
+| 28. Cleanup | ▸ `progressive-delivery` (step 5) | At 100% + soak: old light-only path deleted, flag deleted — the new thing is the main thing | Cleanup checklist merged |
 
 *Also on call in this phase:* `postgres-best-practices` (if the preference
 lands in a slow query), `api-design` review mode (contract drift),
@@ -93,11 +93,11 @@ lands in a slow query), `api-design` review mode (contract drift),
 
 | Step | Skill | What happens | Artifact |
 |---|---|---|---|
-| 28. Checkpoint | ▸ `learn-iterate` | At the date booked in step 25: evening retention +6% ✓, brightness tickets −38% ✗ (trending); insight: users can't find the toggle | Iteration review; PRD → **Updated** |
-| 29. Decision | *(inside learn-iterate)* | **Iterate**: surface the toggle in onboarding — a new mini-cycle via `prd-development`; system-sync (below the cut-line) gets its named release | Adjustments with owners |
-| 30. Incident during ramp? | ↩ ▸ `incident-postmortem` | The step-21 kill-switch event (if one fired) gets a blameless postmortem — separate from product learning | `docs/postmortems/…` |
-| 31. Business lens | ↩ ▸ `saas-revenue-growth-metrics` / `business-health-diagnostic` | Quarterly: did retention movement show up in revenue? | Metrics readout |
-| 32. Loop closes | → `product-brief` | The onboarding insight becomes next cycle's intake | New brief |
+| 29. Checkpoint | ▸ `learn-iterate` | At the date booked in step 26: evening retention +6% ✓, brightness tickets −38% ✗ (trending); insight: users can't find the toggle | Iteration review; PRD → **Updated** |
+| 30. Decision | *(inside learn-iterate)* | **Iterate**: surface the toggle in onboarding — a new mini-cycle via `prd-development`; system-sync (below the cut-line) gets its named release | Adjustments with owners |
+| 31. Incident during ramp? | ↩ ▸ `incident-postmortem` | A kill-switch event during the ramp (if one fired) gets a blameless postmortem — separate from product learning | `docs/postmortems/…` |
+| 32. Business lens | ↩ ▸ `saas-revenue-growth-metrics` / `business-health-diagnostic` | Quarterly: did retention movement show up in revenue? | Metrics readout |
+| 33. Loop closes | → `product-brief` | The onboarding insight becomes next cycle's intake | New brief |
 
 *(If the feature had missed and stayed missed: `eol-message` to retire it well.)*
 
