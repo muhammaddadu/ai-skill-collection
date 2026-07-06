@@ -14,6 +14,7 @@ customer-journey-map
 customer-journey-mapping-workshop
 derisk-measurement-advisor
 design-signal
+diagnosing-bugs
 director-readiness-advisor
 discovery-interview-prep
 discovery-process
@@ -37,6 +38,7 @@ incident-postmortem
 jobs-to-be-done
 lean-ux-canvas
 learn-iterate
+mcp-builder
 native-data-fetching
 nestjs-best-practices
 opportunity-solution-tree
@@ -48,6 +50,7 @@ pol-probe
 pol-probe-advisor
 positioning-statement
 positioning-workshop
+postgres-best-practices
 prd-development
 press-release
 prioritization-advisor
@@ -59,8 +62,11 @@ product-strategy-session
 progressive-delivery
 proto-persona
 ralph
+react-best-practices
+react-native-skills
 recommendation-canvas
 release-readiness
+resolving-merge-conflicts
 roadmap-planning
 saas-economics-efficiency-metrics
 saas-revenue-growth-metrics
@@ -73,6 +79,7 @@ storyboard
 tailwind-fundamentals
 tailwind-v4-shadcn
 tam-sam-som-calculator
+tdd
 tech-spec
 test-strategy
 ui-design-system-search
@@ -82,4 +89,5 @@ user-story-mapping
 user-story-mapping-workshop
 user-story-splitting
 vp-cpo-readiness-advisor
+web-design-guidelines
 workshop-facilitation
