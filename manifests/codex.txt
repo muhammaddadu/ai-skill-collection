@@ -35,9 +35,11 @@ context-engineering-advisor
 customer-journey-map
 customer-journey-mapping-workshop
 derisk-measurement-advisor
+design-signal
 director-readiness-advisor
 discovery-interview-prep
 discovery-process
+eng-feasibility-spike
 eol-message
 epic-breakdown-advisor
 epic-hypothesis
@@ -50,11 +52,13 @@ find-skills
 incident-postmortem
 jobs-to-be-done
 lean-ux-canvas
+learn-iterate
 opportunity-solution-tree
 organic-growth-advisor
 outlook
 pdf
 pestel-analysis
+pi-planning
 pol-probe
 pol-probe-advisor
 positioning-statement
@@ -64,8 +68,10 @@ press-release
 prioritization-advisor
 problem-framing-canvas
 problem-statement
+product-brief
 product-sense-interview-answer
 product-strategy-session
+progressive-delivery
 proto-persona
 react-native-executorch
 recommendation-canvas
