@@ -209,5 +209,5 @@ After all three answers, deliver a tailored engagement plan:
 - [stakeholder-identification](../stakeholder-identification/SKILL.md) — prerequisite: build the stakeholder list before planning per-stakeholder engagement
 - [stakeholder-mapping](../stakeholder-mapping/SKILL.md) — prerequisite: prioritize stakeholders and identify Q1 voices before engagement planning
 - [discovery-interview-prep](../discovery-interview-prep/SKILL.md) — for engaging user stakeholders through structured research
-- [workshop-facilitation](../workshop-facilitation/SKILL.md) — for facilitation-heavy engagement formats like working sessions and co-design
+- `workshop-facilitation` — for facilitation-heavy engagement formats like working sessions and co-design
 - MITRE Innovation Toolkit — [Quickstart Stakeholder Engagement Canvas](https://itk.mitre.org/toolkit-tools/quickstart-stakeholder-engagement-canvas/)

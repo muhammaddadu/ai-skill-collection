@@ -56,7 +56,7 @@ The **meta-pattern** (identify core complexity → list variations → reduce to
 
 ### Facilitation Source of Truth
 
-Use [`workshop-facilitation`](../workshop-facilitation/SKILL.md) as the default interaction protocol for this skill.
+Use `workshop-facilitation` as the default interaction protocol for this skill.
 
 It defines:
 - session heads-up + entry mode (Guided, Context dump, Best guess)
@@ -295,7 +295,7 @@ Write each story using the format in `../user-story/SKILL.md`.
 - [`../user-story-splitting/SKILL.md`](../user-story-splitting/SKILL.md) — **The canonical pattern reference**: full definitions, examples, and anti-patterns for every split pattern used in this session
 - [`../user-story/SKILL.md`](../user-story/SKILL.md) — Format for writing the split stories
 - [`../epic-hypothesis/SKILL.md`](../epic-hypothesis/SKILL.md) — Original epic format
-- [`../workshop-facilitation/SKILL.md`](../workshop-facilitation/SKILL.md) — Facilitation protocol for this session
+- `workshop-facilitation` — Facilitation protocol for this session
 
 ### External Frameworks
 - Richard Lawrence & Peter Green, *The Humanizing Work Guide to Splitting User Stories* — Complete methodology (https://www.humanizingwork.com/the-humanizing-work-guide-to-splitting-user-stories/)

@@ -121,7 +121,7 @@ The context rot solution:
 
 ### Facilitation Source of Truth
 
-Use [`workshop-facilitation`](../workshop-facilitation/SKILL.md) as the default interaction protocol: session heads-up + entry modes (Guided, Context dump, Best guess), one-question turns in plain language, progress labels, interruption/pause handling, and numbered quick-select options (include `Other (specify)` when useful). This file defines the domain-specific assessment content; if there is a conflict, follow this file's domain logic.
+Use `workshop-facilitation` as the default interaction protocol: session heads-up + entry modes (Guided, Context dump, Best guess), one-question turns in plain language, progress labels, interruption/pause handling, and numbered quick-select options (include `Other (specify)` when useful). This file defines the domain-specific assessment content; if there is a conflict, follow this file's domain logic.
 
 ## Application
 
@@ -299,10 +299,10 @@ For three worked end-to-end diagnoses (solo PM stuffing → engineering; growth-
 ## References
 
 ### Related Skills
-- **[ai-shaped-readiness-advisor](../ai-shaped-readiness-advisor/SKILL.md)** (Interactive) — Context Design is Competency #1 of AI-shaped work
-- **[problem-statement](../problem-statement/SKILL.md)** (Component) — Evidence-based framing requires context engineering
-- **[epic-hypothesis](../epic-hypothesis/SKILL.md)** (Component) — Testable hypotheses depend on clear constraints (part of context)
-- **[pol-probe-advisor](../pol-probe-advisor/SKILL.md)** (Interactive) — Validation experiments benefit from context engineering (define what AI needs to know)
+- **`ai-shaped-readiness-advisor`** (Interactive) — Context Design is Competency #1 of AI-shaped work
+- **`problem-statement`** (Component) — Evidence-based framing requires context engineering
+- **`epic-hypothesis`** (Component) — Testable hypotheses depend on clear constraints (part of context)
+- **`pol-probe-advisor`** (Interactive) — Validation experiments benefit from context engineering (define what AI needs to know)
 
 ### External Frameworks
 - **Dean Peters** — [*Context Stuffing Is Not Context Engineering*](https://deanpeters.substack.com/p/context-stuffing-is-not-context-engineering) (Dean Peters' Substack, 2026)

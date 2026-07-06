@@ -106,7 +106,7 @@ measurement; "43 minutes, ~12% of checkout traffic, ~$8k, SLA breached for two
 customers" is.
 
 ### Step 3 — Run the session
-Facilitate using the protocol in `../workshop-facilitation/` — one question per
+Facilitate using the protocol in `workshop-facilitation` — one question per
 turn, quick-select numbered options, progress labels (`Timeline Qx/n`,
 `Factors Qx/5`), interruption-safe pacing, and an entry-mode choice up front.
 Example opening:
@@ -246,7 +246,7 @@ at zero cost, and it's the cheapest postmortem you'll ever run (see Pitfalls).
   back to the postmortem; review them in normal planning, not a special ritual.
 - **Recurring patterns across postmortems → structural fixes:** when the same
   factor shows up twice, escalate from action items to an architecture
-  decision — record it with `../adr/` or design it with `../tech-spec/`.
+  decision — record it with `adr` or design it with `tech-spec`.
 - **Detection gaps → alerting improvements:** repeated `detect-faster` items
   point at missing SLOs and alert coverage (future `slo-design` skill; until
   then, treat them as first-class backlog work).

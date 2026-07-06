@@ -15,8 +15,9 @@ writing or editing a skill, use these words — don't invent synonyms.
 - **Workflow** — a skill that orchestrates other skills across phases.
 - **Reference file** — depth stored in a skill's `references/`, loaded only
   when the SKILL.md routing line calls for it (progressive disclosure).
-- **Bridge symlink** — a symlink inside a domain dir that makes a cross-domain
-  `../<skill>/` path resolve (see README, Paths).
+- **Name reference** — how skills cite skills outside their own directory: the
+  bare skill name in backticks (skills install flat, so names resolve in the
+  skills root); `../<skill>/` paths are only for same-directory siblings.
 - **Trigger** — the `description` frontmatter; the only always-on signal the
   model uses to pick a skill. Triggers within a domain must be mutually
   exclusive, using "Do NOT use for …" pointers.

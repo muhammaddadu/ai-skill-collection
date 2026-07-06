@@ -159,6 +159,6 @@ For each stakeholder in "manage closely" and each Q1 stakeholder, create an enga
 - [stakeholder-identification](../stakeholder-identification/SKILL.md) — prerequisite: build the full stakeholder list before prioritizing
 - [stakeholder-engagement-advisor](../stakeholder-engagement-advisor/SKILL.md) — next step: per-stakeholder engagement planning for "manage closely" and Q1 stakeholders
 - [discovery-interview-prep](../discovery-interview-prep/SKILL.md) — recruit Q1 stakeholders into research
-- [workshop-facilitation](../workshop-facilitation/SKILL.md) — run the mapping exercise as a facilitated team session
+- `workshop-facilitation` — run the mapping exercise as a facilitated team session
 - MITRE Innovation Toolkit — [Stakeholder Map & Matrix](https://itk.mitre.org/toolkit-tools/stakeholder-map-and-matrix/)
 - MITRE Innovation Toolkit — [Stakeholder Power Categories](https://itk.mitre.org/toolkit-tools/stakeholder-power-categories/)

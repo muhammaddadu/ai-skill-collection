@@ -269,7 +269,7 @@ For the full check definitions, severities, weights, and scoring math, read
 
 ## Next steps
 
-- `../test-strategy` — turn the contract into contract tests (provider/
+- `test-strategy` — turn the contract into contract tests (provider/
   consumer) so the checklist's compatibility guarantees are enforced by CI,
   not by review.
 - `../adr` — record contested API decisions (versioning scheme, pagination

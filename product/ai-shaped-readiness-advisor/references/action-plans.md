@@ -11,7 +11,7 @@ matching plan below, tailored to their context from Step 0.
 
 **Pre-Phase: Diagnose Context Stuffing (If Needed)**
 If the user is at Level 1-2, first diagnose context stuffing symptoms:
-1. Run through the 5 diagnostic questions (see [`context-engineering-advisor`](../../context-engineering-advisor/SKILL.md))
+1. Run through the 5 diagnostic questions (see `context-engineering-advisor`)
 2. Identify what they're persisting that should be retrieved
 3. Assign context boundary owner
 4. Create Context Manifest (what's always-needed vs. episodic)
@@ -71,7 +71,7 @@ If the user is at Level 1-2, first diagnose context stuffing symptoms:
 - Output consistency up (fewer retries)
 
 **Related Skills:**
-- [`context-engineering-advisor`](../../context-engineering-advisor/SKILL.md) — Deep dive on diagnosing context stuffing and implementing memory architecture
+- `context-engineering-advisor` — Deep dive on diagnosing context stuffing and implementing memory architecture
 - `problem-statement` — Define constraints before framing problems
 - `epic-hypothesis` — Evidence-based hypothesis writing
 

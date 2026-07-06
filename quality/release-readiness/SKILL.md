@@ -205,7 +205,7 @@ Two type-specific emphases:
 - **Mobile:** treat every release as harder to reverse than it looks — the
   store review pipeline means rollback ≠ redeploy. Weight R10 (kill switch)
   and R15 (skew) as if they were one severity higher. Store-submission
-  mechanics themselves belong to `../expo-deployment`, not this review.
+  mechanics themselves belong to `expo-deployment`, not this review.
 - **Library/API:** "blast radius" is consumers, not end users — intake
   question 2 should count downstream dependents, and R14 (contract
   compatibility) is usually the check that decides the verdict.
@@ -217,7 +217,7 @@ Two type-specific emphases:
   a rollout stage, or merges anything — it prepares evidence. (Same
   human-in-the-loop principle as plan approval in agent-driven SDLC work.)
 - **Platform mechanics live elsewhere.** Store submission, build signing, EAS
-  specifics → `../expo-deployment` (engineering domain). CI pipeline specifics
+  specifics → `expo-deployment` (engineering domain). CI pipeline specifics
   are per-repo — this review asks *whether* the gate passed, not how to
   configure it.
 - **Writing the test plan is upstream.** This skill consumes the
@@ -244,11 +244,11 @@ Two type-specific emphases:
 
 ## Next steps
 
-- **If the release goes wrong** → `../incident-postmortem` (operations domain);
+- **If the release goes wrong** → `incident-postmortem` (operations domain);
   bring this report — the gap between what was checked and what broke is the
   postmortem's first lead.
 - **Post-launch checkpoint (R44)** → compare actuals against the success
   metrics named in R42; the result feeds the next iteration's PRD
-  (`../prd-development`, product domain) as validated learning.
+  (`prd-development`, product domain) as validated learning.
 - Follow-ups from a B or conditional-go verdict are tickets in the normal
   backlog — check them at the next release's R45.

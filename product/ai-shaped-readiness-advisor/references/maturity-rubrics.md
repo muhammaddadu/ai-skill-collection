@@ -38,7 +38,7 @@ engineering** (structure for attention).
    - **Context Engineering Mastery:** Can answer all 5 diagnostic questions; context boundary audited quarterly; quantitative efficiency tracking: (Accuracy × Coherence) / (Tokens × Latency)
 
 **Note:** If the user selects Level 1-2 and struggles with context stuffing,
-point them at [`context-engineering-advisor`](../../context-engineering-advisor/SKILL.md)
+point them at `context-engineering-advisor`
 to diagnose and fix Context Hoarding Disorder before proceeding.
 
 ---

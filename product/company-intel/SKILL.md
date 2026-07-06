@@ -455,9 +455,9 @@ When handing off to a downstream skill, pass the relevant sections explicitly:
 - **[pestel-analysis](../pestel-analysis/SKILL.md)** (Component) — Deep PESTEL template; consumes Sections 6 and 8 from company-intel
 - **[derisk-measurement-advisor](../derisk-measurement-advisor/SKILL.md)** (Interactive) — Risk scan that benefits from Sections 6 and 8 as context input
 - **[tam-sam-som-calculator](../tam-sam-som-calculator/SKILL.md)** (Component) — Market sizing; consumes Sections 2, 3, 5
-- **[business-health-diagnostic](../business-health-diagnostic/SKILL.md)** (Interactive) — SaaS health diagnosis; consumes Section 2
+- **`business-health-diagnostic`** (Interactive) — SaaS health diagnosis; consumes Section 2
 - **[positioning-statement](../positioning-statement/SKILL.md)** (Component) — Positioning; consumes Sections 3, 4, 7
-- **[acquisition-channel-advisor](../acquisition-channel-advisor/SKILL.md)** (Interactive) — Go-to-market analysis; consumes Sections 2, 3, 7
+- **`acquisition-channel-advisor`** (Interactive) — Go-to-market analysis; consumes Sections 2, 3, 7
 - **[proto-persona](../proto-persona/SKILL.md)** (Component) — Persona creation; consumes Section 3
 
 ### Research Sources

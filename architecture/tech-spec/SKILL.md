@@ -17,7 +17,7 @@ Bridge the gap between an approved PRD ("what and why") and code ("how"). A tech
 **Audience:** Engineers implementing the work + engineers reviewing the design
 
 ## Prerequisites
-- An approved PRD or problem statement — see [`../prd-development/SKILL.md`](../prd-development/SKILL.md). The spec links to it and must not restate it.
+- An approved PRD or problem statement — see `prd-development`. The spec links to it and must not restate it.
 - If no PRD exists, gather the same inputs inline before designing: the problem, who has it, success criteria, and explicit out-of-scope items. Do not skip this — a spec without an agreed problem is a solution looking for one.
 
 ## Workflow
@@ -84,9 +84,9 @@ One honest paragraph beats a compliance checklist. If the answer is "no new surf
 
 ### Step 7: Plan verification and rollout
 
-- **Test approach** — what proves each goal is met: unit/integration/E2E split, what gets faked vs hit for real, load or failure testing if the constraints demand it. Route the full plan through [`../test-strategy/SKILL.md`](../test-strategy/SKILL.md); the spec carries the summary and the link.
+- **Test approach** — what proves each goal is met: unit/integration/E2E split, what gets faked vs hit for real, load or failure testing if the constraints demand it. Route the full plan through `test-strategy`; the spec carries the summary and the link.
 - **Rollout** — how the change reaches production: feature flag, percentage rollout, migration sequencing, monitoring that would reveal trouble early.
-- **Rollback** — the step-by-step path back if it goes wrong, written **before** shipping. If a step is irreversible (destructive migration, external announcement), flag it and state the mitigation. Gate the ship decision through [`../release-readiness/SKILL.md`](../release-readiness/SKILL.md).
+- **Rollback** — the step-by-step path back if it goes wrong, written **before** shipping. If a step is irreversible (destructive migration, external announcement), flag it and state the mitigation. Gate the ship decision through `release-readiness`.
 
 ### Step 8: Log decisions and bound the open questions
 
@@ -151,11 +151,11 @@ New attack surface, authN/authZ, sensitive data handling, secrets.
 
 ## 8. Test approach
 What proves each goal; unit/integration/E2E split. Full plan:
-../test-strategy.
+`test-strategy`.
 
 ## 9. Rollout & rollback plan
 Flagging/sequencing, monitoring, and the step-by-step path back.
-Irreversible steps flagged. Ship gate: ../release-readiness.
+Irreversible steps flagged. Ship gate: `release-readiness`.
 
 ## 10. Open questions
 | # | Question | Owner | Resolve by | Blocks |
@@ -255,7 +255,7 @@ Note what makes this reviewable: both A and B are designs a competent engineer m
 
 **Consequence:** Two documents own the same facts and drift apart; reviewers wade through what they already approved and skim past the part that needed their scrutiny
 
-**Fix:** §1 is two paragraphs plus a link; every reused fact is a link to the PRD, never a copy. If you find yourself arguing about the *what*, the PRD is not actually approved — go back to [`../prd-development/SKILL.md`](../prd-development/SKILL.md)
+**Fix:** §1 is two paragraphs plus a link; every reused fact is a link to the PRD, never a copy. If you find yourself arguing about the *what*, the PRD is not actually approved — go back to `prd-development`
 
 ---
 
@@ -295,5 +295,5 @@ Note what makes this reviewable: both A and B are designs a competent engineer m
 
 ## Next steps
 - [`../adr/SKILL.md`](../adr/SKILL.md) — promote each decision that outlives this spec (datastore, protocol, build-vs-buy) to a standalone ADR
-- [`../test-strategy/SKILL.md`](../test-strategy/SKILL.md) — expand §8 into the full test plan before implementation starts
-- [`../release-readiness/SKILL.md`](../release-readiness/SKILL.md) — run before shipping; §9 of the spec is its input
+- `test-strategy` — expand §8 into the full test plan before implementation starts
+- `release-readiness` — run before shipping; §9 of the spec is its input

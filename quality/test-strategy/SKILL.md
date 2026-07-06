@@ -30,11 +30,11 @@ whether it is done.
 
 ## Prerequisites
 
-- Testable acceptance criteria for the feature — from `../prd-development`,
-  `../user-story` (Gherkin criteria), or the requirements section of a
-  `../tech-spec`. Without criteria there is nothing to plan against; write
+- Testable acceptance criteria for the feature — from `prd-development`,
+  `user-story` (Gherkin criteria), or the requirements section of a
+  `tech-spec`. Without criteria there is nothing to plan against; write
   them first.
-- The target repo's `AGENTS.md` / contributor docs (see `../agent-docs`), if
+- The target repo's `AGENTS.md` / contributor docs (see `agent-docs`), if
   they exist — they define where tests live, which runner is used, and any
   house testing rules. **Repo conventions override this skill's defaults.**
 
@@ -227,7 +227,7 @@ the deliverable. For a small feature it fits in half a page of the tech-spec.
   `/code-review`'s job.
 - **Repo conventions win.** Where tests live (colocated vs `tests/`), which
   runner and assertion style to use, and any house invariant suite come from
-  the target repo's `AGENTS.md` / contributor docs (per `../agent-docs`
+  the target repo's `AGENTS.md` / contributor docs (per `agent-docs`
   conventions). This skill's defaults (colocated unit tests, in-memory
   fakes) apply only where the repo is silent.
 - **Ship/no-ship is downstream.** This skill defines which checks exist and

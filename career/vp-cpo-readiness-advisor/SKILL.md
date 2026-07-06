@@ -105,7 +105,7 @@ Without them, you're a "dead man walking." Executives can appear supportive in m
 
 ### Facilitation Source of Truth
 
-Use [`workshop-facilitation`](../workshop-facilitation/SKILL.md) as the default interaction protocol for this skill.
+Use `workshop-facilitation` as the default interaction protocol for this skill.
 
 It defines:
 - Session heads-up + entry mode (Guided, Context dump, Best guess)

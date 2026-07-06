@@ -1,6 +1,6 @@
 # Release Readiness Checklist
 
-<!-- v1.0 | Scoring pattern shared with growth/ads (see ../ads/references/scoring-system.md
+<!-- v1.0 | Scoring pattern shared with the `ads` skill (its references/scoring-system.md
      in the growth domain for the original) — same formula, severities, grades, quick-wins logic. -->
 
 ## Check ID Convention

@@ -23,7 +23,7 @@ One paragraph: the outcome this skill produces and for whom.
 
 ## Workflow
 Step-by-step instructions. Interactive skills delegate pacing to
-`../workshop-facilitation` (meta domain). Keep the body ≤~500 lines; route
+`workshop-facilitation` (name reference — it lives in another dir). Keep the body ≤~500 lines; route
 detail to references/ with explicit pointers:
 - For <subtopic>, read `references/<file>.md`
 

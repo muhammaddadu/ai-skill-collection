@@ -119,7 +119,7 @@ A PRD (Product Requirements Document) is a structured document that answers:
 
 ### Facilitation Source of Truth
 
-When running this workflow as a guided conversation, use [`workshop-facilitation`](../workshop-facilitation/SKILL.md) as the interaction protocol.
+When running this workflow as a guided conversation, use `workshop-facilitation` as the interaction protocol.
 
 It defines:
 - session heads-up + entry mode (Guided, Context dump, Best guess)
@@ -629,7 +629,7 @@ Mini example excerpt:
 
 ## Next steps
 
-- [`../tech-spec/SKILL.md`](../tech-spec/SKILL.md) — hand the approved PRD to engineering via tech-spec: it turns the "what" into an implementable design (options, chosen architecture, data/API impact, rollout)
+- `tech-spec` — hand the approved PRD to engineering via tech-spec: it turns the "what" into an implementable design (options, chosen architecture, data/API impact, rollout)
 - `../epic-breakdown-advisor/SKILL.md` — split Section 7's epic into development-ready stories if not done during Phase 7
 - `../roadmap-planning/SKILL.md` — sequence the initiative against the rest of the roadmap
 

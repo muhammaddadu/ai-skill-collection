@@ -161,7 +161,7 @@ Status lifecycle: `proposed` → `accepted` (or `rejected`) → later possibly
   ADR owns the WHY** of a decision. Architecture docs state *what* the current
   design is and link to the ADR for the reasoning — never restate it. ADRs are
   append-only records, the same discipline as `LEARNINGS.md`.
-- **`../prd-development`** — product/scope decisions (what to build,
+- **`prd-development`** — product/scope decisions (what to build,
   for whom) belong in the PRD, not the ADR log. An ADR may *cite* a PRD
   requirement as a decision driver.
 

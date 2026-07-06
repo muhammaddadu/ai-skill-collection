@@ -56,7 +56,7 @@ This skill draws directly on the Altitude & Horizon Framework — see `skills/al
 
 ### Facilitation Source of Truth
 
-Use [`workshop-facilitation`](../workshop-facilitation/SKILL.md) as the default interaction protocol for this skill.
+Use `workshop-facilitation` as the default interaction protocol for this skill.
 
 It defines:
 - Session heads-up + entry mode (Guided, Context dump, Best guess)

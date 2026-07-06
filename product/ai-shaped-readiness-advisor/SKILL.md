@@ -56,7 +56,7 @@ Building a durable **"reality layer"** that both humans and AI can trust—treat
 **AI-first version:** Pasting PRDs into ChatGPT; no context boundaries; "more is better"
 **AI-shaped version:** CLAUDE.md files, evidence databases, constraint registries AI agents reference; two-layer memory; Research→Plan→Reset→Implement cycle
 
-**Deep Dive:** For the stuffing-vs-engineering diagnosis, the 5 diagnostic questions, and memory architecture, use [`context-engineering-advisor`](../context-engineering-advisor/SKILL.md).
+**Deep Dive:** For the stuffing-vs-engineering diagnosis, the 5 diagnostic questions, and memory architecture, use `context-engineering-advisor`.
 
 #### 2. **Agent Orchestration**
 Creating repeatable, traceable AI workflows (not one-off prompts): defined loops (research → synthesis → critique → decision → log rationale), each step shows its work, workflows run consistently, prompts version-controlled.
@@ -113,7 +113,7 @@ Moving beyond efficiency to create **defensible competitive advantages**: new cu
 
 ### Facilitation Source of Truth
 
-Use [`workshop-facilitation`](../workshop-facilitation/SKILL.md) as the default interaction protocol: session heads-up + entry modes (Guided, Context dump, Best guess), one-question turns in plain language, progress labels, interruption/pause handling, and numbered quick-select options (include `Other (specify)` when useful). This file defines the domain-specific assessment content; if there is a conflict, follow this file's domain logic.
+Use `workshop-facilitation` as the default interaction protocol: session heads-up + entry modes (Guided, Context dump, Best guess), one-question turns in plain language, progress labels, interruption/pause handling, and numbered quick-select options (include `Other (specify)` when useful). This file defines the domain-specific assessment content; if there is a conflict, follow this file's domain logic.
 
 ## Application
 
@@ -175,7 +175,7 @@ Score one competency per turn, in this order:
 
 For each, ask "Which statement best describes your current state?" and present the four levels as concise one-line choices. **For the full 4-level rubric text per competency (reality, problem, outcome details), read `references/maturity-rubrics.md`** — expand a level's detail when the user asks or hesitates between two levels.
 
-If the user selects Level 1-2 on Context Design with context-stuffing symptoms, suggest [`context-engineering-advisor`](../context-engineering-advisor/SKILL.md) as a follow-up.
+If the user selects Level 1-2 on Context Design with context-stuffing symptoms, suggest `context-engineering-advisor` as a follow-up.
 
 Record each response: `[Competency] maturity = Level X`.
 
@@ -268,7 +268,7 @@ For three worked end-to-end assessments (early-stage startup, growth-stage compa
 ## References
 
 ### Related Skills
-- **[context-engineering-advisor](../context-engineering-advisor/SKILL.md)** (Interactive) — **Deep dive on Context Design competency:** Diagnose context stuffing, implement memory architecture, use Research→Plan→Reset→Implement cycle
+- **`context-engineering-advisor`** (Interactive) — **Deep dive on Context Design competency:** Diagnose context stuffing, implement memory architecture, use Research→Plan→Reset→Implement cycle
 - **[problem-statement](../problem-statement/SKILL.md)** (Component) — Evidence-based problem framing (Context Design)
 - **[epic-hypothesis](../epic-hypothesis/SKILL.md)** (Component) — Testable hypotheses with evidence standards
 - **[pol-probe-advisor](../pol-probe-advisor/SKILL.md)** (Interactive) — Use AI to compress validation cycles (Outcome Acceleration)

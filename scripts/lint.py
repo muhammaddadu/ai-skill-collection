@@ -7,7 +7,8 @@ Checks:
      keyword-exhaustive descriptions are that pack's own convention)
   3. no absolute skill-root paths in SKILL.md / references (breaks the other
      tool's install; install-location docs are allowlisted)
-  4. every cross-domain `../<skill>` path reference has a bridge symlink
+  4. no cross-directory `../<skill>` path references (use the skill name;
+     path refs are allowed only between skills in the same phase/pack dir)
   5. manifests resolve: every entry names exactly one real skill dir
   6. no duplicate skill names across domains
 
@@ -106,9 +107,7 @@ def main():
                         continue
                     td = skill_domain.get(t)
                     if td and td != d:
-                        bridge = os.path.join(REPO, d, t)
-                        if not os.path.islink(bridge):
-                            errors.append(f"cross-domain ref without bridge: {rel} -> ../{t} (add {d}/{t} -> ../{td}/{t})")
+                        errors.append(f"cross-directory path ref: {rel} -> ../{t} (reference cross-directory skills by name in backticks, paths only within the same phase/pack dir)")
 
     # manifests resolve
     for mf in ("claude", "codex"):
