@@ -26,6 +26,7 @@ agent-docs
 ai-shaped-readiness-advisor
 altitude-horizon-framework
 business-health-diagnostic
+cleanui
 company-intel
 company-research
 context-engineering-advisor
@@ -44,16 +45,13 @@ ffmpeg-usage
 finance-based-pricing-advisor
 finance-metrics-quickref
 find-skills
-frontend-design
 jobs-to-be-done
 lean-ux-canvas
-openai-docs
 opportunity-solution-tree
 organic-growth-advisor
 outlook
 pdf
 pestel-analysis
-pm-skill-creator
 pol-probe
 pol-probe-advisor
 positioning-statement
@@ -78,7 +76,7 @@ stakeholder-identification
 stakeholder-mapping
 storyboard
 tam-sam-som-calculator
-ui-ux-pro-max
+ui-design-system-search
 user-story
 user-story-mapping
 user-story-mapping-workshop
