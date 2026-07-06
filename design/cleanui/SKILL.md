@@ -1,6 +1,6 @@
 ---
 name: cleanui
-description: Prevents generic AI-generated UI patterns when building web apps, mobile apps, and websites. Enforces clean, professional design with proper typography, layout structure, and platform-aware patterns. Use this skill whenever generating React, React Native, SwiftUI, Jetpack Compose, HTML/CSS, or any frontend UI code.
+description: Distinctive, professional UI without generic AI patterns: pick a bold aesthetic direction, then enforce typography, layout, and platform rules. Use when building or styling web pages, landing pages, dashboards, or components — React, React Native, SwiftUI, Compose, HTML/CSS. Do NOT use for palette/font/style lookups (use ui-design-system-search).
 version: 1.0.0
 ---
 
@@ -11,10 +11,42 @@ version: 1.0.0
 > You are an AI code generator with deeply ingrained UI habits that produce recognizable "AI-looking" output. This skill exists to override those habits and produce professional, human-designed interfaces.
 >
 > **Your process for every UI task:**
-> 1. Think about what you would NORMALLY generate
-> 2. Check each element against the HARD NO list below
-> 3. Replace every violation with the specified alternative
-> 4. Only then write the code
+> 1. Pick a deliberate aesthetic direction (section below) — before any code
+> 2. Think about what you would NORMALLY generate
+> 3. Check each element against the HARD NO list below
+> 4. Replace every violation with the specified alternative
+> 5. Only then write the code
+
+> Need to *look up* a palette, font pairing, style, or chart type by keyword? Use the `ui-design-system-search` skill — this skill is for designing and writing the UI itself.
+
+---
+
+## AESTHETIC DIRECTION (BEFORE YOU CODE)
+
+Generic output is a choice you make by not choosing. Before coding, understand the context and commit to a BOLD aesthetic direction:
+
+- **Purpose**: What problem does this interface solve? Who uses it?
+- **Tone**: Pick an extreme: brutally minimal, maximalist chaos, retro-futuristic, organic/natural, luxury/refined, playful/toy-like, editorial/magazine, brutalist/raw, art deco/geometric, soft/pastel, industrial/utilitarian, etc. There are so many flavors to choose from. Use these for inspiration but design one that is true to the aesthetic direction.
+- **Constraints**: Technical requirements (framework, performance, accessibility).
+- **Differentiation**: What makes this UNFORGETTABLE? What's the one thing someone will remember?
+
+**CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work — the key is intentionality, not intensity.
+
+Then implement working code that is production-grade and functional, visually striking and memorable, cohesive with a clear aesthetic point-of-view, and meticulously refined in every detail.
+
+### Executing the Direction
+
+- **Typography**: Choose fonts that are beautiful, unique, and interesting. Avoid defaulting to generic web fonts (Inter, Roboto, Arial); opt for distinctive, characterful choices that elevate the aesthetic. Pair a distinctive display font with a refined body font. (On native mobile, platform system fonts still apply — see MOBILE RULES.)
+- **Color & Theme**: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes.
+- **Motion**: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML; use the Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions. Use scroll-triggering and hover states that surprise.
+- **Spatial Composition**: Unexpected layouts. Asymmetry. Overlap. Diagonal flow. Grid-breaking elements. Generous negative space OR controlled density.
+- **Backgrounds & Visual Details**: Create atmosphere and depth rather than defaulting to solid colors. Add contextual effects and textures that match the overall aesthetic: gradient meshes, noise textures, geometric patterns, layered transparencies, dramatic shadows, decorative borders, custom cursors, grain overlays.
+
+**NEVER** use generic AI-generated aesthetics: overused font families, cliched color schemes (particularly purple gradients on white backgrounds), predictable layouts and component patterns, cookie-cutter design that lacks context-specific character. Interpret creatively and make unexpected choices that feel genuinely designed for the context. No two designs should be the same — vary between light and dark themes, different fonts, different aesthetics. NEVER converge on common choices (Space Grotesk, for example) across generations.
+
+**IMPORTANT**: Match implementation complexity to the aesthetic vision. Maximalist designs need elaborate code with extensive animations and effects. Minimalist or refined designs need restraint, precision, and careful attention to spacing, typography, and subtle details. Elegance comes from executing the vision well.
+
+Once the direction is chosen, every rule below still applies — a bold direction is not a license for sloppy execution. (This section is adapted from the frontend-design skill, Apache 2.0 — see [references/frontend-design-LICENSE.txt](references/frontend-design-LICENSE.txt).)
 
 ---
 
