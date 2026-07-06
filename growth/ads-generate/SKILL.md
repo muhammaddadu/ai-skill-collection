@@ -61,7 +61,7 @@ Then skip to Step 5.
 
 ### Step 3: Read Provider Config
 
-Load `~/.claude/skills/ads/references/image-providers.md` to confirm:
+Load `../ads/references/image-providers.md` to confirm:
 - Active provider pricing (show user the cost estimate)
 - Rate limits for current tier
 - Batch API availability
@@ -69,12 +69,12 @@ Load `~/.claude/skills/ads/references/image-providers.md` to confirm:
 ### Step 4: Read Platform Specs
 
 For each platform in the campaign brief, load the relevant spec reference:
-- `~/.claude/skills/ads/references/meta-creative-specs.md`
-- `~/.claude/skills/ads/references/google-creative-specs.md`
-- `~/.claude/skills/ads/references/tiktok-creative-specs.md`
-- `~/.claude/skills/ads/references/linkedin-creative-specs.md`
-- `~/.claude/skills/ads/references/youtube-creative-specs.md`
-- `~/.claude/skills/ads/references/microsoft-creative-specs.md`
+- `../ads/references/meta-creative-specs.md`
+- `../ads/references/google-creative-specs.md`
+- `../ads/references/tiktok-creative-specs.md`
+- `../ads/references/linkedin-creative-specs.md`
+- `../ads/references/youtube-creative-specs.md`
+- `../ads/references/microsoft-creative-specs.md`
 
 ### Step 5: Prepare banana Configuration
 
@@ -169,6 +169,6 @@ Use `/banana generate` directly with the specified prompt and aspect ratio.
 
 ## Reference Files
 
-- `~/.claude/skills/ads/references/image-providers.md`: provider config, pricing, limits
-- `~/.claude/skills/ads/references/[platform]-creative-specs.md`: per-platform specs
-- `~/.claude/skills/ads/references/brand-dna-template.md`: brand injection schema
+- `../ads/references/image-providers.md`: provider config, pricing, limits
+- `../ads/references/[platform]-creative-specs.md`: per-platform specs
+- `../ads/references/brand-dna-template.md`: brand injection schema

@@ -58,19 +58,19 @@ Capture the following:
 
 1. **Homepage hero section** (above the fold):
 ```bash
-python ~/.claude/skills/ads/scripts/capture_screenshot.py [url]
+python ../ads/scripts/capture_screenshot.py [url]
 ```
 Saves: `./brand-screenshots/{domain}_homepage.png`
 
 2. **Product or services page**:
 ```bash
-python ~/.claude/skills/ads/scripts/capture_screenshot.py [url]/products
+python ../ads/scripts/capture_screenshot.py [url]/products
 ```
 Saves: `./brand-screenshots/{domain}_product.png`
 
 3. **About page** (brand personality):
 ```bash
-python ~/.claude/skills/ads/scripts/capture_screenshot.py [url]/about
+python ../ads/scripts/capture_screenshot.py [url]/about
 ```
 Saves: `./brand-screenshots/{domain}_about.png`
 
@@ -135,7 +135,7 @@ Also extract structured data when available: schema.org markup, Open Graph tags 
 
 ### Step 4: Build brand-profile.json
 
-Read `~/.claude/skills/ads/references/brand-dna-template.md` for the exact schema.
+Read `../ads/references/brand-dna-template.md` for the exact schema.
 
 Construct the JSON object following the schema precisely. Use `null` for any
 field that cannot be confidently extracted; do not guess.

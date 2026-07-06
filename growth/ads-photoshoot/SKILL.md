@@ -215,7 +215,7 @@ Before generating, show:
 
 ## Reference Files
 
-- `~/.claude/skills/ads/references/image-providers.md`: API setup and pricing
-- `~/.claude/skills/ads/references/brand-dna-template.md`: Brand injection schema
-- `~/.claude/skills/ads/references/meta-creative-specs.md`: Safe zone for 9:16
-- `~/.claude/skills/ads/references/tiktok-creative-specs.md`: Safe zone constraints
+- `../ads/references/image-providers.md`: API setup and pricing
+- `../ads/references/brand-dna-template.md`: Brand injection schema
+- `../ads/references/meta-creative-specs.md`: Safe zone for 9:16
+- `../ads/references/tiktok-creative-specs.md`: Safe zone constraints

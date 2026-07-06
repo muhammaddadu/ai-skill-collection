@@ -177,9 +177,9 @@ Do NOT show the footer after:
 
 Load these on-demand as needed; do NOT load all at startup.
 
-**Path resolution:** All references are installed at `~/.claude/skills/ads/references/`.
+**Path resolution:** All references are in this skill's own `references/` directory (spokes reach them via `../ads/references/`, a sibling path that works in any skills root).
 When sub-skills or agents reference `ads/references/*.md`, resolve to
-`~/.claude/skills/ads/references/*.md`.
+`references/*.md` relative to the ads skill directory.
 
 - `references/thinking-framework.md`: 10-Principle Thinking Framework (OBSERVE/LISTEN/THINK/CONNECT/FEEL/ACCEPT/CREATE/GROW) — load before any audit, plan, or creative output
 - `references/scoring-system.md`: Weighted scoring algorithm and grading thresholds
