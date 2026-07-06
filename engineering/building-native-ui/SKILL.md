@@ -1,6 +1,6 @@
 ---
 name: building-native-ui
-description: Complete guide for building beautiful apps with Expo Router. Covers fundamentals, styling, components, navigation, animations, patterns, and native tabs.
+description: Complete guide for building beautiful apps with Expo Router. Covers fundamentals, styling, components, navigation, animations, patterns, and native tabs. Also covers DOM components ('use dom' directive / webview for running web code in a native app, migrating web code incrementally).
 version: 1.0.1
 license: MIT
 ---
@@ -24,10 +24,25 @@ references/
   storage.md             SQLite, AsyncStorage, SecureStore
   tabs.md                NativeTabs, migration from JS tabs, iOS 26 features
   toolbar-and-headers.md Stack headers and toolbar buttons, menus, search (iOS only)
+  use-dom.md             Expo DOM components: 'use dom', webview for web code in native apps
   visual-effects.md      Blur (expo-blur) and liquid glass (expo-glass-effect)
   webgpu-three.md        3D graphics, games, GPU visualizations with WebGPU and Three.js
   zoom-transitions.md    Apple Zoom: fluid zoom transitions with Link.AppleZoom (iOS 18+)
 ```
+
+To run web/DOM code inside a native app or migrate web code incrementally, read references/use-dom.md.
+
+## Which Expo skill when
+
+| Task | Skill |
+|---|---|
+| Build app UI, navigation, styling, animations | building-native-ui (this skill) |
+| Native platform views (SwiftUI / Jetpack Compose via @expo/ui) | expo-native-platform-ui |
+| Network requests, API calls, data fetching/caching | native-data-fetching |
+| Write custom native modules (Expo Modules API) | expo-module |
+| CI/CD pipelines, EAS workflow YAML | expo-cicd-workflows |
+| Ship: app stores, hosting, dev clients, OTA update health | expo-deployment |
+| Upgrade Expo SDK versions | upgrading-expo |
 
 ## Running the App
 

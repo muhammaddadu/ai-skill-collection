@@ -3,6 +3,8 @@ name: expo-tailwind-setup
 description: Set up Tailwind CSS v4 in Expo with react-native-css and NativeWind v5 for universal styling
 version: 1.0.0
 license: MIT
+tested_date: 2026-07-06
+requires: "Tailwind CSS >= 4, < 5"
 ---
 
 # Tailwind CSS Setup for Expo with react-native-css
@@ -478,3 +480,9 @@ Add className to component props:
 ```tsx
 type Props = React.ComponentProps<typeof RNView> & { className?: string };
 ```
+
+## Related Tailwind skills
+
+- **`tailwind-fundamentals`** — Tailwind concepts and theory (v4 `@theme`, OKLCH colors, container queries) for any stack
+- **`tailwind-v4-shadcn`** — Vite + React + shadcn/ui project setup (CSS variable architecture, dark mode, v4 gotchas)
+- **`expo-tailwind-setup`** (this skill) — Expo/NativeWind v5 setup for universal styling (iOS, Android, Web)

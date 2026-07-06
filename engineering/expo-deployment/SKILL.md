@@ -1,6 +1,6 @@
 ---
 name: expo-deployment
-description: Deploying Expo apps to iOS App Store, Android Play Store, web hosting, and API routes
+description: "Deploying and shipping Expo apps with EAS: iOS App Store and TestFlight, Android Play Store, web hosting. Also covers building/distributing dev clients (expo-dev-client, locally or via TestFlight), Expo Router API routes (+api.ts) on EAS Hosting (Cloudflare Workers), and EAS Update health — crash rates, embedded-vs-OTA user split, rollout monitoring and CI gating on update health."
 version: 1.0.0
 license: MIT
 ---
@@ -8,6 +8,10 @@ license: MIT
 # Deployment
 
 This skill covers deploying Expo applications across all platforms using EAS (Expo Application Services).
+
+- For development client builds (expo-dev-client, local builds, TestFlight distribution), read references/dev-client.md
+- For API routes on EAS Hosting (Expo Router `+api.ts`, Cloudflare Workers runtime), read references/api-routes.md
+- For OTA update health/rollout monitoring (crash rates, embedded-vs-OTA split, CI gating), read references/eas-update-insights.md
 
 ## References
 
@@ -18,6 +22,9 @@ Consult these resources as needed:
 - ./references/app-store-metadata.md -- Managing App Store metadata and ASO optimization
 - ./references/play-store.md -- Submitting Android builds to Google Play Store
 - ./references/ios-app-store.md -- iOS App Store submission and review process
+- ./references/dev-client.md -- Building and distributing development clients (local builds, TestFlight)
+- ./references/api-routes.md -- Expo Router API routes and the EAS Hosting runtime
+- ./references/eas-update-insights.md -- EAS Update health metrics (crash rates, embedded vs OTA, rollout checks)
 
 ## Quick Start
 

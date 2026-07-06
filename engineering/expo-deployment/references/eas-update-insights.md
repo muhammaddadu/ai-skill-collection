@@ -1,11 +1,3 @@
----
-name: eas-update-insights
-description: "Check the health of published EAS Updates: crash rates, install/launch counts, unique users, payload size, and the split between embedded and OTA users per channel. Use when the user asks how an update is performing, whether a rollout is healthy, how many users are on the embedded build vs OTA, or wants to gate CI on update health."
-version: 1.0.0
-license: MIT
-allowed-tools: "Bash(eas *)"
----
-
 # EAS Update Insights
 
 Query the health of published EAS Updates directly from the CLI: launches, failed launches, crash rates, unique users, payload size, the embedded-vs-OTA user split per channel, and the most popular updates per runtime version. The data is the same data that powers the update and channel detail pages on expo.dev; these commands expose it in the terminal in human and JSON form.
@@ -101,7 +93,7 @@ eas update:insights 03d5dfcf-736c-475a-8730-af039c3f4d06
 
 Top level: `groupId`, `timespan` (`start`, `end`, `daysBack`), and `platforms[]` with one entry per platform the group was published to. Each platform entry has `updateId`, `totals` (`uniqueUsers`, `installs`, `failedInstalls`, `crashRatePercent`), `payload` (`launchAssetCount`, `averageUpdatePayloadBytes`), and a `daily[]` time series of `{ date, installs, failedInstalls }`.
 
-For the complete schema and field reference, see [references/update-insights-schema.md](./references/update-insights-schema.md).
+For the complete schema and field reference, see [update-insights-schema.md](./update-insights-schema.md).
 
 Fields that matter for health assessment:
 
@@ -154,7 +146,7 @@ eas channel:insights --channel production --runtime-version 1.0.6
 
 Top level: `channel`, `runtimeVersion`, `timespan`, `embeddedUpdateTotalUniqueUsers`, `otaTotalUniqueUsers`, `mostPopularUpdates[]` (each with `rank`, `groupId`, `message`, `platform`, `totalUniqueUsers`), `cumulativeMetricsAtLastTimestamp[]`, plus chart-shaped `uniqueUsersOverTime` and `cumulativeMetricsOverTime` objects with `labels` and `datasets`.
 
-For the complete schema and field reference, see [references/channel-insights-schema.md](./references/channel-insights-schema.md).
+For the complete schema and field reference, see [channel-insights-schema.md](./channel-insights-schema.md).
 
 Fields that matter:
 
