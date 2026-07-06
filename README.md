@@ -45,8 +45,12 @@ changes — skills are scanned at session start.
 - **Body:** ≤~500 lines; push detail into `references/` with explicit routing
   lines ("for X, read `references/x.md`").
 - **Paths:** never absolute. Own files: relative (`references/…`). Another
-  skill's files: sibling-relative (`../<skill>/…`) — works in the flat tool
-  roots and in this repo, provided both skills share a domain dir.
+  skill's files: sibling-relative (`../<skill>/…`). Because installed skills
+  are symlinks, `..` resolves physically to the skill's repo *domain dir* — so
+  cross-domain references need a **bridge symlink** in the referencing skill's
+  domain dir (e.g. `architecture/prd-development -> ../product/prd-development`).
+  Create one whenever you add a cross-domain `../<skill>/` reference;
+  `install.sh` ignores bridges (it only links real directories).
 - **Outputs:** every skill declares artifact, format, save location, audience.
 - **Freshness:** anything pinned to a moving target (SDK, CLI, ad platform)
   carries `tested_date:` and version constraints in frontmatter.

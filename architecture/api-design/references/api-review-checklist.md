@@ -1,6 +1,6 @@
 # API Review Checklist
 
-<!-- Scoring conventions mirror ../../growth/ads/references/scoring-system.md (v1.5) -->
+<!-- Scoring conventions mirror the ads skill's references/scoring-system.md (v1.5) -->
 <!-- ID convention: A01, A02, … sequential across categories -->
 
 48 ID'd checks across 6 weighted categories. Each check is one testable
