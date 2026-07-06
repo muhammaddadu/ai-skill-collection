@@ -1,37 +1,10 @@
----
-name: pm-skill-creator
-description: Design a new PM skill through guided conversation. Use when you have raw content or an idea and want to shape it into a compliant skill.
-intent: >-
-  Walk through the full skill design process interactively — from raw idea or content to a structured, repo-compliant SKILL.md draft. Asks adaptive questions to determine skill type, scope, structure, and content, then generates a ready-to-validate draft.
-type: interactive
-theme: meta-authoring
-best_for:
-  - "Turning a rough idea or framework into a structured PM skill"
-  - "Deciding whether raw content should be a component, interactive, or workflow skill"
-  - "Getting from blank page to a complete SKILL.md draft through guided conversation"
-scenarios:
-  - "I have notes from a workshop and want to turn them into a skill"
-  - "Help me create a new skill — I know the topic but not the structure"
-  - "I have a PM framework I want to formalize as a repo skill"
-estimated_time: "10-15 min"
----
+# PM Skill Design — Guided Conversation
 
-## Purpose
+Load this reference when the user has a raw idea, notes, or a framework and needs help **shaping it into the right skill structure through conversation** — before running the authoring workflow's generate/validate phases. It defines a 5-question adaptive design session plus the PM-specific skill anatomy the draft must satisfy.
 
-Walk through the full skill design process interactively — from raw idea or content to a structured, repo-compliant SKILL.md draft. Asks adaptive questions to determine skill type, scope, structure, and content, then generates a ready-to-validate draft.
+(Absorbed from the retired `pm-skill-creator` skill.)
 
-This skill is the conversational complement to `skill-authoring-workflow`. That skill defines the process and validation gates. This one sits with you and figures out what to build before you build it.
-
-## Key Concepts
-
-### When to Use This vs. Other Authoring Tools
-
-| Tool | Best When |
-|------|-----------|
-| **This skill (skill-creator)** | You have an idea or raw content and need help shaping it into the right structure through conversation |
-| `skill-authoring-workflow` | You already know what to build and need the process checklist and validation steps |
-| `scripts/build-a-skill.sh` | You know the structure and want a terminal wizard to collect sections |
-| `scripts/add-a-skill.sh` | You have a source document and want AI-assisted generation end-to-end |
+## PM Skill Anatomy
 
 ### The Three Skill Types (Decision Criteria)
 
@@ -39,7 +12,7 @@ This skill is the conversational complement to `skill-authoring-workflow`. That 
 - **Interactive**: Guided conversation with adaptive questions and enumerated recommendations. Ask: "Does this require back-and-forth to be useful?"
 - **Workflow**: Multi-phase orchestration referencing other skills. Ask: "Does this coordinate multiple activities across steps?"
 
-### Skill Anatomy (Non-Negotiable Sections)
+### Non-Negotiable Sections
 
 Every skill requires these sections in order:
 1. **Purpose** — What it does + when to use it (outcome-focused)
@@ -58,23 +31,11 @@ Every skill requires these sections in order:
 
 ### Facilitation Source of Truth
 
-Use [`workshop-facilitation`](../workshop-facilitation/SKILL.md) as the default interaction protocol for this skill.
+Run the conversation using [`workshop-facilitation`](../../workshop-facilitation/SKILL.md) as the interaction protocol: session heads-up + entry mode (Guided, Context dump, Best guess), one-question turns, progress labels (e.g., Context Q1/5), interruption handling, numbered recommendations at decision points, and quick-select numbered response options (include `Other (specify)` when useful).
 
-It defines:
-- Session heads-up + entry mode (Guided, Context dump, Best guess)
-- One-question turns with plain-language prompts
-- Progress labels (e.g., Context Q1/5)
-- Interruption handling and pause/resume behavior
-- Numbered recommendations at decision points
-- Quick-select numbered response options (include `Other (specify)` when useful)
+## The Design Conversation
 
-This file defines the domain-specific content. If there is a conflict, follow this file's domain logic.
-
-## Application
-
-This interactive skill asks **up to 5 adaptive questions**, then delivers a **complete SKILL.md draft** with frontmatter, all required sections, and repo-compliant structure.
-
----
+This session asks **up to 5 adaptive questions**, then delivers a **complete SKILL.md draft** with frontmatter, all required sections, and repo-compliant structure. Takes about 10-15 minutes.
 
 ### Step 0: Session Start
 
@@ -86,13 +47,9 @@ This interactive skill asks **up to 5 adaptive questions**, then delivers a **co
 2. **Context dump** — Paste your raw content, notes, or framework and I'll propose a skill structure
 3. **Best guess** — Tell me just the topic and I'll draft a skill you can refine"
 
----
-
 ### Question 1: What's the Raw Material? (Q1/5)
 
-**Agent asks:**
-
-"What are we turning into a skill? Give me whatever you have."
+**Agent asks:** "What are we turning into a skill? Give me whatever you have."
 
 1. **A framework or mental model** — A structured way of thinking about a PM problem (e.g., prioritization matrix, decision tree)
 2. **A template or artifact** — A deliverable PMs create (e.g., PRD section, positioning statement, epic format)
@@ -103,11 +60,9 @@ This interactive skill asks **up to 5 adaptive questions**, then delivers a **co
 
 **Agent note:** If the user pastes raw content instead of choosing an option, analyze the content and infer the answer. Confirm your interpretation before proceeding.
 
----
-
 ### Question 2: Skill Type Decision (Q2/5)
 
-**Based on Q1 answer, agent recommends a type and confirms:**
+**Based on Q1's answer, recommend a type and confirm:**
 
 *If Q1 = Framework or Template:*
 
@@ -133,8 +88,6 @@ This interactive skill asks **up to 5 adaptive questions**, then delivers a **co
 2. **It's more of a reference** — Users just need the framework, not a conversation (→ component)
 3. **It's a full process** — Multiple phases, orchestrates other skills (→ workflow)"
 
----
-
 ### Question 3: Scope and Naming (Q3/5)
 
 **Agent asks:**
@@ -149,11 +102,9 @@ Give me your best attempt and I'll tighten it if needed. Or just describe the sk
 
 **Agent note:** Validate the name format (kebab-case, ≤ 64 chars) and description length (≤ 200 chars) before proceeding. If either fails, suggest a fix.
 
----
-
 ### Question 4: Key Content (Q4/5)
 
-**This question adapts based on skill type from Q2:**
+**Adapt to the skill type from Q2:**
 
 *For component skills:*
 
@@ -183,8 +134,6 @@ Give me the decision tree as you see it — even if it's rough."
 
 Give me the flow — sequential, branching, or both."
 
----
-
 ### Question 5: Pitfalls and Edge Cases (Q5/5)
 
 **Agent asks:**
@@ -197,11 +146,9 @@ Give me the flow — sequential, branching, or both."
 
 If you're not sure, tell me the most common mistake you've seen and I'll help structure it."
 
----
-
 ### Draft Generation
 
-After collecting answers to Q1-Q5, the agent generates a complete SKILL.md draft including:
+After collecting answers to Q1-Q5, generate a complete SKILL.md draft including:
 
 1. **YAML frontmatter** — `name`, `description`, `intent`, `type`, `best_for`, `scenarios`, `estimated_time`
 2. **Purpose** — Synthesized from Q1 + Q3
@@ -222,6 +169,8 @@ After collecting answers to Q1-Q5, the agent generates a complete SKILL.md draft
 
 Want me to adjust anything, or are you ready to validate?"
 
+Then continue with Phases 3-6 of the main workflow (tighten, validate hard, integrate with repo docs, package).
+
 ## Examples
 
 ### Example: Framework → Component Skill
@@ -234,8 +183,6 @@ Want me to adjust anything, or are you ready to validate?"
 
 **Output:** Complete component skill with template, filled example, and the quarterly-review pitfall.
 
----
-
 ### Example: Advisory Topic → Interactive Skill
 
 **Q1:** "4 — Coaching topic. Helping PMs navigate their first pricing conversation with leadership."
@@ -245,8 +192,6 @@ Want me to adjust anything, or are you ready to validate?"
 **Q5:** "Failure mode: 'Leading with the Number.' Consequence: executives fixate on the price point instead of the strategy. Fix: always lead with the business case and customer impact before revealing the number."
 
 **Output:** Complete interactive skill with 3-question flow, 4 branches, and enumerated recommendations per branch.
-
----
 
 ### Anti-Pattern: Scope Creep
 
@@ -261,51 +206,24 @@ Want me to adjust anything, or are you ready to validate?"
 
 Start with one. We can build the others after."
 
-## Common Pitfalls
+## Design-Session Pitfalls
 
 ### Pitfall 1: Type Confusion
 **Symptom:** Calling something a "workflow" when it's really a template with numbered steps.
-
 **Consequence:** Over-engineered skill that references non-existent sub-skills and confuses users.
-
 **Fix:** Apply the type decision questions from Q2 honestly. If it doesn't orchestrate other skills or have distinct phases with different inputs/outputs, it's probably a component.
 
 ### Pitfall 2: Description That Doesn't Trigger
 **Symptom:** Description says what the skill is ("A framework for pricing decisions") but not when to use it.
-
 **Consequence:** Claude can't match user requests to the skill. It sits unused.
-
 **Fix:** Every description must answer "Use when..." — e.g., "Evaluate pricing decisions using a structured framework. Use when choosing between pricing models or preparing a pricing proposal."
 
 ### Pitfall 3: Skipping Validation
 **Symptom:** "The draft looks good, let's ship it."
-
 **Consequence:** Broken frontmatter, missing sections, failed cross-references, inconsistent catalog counts.
-
 **Fix:** Always run `check-skill-metadata.py` and `check-skill-triggers.py` before considering the skill done. No exceptions.
 
 ### Pitfall 4: Kitchen Sink Scope
 **Symptom:** Trying to pack an entire domain into one skill.
-
 **Consequence:** A 500-line monster that does nothing well. Too broad to trigger accurately, too long to be useful.
-
 **Fix:** One skill = one job. If you need more than 6 application steps or more than 4 branches, you probably need multiple skills.
-
-## References
-
-### Related Skills
-- [`skill-authoring-workflow`](../skill-authoring-workflow/SKILL.md) — The process checklist and validation gates; use after this skill generates a draft
-- [`workshop-facilitation`](../workshop-facilitation/SKILL.md) — Facilitation protocol for this interactive skill
-
-### Repo Tools
-- `scripts/build-a-skill.sh` — Terminal wizard for section-by-section skill creation
-- `scripts/add-a-skill.sh` — Content-first automated skill generator
-- `scripts/check-skill-metadata.py` — Structural validation
-- `scripts/check-skill-triggers.py` — Trigger-readiness audit
-- `scripts/test-a-skill.sh` — Full quality gate
-- `scripts/find-a-skill.sh` — Check for overlapping skills before creating
-
-### Documentation
-- `CLAUDE.md` — Master skill distillation protocol and quality standards
-- `docs/Building PM Skills.md` — Manual skill creation guide
-- `docs/Add-a-Skill Utility Guide.md` — Automated creation guide
