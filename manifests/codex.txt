@@ -1,4 +1,5 @@
 acquisition-channel-advisor
+adr
 ads
 ads-amazon
 ads-apple
@@ -25,6 +26,7 @@ ads-youtube
 agent-docs
 ai-shaped-readiness-advisor
 altitude-horizon-framework
+api-design
 business-health-diagnostic
 cleanui
 company-intel
@@ -45,6 +47,7 @@ ffmpeg-usage
 finance-based-pricing-advisor
 finance-metrics-quickref
 find-skills
+incident-postmortem
 jobs-to-be-done
 lean-ux-canvas
 opportunity-solution-tree
@@ -66,6 +69,7 @@ product-strategy-session
 proto-persona
 react-native-executorch
 recommendation-canvas
+release-readiness
 roadmap-planning
 saas-economics-efficiency-metrics
 saas-revenue-growth-metrics
@@ -76,6 +80,8 @@ stakeholder-identification
 stakeholder-mapping
 storyboard
 tam-sam-som-calculator
+tech-spec
+test-strategy
 ui-design-system-search
 user-story
 user-story-mapping

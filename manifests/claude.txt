@@ -1,7 +1,9 @@
 acquisition-channel-advisor
+adr
 agent-docs
 ai-shaped-readiness-advisor
 altitude-horizon-framework
+api-design
 building-native-ui
 business-health-diagnostic
 cleanui
@@ -29,6 +31,7 @@ finance-metrics-quickref
 find-skills
 gpt-image
 humanizer
+incident-postmortem
 jobs-to-be-done
 lean-ux-canvas
 native-data-fetching
@@ -51,6 +54,7 @@ product-strategy-session
 proto-persona
 ralph
 recommendation-canvas
+release-readiness
 roadmap-planning
 saas-economics-efficiency-metrics
 saas-revenue-growth-metrics
@@ -63,6 +67,8 @@ storyboard
 tailwind-fundamentals
 tailwind-v4-shadcn
 tam-sam-som-calculator
+tech-spec
+test-strategy
 ui-design-system-search
 upgrading-expo
 user-story
