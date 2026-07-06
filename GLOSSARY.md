@@ -62,6 +62,16 @@ writing or editing a skill, use these words — don't invent synonyms.
   time; rollback is a config flip, not a deploy (`progressive-delivery`).
 - **Expand-and-contract** — parallel-change data migration so old and new
   paths coexist until 100% + soak (`progressive-delivery`).
+- **Threat model / trust boundary** — the design-time "what could go wrong":
+  STRIDE per boundary where trust level changes; mitigations land in the spec
+  or an ADR (`threat-modeling`).
+- **SLI / SLO / error budget** — user-centric health metric, its internal
+  target, and the allowed failure (1 − SLO); budget exhausted = reliability
+  work first (`slo-design`).
+- **Burn-rate alert** — page on SLO budget burning fast, not on causes like
+  CPU; every page has a runbook (`slo-design`).
+- **Flake quarantine** — a flaky E2E test leaves the gate the same day, with
+  an owner and a fix-or-delete TTL (`e2e-automation`).
 - **Sign-Off 1 / Sign-Off 2** — the blueprint's human gates: brief approved to
   enter Discovery; scope/sequencing/outcomes validated to enter Delivery
   (see BLUEPRINT.md).

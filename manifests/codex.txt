@@ -41,6 +41,7 @@ diagnosing-bugs
 director-readiness-advisor
 discovery-interview-prep
 discovery-process
+e2e-automation
 eng-feasibility-spike
 eol-message
 epic-breakdown-advisor
@@ -99,6 +100,7 @@ saas-revenue-growth-metrics
 screenshot
 sentry-cli
 skill-authoring-workflow
+slo-design
 stakeholder-engagement-advisor
 stakeholder-identification
 stakeholder-mapping
@@ -109,6 +111,7 @@ tam-sam-som-calculator
 tdd
 tech-spec
 test-strategy
+threat-modeling
 ui-design-system-search
 upgrading-expo
 user-story
