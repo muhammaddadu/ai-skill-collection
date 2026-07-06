@@ -248,5 +248,5 @@ at zero cost, and it's the cheapest postmortem you'll ever run (see Pitfalls).
   factor shows up twice, escalate from action items to an architecture
   decision — record it with `adr` or design it with `tech-spec`.
 - **Detection gaps → alerting improvements:** repeated `detect-faster` items
-  point at missing SLOs and alert coverage (future `slo-design` skill; until
-  then, treat them as first-class backlog work).
+  point at missing SLOs and alert coverage — run `slo-design` (delivery domain)
+  to define the SLIs, burn-rate alerts, and runbooks that close them.

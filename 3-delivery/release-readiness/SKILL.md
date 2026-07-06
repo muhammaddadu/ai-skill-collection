@@ -41,6 +41,7 @@ release records) — it is part of the release's paper trail
   and the rollout-strategy checks.
 - Access to the evidence sources: CI, the tracker, dashboards/alerting config,
   the runbook. The review reads evidence; it does not take anyone's word.
+- SLOs, alerts, and runbooks come from ../slo-design/ — run it before this review.
 
 ## Workflow
 
