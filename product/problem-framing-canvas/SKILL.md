@@ -20,6 +20,12 @@ Guide product managers through the MITRE Problem Framing Canvas process by askin
 
 This is not a solution brainstorm—it's a problem framing tool that broadens perspective, challenges assumptions, and produces a clear, equity-driven problem statement.
 
+## Outputs
+**Artifact:** Completed Problem Framing Canvas (Look Inward, Look Outward, Reframe) with an actionable problem statement and "How Might We" question
+**Format:** markdown
+**Location:** `docs/product/problem-framing-canvas-<slug>.md`
+**Audience:** PM and team aligning on the right problem before solutions
+
 ## Key Concepts
 
 ### What is the MITRE Problem Framing Canvas?
@@ -443,6 +449,13 @@ Mini example excerpt:
 **Fix:** Facilitate canvas workshop with cross-functional team + customer input
 
 ---
+
+## Prerequisites
+- A messy or contested problem worth framing before jumping to solutions
+
+## Next steps
+- `problem-statement` — distill the reframe into a user-centered statement
+- `discovery-process` — validate the framed problem with customers
 
 ## References
 

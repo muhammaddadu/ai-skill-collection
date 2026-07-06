@@ -12,6 +12,12 @@ Create a comprehensive company profile that extracts executive insights, product
 
 This is not surface-level research—it's strategic intelligence gathering focused on product management perspectives and executive vision.
 
+## Outputs
+**Artifact:** Executive-narrative company brief — executive quotes, product strategy, transformation initiatives, org context, key takeaways
+**Format:** markdown
+**Location:** `docs/product/company-research-<company-slug>.md`
+**Audience:** PM preparing for interviews, partnerships, competitive analysis, or market entry decisions
+
 ### Prerequisites
 
 This skill consumes the structured 7-lens output of [`company-intel`](../company-intel/SKILL.md). **Run company-intel first for the underlying research; this skill synthesizes it into an executive narrative brief** — quotes, product strategy, transformation initiatives, and organizational context woven into a readable profile. If company-intel output isn't available, you can gather sources directly with the steps below, but the intel skill produces deeper, better-cited raw material.

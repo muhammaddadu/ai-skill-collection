@@ -12,6 +12,12 @@ Guide product managers through a comprehensive product strategy session by orche
 
 This is not a one-time workshop—it's a repeatable process for establishing or refreshing product strategy, typically spanning 2-4 weeks with multiple touchpoints.
 
+## Outputs
+**Artifact:** Validated product strategy package — positioning, problem statements, discovery evidence, prioritized roadmap
+**Format:** markdown
+**Location:** `docs/product/product-strategy-<slug>.md`, or the team's strategy space
+**Audience:** Leadership and the cross-functional team committing to direction
+
 ## Key Concepts
 
 ### What is a Product Strategy Session?
@@ -376,6 +382,14 @@ Mini example excerpt:
 **Fix:** Time-box strategy session to 2-4 weeks; after Phase 6, move to execution.
 
 ---
+
+## Prerequisites
+- `company-intel` — market and competitor research grounding the session
+- Stakeholder availability across the 2-4 week phases
+
+## Next steps
+- Orchestrates `positioning-workshop`, `discovery-process`, and `roadmap-planning` — run those as the session's phases
+- `prd-development` — turn the top roadmap initiative into requirements
 
 ## References
 

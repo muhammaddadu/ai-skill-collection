@@ -12,6 +12,12 @@ Guide product managers through creating an Opportunity Solution Tree (OST) by ex
 
 This is not a roadmap generator—it's a structured discovery process that outputs validated opportunities with testable solution hypotheses.
 
+## Outputs
+**Artifact:** Opportunity Solution Tree plus POC plan — desired outcome, opportunity map, solutions, selected experiment
+**Format:** markdown
+**Location:** `docs/product/opportunity-solution-tree-<slug>.md`
+**Audience:** The product trio and stakeholders choosing what to validate before building
+
 ## Key Concepts
 
 ### What is an Opportunity Solution Tree (OST)?
@@ -393,6 +399,13 @@ Mini example excerpt:
 **Fix:** Limit to 3 opportunities, 3 solutions each (9 total). Pick POC, run experiment, learn, iterate.
 
 ---
+
+## Prerequisites
+- `discovery-process` research and insights, or at minimum a stakeholder request tied to a desired outcome
+
+## Next steps
+- `epic-hypothesis` — frame the selected solution as a testable epic
+- `prioritization-advisor` — choose a scoring framework when multiple opportunities compete
 
 ## References
 

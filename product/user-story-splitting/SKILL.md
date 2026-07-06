@@ -14,6 +14,12 @@ This is not arbitrary slicing—it's strategic decomposition that preserves user
 
 **This skill is the canonical pattern reference.** For a guided, question-by-question session that walks an epic through pattern selection, use [`epic-breakdown-advisor`](../epic-breakdown-advisor/SKILL.md) — it facilitates; this file defines the patterns.
 
+## Outputs
+**Artifact:** Split recommendation — smaller, independently deliverable stories from an applied split pattern
+**Format:** markdown
+**Location:** inline in conversation, or the backlog tool alongside the parent epic
+**Audience:** PM and team decomposing oversized backlog items
+
 ## Key Concepts
 
 ### The Story Splitting Framework
@@ -365,6 +371,10 @@ As a team admin, I want to manage team members so that I can control access.
 **Fix:** Each story should cover the **full workflow** (thin end-to-end slice), just with increasing sophistication.
 
 ---
+
+## Prerequisites
+- A story or epic too large to complete in a single sprint
+- `epic-breakdown-advisor` — the facilitated twin for a guided, question-by-question session
 
 ## References
 

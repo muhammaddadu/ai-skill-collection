@@ -12,6 +12,12 @@ Create an initial, assumption-based persona profile that synthesizes available u
 
 This is not a validated persona—it's a "proto" (prototype) persona that evolves as you learn more. Think of it as a structured placeholder that prevents design-by-committee while acknowledging you don't have all the answers yet.
 
+## Outputs
+**Artifact:** Proto-persona profile — role, goals, pain points, behaviors — with explicit assumptions to validate
+**Format:** markdown
+**Location:** `docs/product/proto-persona-<slug>.md`
+**Audience:** Product and design team aligning early on the target user
+
 ## Key Concepts
 
 ### What is a Proto-Persona?
@@ -297,6 +303,14 @@ Mini example excerpt:
 **Fix:** Plan research sprints to validate key assumptions. Evolve the proto-persona as you learn. Graduate it to a validated persona when confidence is high.
 
 ---
+
+## Prerequisites
+- Current research, market signals, and team knowledge (no validated research required — that's the point)
+
+## Next steps
+- `positioning-statement` — name this persona as the target customer
+- `storyboard` — put the persona into a problem-to-solution narrative
+- `discovery-process` — validate the assumptions behind the persona
 
 ## References
 

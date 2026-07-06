@@ -34,6 +34,12 @@ Most PM stakeholder lists are written from memory in five minutes. They reliably
 
 Use this before stakeholder-mapping (which prioritizes) and before stakeholder-engagement-advisor (which plans per-stakeholder outreach). Identification comes first — you cannot prioritize people you haven't named.
 
+## Outputs
+**Artifact:** Comprehensive, equity-aware stakeholder list with bias check and priority targets
+**Format:** markdown
+**Location:** `docs/product/stakeholder-identification-<slug>.md`
+**Audience:** PM and team scoping engagement, discovery, or a PRD stakeholder section
+
 ## Key Concepts
 
 **Allies, Audiences, Influencers** — The three categories that clarify stakeholder relationship to your work. Allies actively support the initiative; audiences are impacted by it; influencers shape opinion or decisions without being directly affected. Sorting stakeholders this way reveals who to recruit, who to inform, and who to persuade — three different engagement jobs.
@@ -139,6 +145,13 @@ The second list produces a PRD with different requirements, a different rollout 
 **Running it solo without external validation.** A single person's stakeholder map reflects a single person's network and assumptions. If working solo, use the bias check to identify who is absent from your mental model, then validate with a cross-functional colleague before proceeding.
 
 **Generating a complete list but capturing no next steps.** The canvas ends with priority targets and actions for a reason. A comprehensive stakeholder list with no "who talks to whom, by when" attached is a document, not a plan.
+
+## Prerequisites
+- An initiative to scope — this is step one of the stakeholder sequence; no upstream skill required
+
+## Next steps
+- `stakeholder-mapping` — prioritize the identified set (step two)
+- `stakeholder-engagement-advisor` — plan per-stakeholder outreach (step three)
 
 ## References
 

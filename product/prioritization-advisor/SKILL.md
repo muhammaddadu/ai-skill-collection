@@ -20,6 +20,12 @@ Guide product managers in choosing the right prioritization framework by asking 
 
 This is not a scoring calculator—it's a decision guide that matches prioritization frameworks to your specific situation.
 
+## Outputs
+**Artifact:** Recommended prioritization framework with implementation guidance, scoring template, and second choice
+**Format:** markdown
+**Location:** inline in conversation
+**Audience:** PM and team choosing how to prioritize
+
 ## Key Concepts
 
 ### The Prioritization Framework Landscape
@@ -423,6 +429,12 @@ After collecting responses, the agent recommends a framework:
 **Fix:** Pick *any* framework. Even imperfect structure beats chaos.
 
 ---
+
+## Prerequisites
+- A candidate set of initiatives to prioritize (`opportunity-solution-tree` or other roadmap inputs)
+
+## Next steps
+- `roadmap-planning` — apply the chosen framework to sequence the roadmap
 
 ## References
 

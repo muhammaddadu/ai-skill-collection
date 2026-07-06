@@ -12,6 +12,12 @@ Guide product managers through calculating Total Addressable Market (TAM), Servi
 
 This is not a back-of-napkin guess—it's a structured, citation-backed analysis that withstands scrutiny.
 
+## Outputs
+**Artifact:** TAM/SAM/SOM analysis with explicit assumptions, methods, citations, and caveats
+**Format:** markdown
+**Location:** `docs/product/tam-sam-som-<slug>.md`
+**Audience:** Executives, investors, and budget owners scrutinizing market size
+
 ## Key Concepts
 
 ### TAM/SAM/SOM Framework
@@ -361,6 +367,13 @@ Mini example excerpt:
 **Fix:** Ground SOM in GTM constraints (sales capacity, marketing budget, conversion rates).
 
 ---
+
+## Prerequisites
+- A defined product idea and target segments, plus market research sources to cite
+
+## Next steps
+- `product-strategy-session` — feed the market sizing into strategic direction
+- `feature-investment-advisor` — use SOM in the investment case
 
 ## References
 

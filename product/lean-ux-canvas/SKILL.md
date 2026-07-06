@@ -20,6 +20,12 @@ Guide product managers through creating **Jeff Gothelf's Lean UX Canvas (v2)**�
 
 This is not a roadmap or feature list—it's an **"insurance policy"** that turns assumptions into experiments before committing to full development. The canvas shifts conversations from **outputs** to **outcomes** and ensures teams build the right thing, not just build things right.
 
+## Outputs
+**Artifact:** Completed Lean UX Canvas v2 — all 8 boxes plus the first experiment to run
+**Format:** markdown
+**Location:** `docs/product/lean-ux-canvas-<slug>.md`
+**Audience:** The cross-functional team aligning on assumptions and what to learn next
+
 ## Key Concepts
 
 ### What is the Lean UX Canvas?
@@ -538,6 +544,13 @@ Mini example excerpt:
 **Fix:** Design smallest experiment first. If you can't think of one, use `skills/pol-probe-advisor/SKILL.md` to choose a validation method.
 
 ---
+
+## Prerequisites
+- A business problem to frame — `problem-statement` or `problem-framing-canvas` output
+
+## Next steps
+- `discovery-process` — run the learning loop the canvas sets up
+- `pol-probe` — define the Box 8 experiment as a Proof of Life probe
 
 ## References
 

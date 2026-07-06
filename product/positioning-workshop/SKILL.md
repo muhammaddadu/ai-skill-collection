@@ -20,6 +20,12 @@ Guide product managers through discovering and articulating product positioning 
 
 This is not a brainstorming session—it's a structured discovery process that outputs a Geoffrey Moore positioning statement backed by evidence and strategic choices.
 
+## Outputs
+**Artifact:** Geoffrey Moore positioning statement (target, need, category, benefit, differentiation) built through facilitated Q&A
+**Format:** markdown
+**Location:** `docs/product/positioning-<slug>.md`
+**Audience:** PM and stakeholders aligning on strategic positioning
+
 ## Key Concepts
 
 ### The Positioning Workshop Flow
@@ -399,6 +405,14 @@ Acme Workflows is a no-code automation platform for small business owners that r
 **Fix:** Read positioning statement to 5 target customers. If they don't say "Yes, that's me," revise.
 
 ---
+
+## Prerequisites
+- `workshop-facilitation` — the interaction protocol for pacing the session
+- Customer and market context (`proto-persona`, `jobs-to-be-done` outputs help)
+
+## Next steps
+- `press-release` — narrate the positioning as customer value
+- `roadmap-planning` — carry the positioning into sequencing decisions
 
 ## References
 

@@ -21,6 +21,12 @@ Guide product managers through a complete discovery cycle—from initial problem
 
 This is not a one-time research project—it's a continuous discovery practice that runs in parallel with delivery, typically 1-2 discovery cycles per quarter.
 
+## Outputs
+**Artifact:** Validated discovery brief — problem framing, research insights, validated solution direction, and a go/no-go decision
+**Format:** markdown
+**Location:** `docs/product/discovery-<slug>.md`
+**Audience:** The product trio and stakeholders deciding whether to commit to delivery
+
 ## Key Concepts
 
 ### What is the Discovery Process?
@@ -462,6 +468,13 @@ Mini example excerpt:
 **Fix:** Continuous discovery (Teresa Torres): 1 customer interview per week, ongoing
 
 ---
+
+## Prerequisites
+- `problem-statement` or `problem-framing-canvas` — an initial problem hypothesis to explore
+
+## Next steps
+- `opportunity-solution-tree` — map validated opportunities to solution options (also used in Phase 5)
+- `prd-development` — turn discovery findings into an engineering-ready PRD
 
 ## References
 

@@ -12,6 +12,12 @@ Evaluate and propose AI product solutions using a structured canvas that assesse
 
 This is not a feature spec—it's a strategic proposal that articulates *why* this AI solution is worth building, *what* assumptions need validating, and *how* you'll measure success.
 
+## Outputs
+**Artifact:** Completed AI recommendation canvas — outcomes, problem, solution hypothesis, positioning, risks, value justification, success metrics
+**Format:** markdown
+**Location:** `docs/product/recommendation-canvas-<slug>.md`
+**Audience:** Stakeholders and decision-makers evaluating the AI investment
+
 ## Key Concepts
 
 ### The Recommendation Canvas Framework
@@ -346,6 +352,13 @@ Mini example excerpt:
 **Fix:** Use data: "Addresses #1 pain point per user research. 20% churn reduction = $500k ARR. Low tech risk."
 
 ---
+
+## Prerequisites
+- `derisk-measurement-advisor` — the measures and risks that populate the canvas
+
+## Next steps
+- `feature-investment-advisor` — pressure-test the investment case
+- `pol-probe` — cheaply validate the riskiest hypothesis before committing
 
 ## References
 

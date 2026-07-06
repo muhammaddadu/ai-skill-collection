@@ -25,6 +25,12 @@ Guide product managers through breaking down epics into user stories using Richa
 
 **For the full definition and examples of each split pattern, read [`../user-story-splitting/SKILL.md`](../user-story-splitting/SKILL.md).** That skill is the canonical pattern reference; do not restate pattern content here — consult it when generating splits.
 
+## Outputs
+**Artifact:** Epic breakdown plan — INVEST pre-check, chosen split pattern(s), story breakdown with split evaluation
+**Format:** markdown
+**Location:** inline in conversation; save to `docs/product/epic-breakdown-<epic-slug>.md` if kept
+**Audience:** PM and delivery team turning the epic into sprint-ready stories
+
 ## Key Concepts
 
 ### Core Principle: Vertical Slices Preserve Value
@@ -275,6 +281,13 @@ Write each story using the format in `../user-story/SKILL.md`.
 **Don't skip practice work.** Skill develops through analyzing past deliverables, not just refining future work.
 
 ---
+
+## Prerequisites
+- `epic-hypothesis` — the epic to split (or any backlog item too large to deliver in one iteration)
+
+## Next steps
+- `user-story` — write out the split stories with acceptance criteria
+- `prd-development` — feed the story breakdown into the PRD's requirements section
 
 ## References
 

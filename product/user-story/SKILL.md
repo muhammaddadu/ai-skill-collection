@@ -21,6 +21,12 @@ Create clear, concise user stories that combine Mike Cohn's user story format wi
 
 This is not a feature spec—it's a conversation starter that captures *who* benefits, *what* they're trying to do, *why* it matters, and *how* you'll know it works.
 
+## Outputs
+**Artifact:** User story (Mike Cohn format) with Gherkin acceptance criteria
+**Format:** markdown
+**Location:** the backlog tool, or `docs/product/user-stories-<slug>.md` when drafting outside it
+**Audience:** Engineering and QA picking up development-ready work
+
 ## Key Concepts
 
 ### The Mike Cohn + Gherkin Format
@@ -240,6 +246,12 @@ Mini example excerpt:
 **Fix:** Make it measurable: "Then the page loads in under 2 seconds" or "Then the user sees a success confirmation message."
 
 ---
+
+## Prerequisites
+- A right-sized piece of work — `epic-breakdown-advisor` splits epics into story candidates first
+
+## Next steps
+- `test-strategy` — the acceptance criteria feed directly into the test plan
 
 ## References
 

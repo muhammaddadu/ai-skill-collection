@@ -21,6 +21,12 @@ Create a comprehensive customer journey map that visualizes how customers intera
 
 This is not a user flow diagram—it's a strategic artifact that combines customer empathy with business metrics to drive actionable improvements.
 
+## Outputs
+**Artifact:** Customer journey map — stages with actions, touchpoints, emotions, KPIs, business goals, and teams involved
+**Format:** markdown (visualize in Miro/Figma as needed)
+**Location:** `docs/product/customer-journey-map-<persona-slug>.md`
+**Audience:** Product, design, marketing, and support teams aligning on the end-to-end experience
+
 ## Key Concepts
 
 ### The Customer Journey Mapping Framework
@@ -318,6 +324,14 @@ Mini example excerpt:
 **Fix:** Review quarterly. Update based on new data, product changes, or market shifts.
 
 ---
+
+## Prerequisites
+- `proto-persona` — the persona whose journey you are mapping
+- `jobs-to-be-done` — informs the customer's actions and goals at each stage
+
+## Next steps
+- `problem-statement` — frame the highest-impact pain points as validated problems
+- `positioning-statement` / `prd-development` — feed journey insights into positioning and requirements
 
 ## References
 

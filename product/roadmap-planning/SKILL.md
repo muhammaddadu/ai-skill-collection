@@ -21,6 +21,12 @@ Guide product managers through strategic roadmap planning by orchestrating prior
 
 This is not a Gantt chart—it's a strategic communication tool that shows what you're building, why it matters, and how it ladders up to business outcomes.
 
+## Outputs
+**Artifact:** Strategic roadmap — prioritized initiatives (epics) sequenced with rationale, plus a stakeholder communication view
+**Format:** markdown
+**Location:** `docs/product/roadmap-<slug>.md`
+**Audience:** Stakeholders and delivery teams executing the plan
+
 ## Key Concepts
 
 ### What is Strategic Roadmap Planning?
@@ -467,6 +473,15 @@ Later: Mobile workflows (DAU lift)
 **Fix:** Gather inputs (Phase 1) from all stakeholders, present draft (Phase 5) for feedback
 
 ---
+
+## Prerequisites
+- `positioning-statement` — the strategic direction the roadmap ladders up to
+- `discovery-process` — validated problems worth sequencing
+- `prioritization-advisor` — the framework applied in Phase 3
+
+## Next steps
+- `prd-development` — write the PRD for the first initiative
+- `epic-hypothesis` — frame each major initiative as a testable hypothesis
 
 ## References
 

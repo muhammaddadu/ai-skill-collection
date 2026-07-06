@@ -12,6 +12,12 @@ Articulate a problem from the user's perspective using an empathy-driven framewo
 
 This is not a requirements doc—it's a human-centered problem narrative that ensures you're solving a problem worth solving.
 
+## Outputs
+**Artifact:** User-centered problem statement — who is blocked, what they're trying to do, why it matters, how it feels
+**Format:** markdown
+**Location:** `docs/product/problem-statement-<slug>.md`
+**Audience:** Stakeholders and the team framing discovery, prioritization, or a PRD
+
 ## Key Concepts
 
 ### The Problem Framing Framework
@@ -218,6 +224,14 @@ Mini example excerpt:
 **Fix:** Use actual quotes from user interviews. Real emotions: "frustrated," "overwhelmed," "anxious," "stuck."
 
 ---
+
+## Prerequisites
+- Discovery signal — interviews, data, or support evidence about the user problem
+
+## Next steps
+- `discovery-process` — validate and deepen the problem with customers
+- `prd-development` — feeds Section 2 (Problem Statement) of the PRD
+- `problem-framing-canvas` — the bias-check variant when framing feels contested
 
 ## References
 

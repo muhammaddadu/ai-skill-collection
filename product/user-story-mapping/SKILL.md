@@ -12,6 +12,12 @@ Visualize the user journey by creating a hierarchical map that breaks down high-
 
 This is not a backlog—it's a strategic artifact that shows *how* users accomplish their goals, which then informs *what* to build.
 
+## Outputs
+**Artifact:** User story map — backbone activities, steps, tasks, and release slices arranged as a narrative flow
+**Format:** markdown
+**Location:** `docs/product/user-story-map-<slug>.md`
+**Audience:** Product, design, and engineering planning around the user journey
+
 ## Key Concepts
 
 ### The Jeff Patton Story Mapping Framework
@@ -258,6 +264,13 @@ See `examples/sample.md` for a full story map example.
 **Fix:** Map collaboratively. Run a story mapping workshop with product, design, and engineering.
 
 ---
+
+## Prerequisites
+- An understood user workflow (personas, journey insight); `user-story-mapping-workshop` is the facilitated twin
+
+## Next steps
+- `roadmap-planning` — release slices feed release sequencing
+- `user-story` — write out the first slice's tasks as development-ready stories
 
 ## References
 

@@ -12,6 +12,12 @@ Systematically explore what customers are trying to accomplish (functional, soci
 
 This is not a survey—it's a structured lens for understanding *why* customers "hire" your product and what would make them "fire" it.
 
+## Outputs
+**Artifact:** JTBD profile — functional, social, and emotional jobs plus prioritized pains and gains
+**Format:** markdown
+**Location:** `docs/product/jtbd-<persona-slug>.md`
+**Audience:** Product, design, and marketing teams grounding decisions in customer motivations
+
 ## Key Concepts
 
 ### The Jobs-to-be-Done Framework
@@ -342,6 +348,14 @@ Mini example excerpt:
 **Fix:** Rank pains by intensity (acute vs. mild). Ask "If we only solved one pain, which would have the biggest impact?"
 
 ---
+
+## Prerequisites
+- `proto-persona` — who has these jobs, pains, and gains
+- Customer research or interview notes — fabricating JTBD without evidence is a pitfall (below)
+
+## Next steps
+- `problem-statement` — frame the top unresolved pain as a validated problem
+- `positioning-statement` / `prd-development` — feed jobs and gains into positioning and requirements
 
 ## References
 

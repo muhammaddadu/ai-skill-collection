@@ -20,6 +20,12 @@ Guide product managers through selecting the right **Proof of Life (PoL) probe**
 
 This is **not** a tool for deciding *if* you should validate (you should). It's a decision framework for choosing *how* to validate most effectively.
 
+## Outputs
+**Artifact:** PoL probe-type recommendation (one of 5 flavors) with rationale and resource fit
+**Format:** markdown
+**Location:** inline in conversation
+**Audience:** PM choosing a validation method
+
 ## Key Concepts
 
 ### The Core Problem: Method-Hypothesis Mismatch
@@ -469,6 +475,12 @@ If executives need a demo, build it *after* you've validated the hypothesis with
 **Fix:** Write success criteria *before* building. Define "pass," "fail," and "learn" thresholds.
 
 ---
+
+## Prerequisites
+- A specific hypothesis or risk you need to validate (this decides *how*, not *if*)
+
+## Next steps
+- `pol-probe` — define and document the chosen probe
 
 ## References
 

@@ -12,6 +12,12 @@ Create a 6-frame visual narrative that tells the story of a user's journey from 
 
 This is not a UI mockup—it's a storytelling tool that brings the human side of your product to life.
 
+## Outputs
+**Artifact:** Six-frame storyboard narrative (problem → journey → solution) with per-frame descriptions
+**Format:** markdown
+**Location:** `docs/product/storyboard-<slug>.md`
+**Audience:** Stakeholders in concept reviews, pitches, and demos
+
 ## Key Concepts
 
 ### The 6-Frame Storyboard Structure
@@ -224,6 +230,13 @@ Mini example excerpt:
 **Fix:** Be specific: "Sarah leaves work at 6pm now, spending evenings with her kids instead of chasing clients. On-time payments jumped from 50% to 80%."
 
 ---
+
+## Prerequisites
+- `proto-persona` — the protagonist of the story
+- `customer-journey-map` — the journey the six frames compress
+
+## Next steps
+- Use in alignment sessions, concept reviews, and demos to test emotional resonance before building
 
 ## References
 

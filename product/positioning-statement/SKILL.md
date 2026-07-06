@@ -21,6 +21,12 @@ Create a Geoffrey Moore-style positioning statement that clearly articulates who
 
 This is not a tagline or elevator pitch—it's a strategic clarity tool that forces you to make hard choices about target, need, and differentiation.
 
+## Outputs
+**Artifact:** Geoffrey Moore positioning statement with value proposition and differentiation statement
+**Format:** markdown
+**Location:** `docs/product/positioning-statement-<slug>.md`
+**Audience:** Product, marketing, and stakeholders aligning on strategy and messaging
+
 ## Key Concepts
 
 ### The Geoffrey Moore Framework
@@ -202,6 +208,15 @@ Mini example excerpt:
 **Fix:** Pick a category buyers already understand (CRM, analytics, messaging) OR commit to category creation (requires $$$ and time).
 
 ---
+
+## Prerequisites
+- `jobs-to-be-done` — the unmet need you position against
+- `proto-persona` — the target customer named in the statement
+
+## Next steps
+- `press-release` — turn the positioning into a working-backwards narrative
+- `roadmap-planning` — use the positioning as a strategic input to sequencing
+- `positioning-workshop` — the facilitated twin when inputs are still fuzzy
 
 ## References
 

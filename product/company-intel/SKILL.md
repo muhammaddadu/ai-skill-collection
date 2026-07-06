@@ -30,6 +30,12 @@ Research engine that builds deep, structured understanding of companies, industr
 
 This is not a generic encyclopedia lookup. Every section pushes toward commercial understanding, product implications, and actionable intelligence. The output is a research primitive — structured data other skills consume — not a final deliverable.
 
+## Outputs
+**Artifact:** Structured intel report — the 7 analytical lenses across sections 1–11 (plus cross-company comparison for competitor sets)
+**Format:** markdown
+**Location:** `docs/product/company-intel-<entity-slug>.md`, or inline in conversation for quick handoffs
+**Audience:** Downstream PM skills (`company-research`, `positioning-statement`, `pestel-analysis`, `tam-sam-som-calculator`) and the PM running the research
+
 ## Key Concepts
 
 ### Four Entry Points

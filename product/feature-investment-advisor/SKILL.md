@@ -21,6 +21,12 @@ Guide product managers through evaluating whether to build a feature based on fi
 
 This is not a generic prioritization framework—it's a financial lens for feature decisions that complements other prioritization methods (RICE, value vs. effort, user research). Use when financial impact is a key decision factor.
 
+## Outputs
+**Artifact:** Build / don't-build recommendation with supporting math — revenue connection, cost structure, ROI, payback
+**Format:** markdown
+**Location:** inline in conversation; save to `docs/product/feature-investment-<feature-slug>.md` if kept
+**Audience:** PM plus finance and leadership stakeholders weighing the investment
+
 ## Key Concepts
 
 ### The Feature Investment Framework
@@ -618,6 +624,14 @@ See `examples/` folder for sample conversation flows. Mini examples below:
 **Fix:** Weight feature requests by revenue impact or customer segment. 10 enterprise customers > 100 SMB customers if enterprise is your strategy.
 
 ---
+
+## Prerequisites
+- SaaS metric inputs (ARPU, churn, margins) — `saas-revenue-growth-metrics` / `finance-metrics-quickref`
+- `company-intel` — market and competitive context for the strategic-value assessment
+
+## Next steps
+- `roadmap-planning` — slot "build" decisions into the roadmap sequence
+- `eol-message` — if the decision retires an existing feature or plan, communicate it well
 
 ## References
 

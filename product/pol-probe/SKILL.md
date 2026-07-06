@@ -20,6 +20,12 @@ Define and document a **Proof of Life (PoL) probe**—a lightweight, disposable 
 
 This framework prevents prototype theater (expensive demos that impress stakeholders but teach nothing) and forces you to match validation method to actual learning goal.
 
+## Outputs
+**Artifact:** PoL probe definition — hypothesis, risk to eliminate, prototype type, success criteria, disposal plan
+**Format:** markdown
+**Location:** `docs/product/pol-probe-<slug>.md`
+**Audience:** PM and the team running the probe
+
 ## Key Concepts
 
 ### What is a PoL Probe?
@@ -195,6 +201,14 @@ Mini example excerpt:
 - Using vanity metrics that avoid uncomfortable truth
 - Skipping a pre-defined failure threshold before testing begins
 - Choosing tools first and hypothesis second
+
+## Prerequisites
+- A specific risky hypothesis to test cheaply
+- `pol-probe-advisor` — choose the right probe type first
+
+## Next steps
+- Run the probe, capture the harsh truth, then dispose of the artifact
+- Feed the result into the `discovery-process` pivot/proceed decision
 
 ## References
 

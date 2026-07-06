@@ -12,6 +12,12 @@ Craft a clear, empathetic End-of-Life (EOL) message that communicates product or
 
 This is not a generic sunset announcement—it's a customer-centric communication that acknowledges loss while framing the change as progress.
 
+## Outputs
+**Artifact:** EOL announcement — rationale, customer impact, transition solution, support measures, timeline, and call to action
+**Format:** markdown (adapt to email, blog post, or in-app notice)
+**Location:** `docs/product/eol-message-<product-slug>.md`
+**Audience:** Affected customers; internal customer success, support, and marketing teams
+
 ## Key Concepts
 
 ### The EOL Messaging Framework
@@ -322,6 +328,13 @@ Mini example excerpt:
 **Fix:** Be empathetic and forward-looking: "We're consolidating to focus on the future of automation."
 
 ---
+
+## Prerequisites
+- A confirmed retirement decision — e.g. from `feature-investment-advisor` or a portfolio review
+
+## Next steps
+- Stakeholder comms rollout — CS briefing, support macros, in-app notices, and the send schedule
+- `positioning-statement` — sharpen how the replacement solution is positioned in the message
 
 ## References
 

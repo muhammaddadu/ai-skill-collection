@@ -12,6 +12,12 @@ Frame epics as testable hypotheses using an if/then structure that articulates t
 
 This is not a requirements spec—it's a hypothesis you're testing, not a feature you're committed to shipping.
 
+## Outputs
+**Artifact:** Epic hypothesis — if/then statement, tiny acts of discovery experiments, and validation measures
+**Format:** markdown
+**Location:** `docs/product/epic-hypothesis-<slug>.md`, or the epic entry in your backlog tool
+**Audience:** Product team and stakeholders deciding whether the initiative earns a build
+
 ## Key Concepts
 
 ### The Epic Hypothesis Framework
@@ -246,6 +252,13 @@ Mini example excerpt:
 **Fix:** Frame epics as hypotheses *before* making commitments. If stakeholders need certainty, explain the risk of building unvalidated features.
 
 ---
+
+## Prerequisites
+- A validated problem — e.g. a `problem-statement` or discovery synthesis worth betting an epic on
+
+## Next steps
+- `roadmap-planning` — sequence the validated epic against the rest of the roadmap
+- `epic-breakdown-advisor` — split the validated epic into development-ready stories
 
 ## References
 

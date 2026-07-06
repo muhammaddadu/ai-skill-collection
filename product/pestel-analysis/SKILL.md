@@ -12,6 +12,12 @@ Conduct a systematic analysis of macro-environmental factors—Political, Econom
 
 This is not internal analysis—it's outward-facing assessment of the big-picture forces shaping your product's environment.
 
+## Outputs
+**Artifact:** PESTEL analysis — six-factor scan plus strategic insights summary (opportunities, threats, watch items)
+**Format:** markdown
+**Location:** `docs/product/pestel-analysis-<slug>.md`
+**Audience:** Product leadership and strategy stakeholders assessing external forces
+
 ## Key Concepts
 
 ### The PESTEL Framework
@@ -349,6 +355,14 @@ Mini example excerpt:
 **Fix:** Review annually or when major external events occur (new regulations, economic shifts, etc.).
 
 ---
+
+## Prerequisites
+- A defined product, market, or initiative scope to analyze
+- Market and industry research (`company-intel`) sharpens factor evidence
+
+## Next steps
+- `derisk-measurement-advisor` — stress-test the idea across these external (PESTEL) dimensions
+- `product-strategy-session` or `roadmap-planning` — feed opportunities and threats into strategy and sequencing
 
 ## References
 

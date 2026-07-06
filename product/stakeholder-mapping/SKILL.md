@@ -39,6 +39,12 @@ Running only the first grid optimizes for managing relationships with the powerf
 
 Use this after stakeholder-identification (which builds the full list) and before stakeholder-engagement-advisor (which plans per-stakeholder outreach).
 
+## Outputs
+**Artifact:** Two prioritization grids (Power × Interest, Impact × Power) with per-quadrant engagement strategies and comparison insights
+**Format:** markdown
+**Location:** `docs/product/stakeholder-mapping-<slug>.md`
+**Audience:** PM and team setting engagement strategy
+
 ## Key Concepts
 
 **Power × Interest Grid** — A 2×2 that plots stakeholders by their power to affect the initiative (vertical axis) and their interest in its outcome (horizontal axis). Produces four quadrants with prescribed engagement strategies:
@@ -141,6 +147,12 @@ For each stakeholder in "manage closely" and each Q1 stakeholder, create an enga
 **Quantifying or ranking within quadrants at placement time.** The method explicitly discourages this. False precision at the categorization step derails the discussion into arguing about relative rankings instead of identifying who's missing from the right quadrants.
 
 **Letting Q1 stakeholders remain decorative.** Naming high-impact, low-power stakeholders on the canvas and then continuing to engage them the same way is the most common failure. Elevation requires a concrete action: a named research slot, a co-design session, a role in requirements review, a presence at the launch readiness gate.
+
+## Prerequisites
+- `stakeholder-identification` — the named stakeholder set to place on the grids (step one of the sequence)
+
+## Next steps
+- `stakeholder-engagement-advisor` — plan outreach for each "manage closely" and high-impact/low-power stakeholder (step three)
 
 ## References
 

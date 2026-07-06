@@ -33,6 +33,12 @@ Plan how to engage a specific stakeholder — before a critical conversation, mi
 
 Run this skill once per priority stakeholder. Priority stakeholders are those in the "manage closely" quadrant from stakeholder-mapping, every Q1 (high-impact, low-power) stakeholder regardless of Power × Interest placement, and anyone who has the potential to block, delay, or fundamentally reshape your initiative.
 
+## Outputs
+**Artifact:** Per-stakeholder engagement plan — message, medium, cadence, and risks tailored to the relationship
+**Format:** markdown
+**Location:** inline in conversation
+**Audience:** The PM preparing the outreach (often not shareable verbatim)
+
 ## Key Concepts
 
 **Stakeholder Motivations vs. Your Motivations** — The most common engagement failure is planning only your side of the conversation. Effective stakeholder engagement requires mapping what the stakeholder needs, wants, and fears — separately from what you need from them. Where these overlap, you have an alignment path. Where they diverge, you have a negotiation to prepare for.
@@ -191,6 +197,12 @@ After all three answers, deliver a tailored engagement plan:
 **Ending without a named next action.** An engagement plan without owner, action, medium, and deadline is an intention. Intentions don't move relationships forward. The next action is the only output that matters.
 
 **Using the same medium for all stakeholders.** An executive who's already in back-to-back meetings doesn't need another meeting — they need a well-written pre-read. A frontline user who's never been consulted doesn't need an email — they need a face-to-face research session that signals their perspective actually matters. Match the medium to the relationship and context.
+
+## Prerequisites
+- `stakeholder-identification` then `stakeholder-mapping` — this advisor is step three of the sequence; run it once per priority stakeholder
+
+## Next steps
+- Execute the outreach, log what you learn, and re-run `stakeholder-mapping` when the landscape shifts
 
 ## References
 

@@ -22,6 +22,12 @@ Guide product managers through preparing for customer discovery interviews by as
 
 This is not a script generator—it's a strategic prep process that outputs a tailored interview plan with methodology, question framework, and success criteria.
 
+## Outputs
+**Artifact:** Discovery interview plan — research goal, target segment, methodology, question framework, biases to avoid, success criteria
+**Format:** markdown
+**Location:** `docs/product/interview-plan-<slug>.md`, or inline in conversation
+**Audience:** The PM or researchers conducting the interviews
+
 ## Key Concepts
 
 ### The Discovery Interview Prep Flow
@@ -386,6 +392,13 @@ You'll know these interviews are successful if:
 **Fix:** Record (with consent) or take detailed notes. Synthesize immediately after each interview.
 
 ---
+
+## Prerequisites
+- `discovery-process` Phase 2 (research planning), or at minimum a defined research goal and target segment
+
+## Next steps
+- Run the interviews, then synthesize insights in `discovery-process` Phase 4
+- `problem-statement` — frame validated pain points from the interview findings
 
 ## References
 

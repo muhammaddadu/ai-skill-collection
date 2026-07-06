@@ -12,6 +12,12 @@ Create a visionary press release following Amazon's "Working Backwards" methodol
 
 This is not a marketing artifact for launch day—it's a planning tool that asks "If we shipped this perfectly, how would we explain it to the world?"
 
+## Outputs
+**Artifact:** Amazon-style press release — headline, problem, solution, quotes, customer-value narrative
+**Format:** markdown
+**Location:** `docs/product/press-release-<slug>.md`
+**Audience:** Stakeholders aligning on customer value before anything is built
+
 ## Key Concepts
 
 ### The Amazon Working Backwards Framework
@@ -241,6 +247,12 @@ Mini example excerpt:
 **Fix:** Add data: "Beta users saved an average of 5 hours per month" or "68% of SMBs cite invoice processing as their top admin burden."
 
 ---
+
+## Prerequisites
+- `positioning-statement` — the target, need, and differentiation the release narrates
+
+## Next steps
+- `prd-development` — turn the aligned vision into engineering-ready requirements
 
 ## References
 

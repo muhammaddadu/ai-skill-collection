@@ -12,6 +12,12 @@ Guide product managers through creating a user story map by asking adaptive ques
 
 This is not a backlog generator—it's a visual communication framework that organizes work by user workflow (horizontal) and priority (vertical).
 
+## Outputs
+**Artifact:** User story map — backbone activities, tasks, and release slices — generated through adaptive Q&A
+**Format:** markdown
+**Location:** `docs/product/user-story-map-<slug>.md`
+**Audience:** Product, design, and engineering planning releases around the workflow
+
 ## Key Concepts
 
 ### What is a User Story Map?
@@ -450,6 +456,14 @@ UI Layer → API Layer → Database Layer → Deployment
 **Fix:** Print/post map physically; make it visible to team daily
 
 ---
+
+## Prerequisites
+- `workshop-facilitation` — the interaction protocol for pacing the session
+- Participants who know the users and workflow being mapped
+
+## Next steps
+- `roadmap-planning` — release slices feed release sequencing
+- `user-story` — expand slice-one tasks into development-ready stories
 
 ## References
 

@@ -20,6 +20,12 @@ Guide product managers through creating a customer journey map by asking adaptiv
 
 This is not a feature roadmap—it's a discovery and alignment tool that uncovers where the experience breaks down and where improvements will have the greatest impact.
 
+## Outputs
+**Artifact:** Customer journey map plus a prioritized opportunity list (workshop output)
+**Format:** markdown
+**Location:** `docs/product/customer-journey-map-<scenario-slug>.md`
+**Audience:** Workshop participants; product and design teams acting on the opportunities
+
 ## Key Concepts
 
 ### What is a Customer Journey Map?
@@ -498,6 +504,14 @@ Pain Points:
 **Fix:** Facilitate workshop with cross-functional team (PM, design, engineering, support)
 
 ---
+
+## Prerequisites
+- `workshop-facilitation` — the interaction protocol this session runs on
+- `proto-persona` — the actor for the journey (create a working persona if none exists)
+
+## Next steps
+- `customer-journey-map` — the component twin, for refining and maintaining the map
+- `problem-statement` / `opportunity-solution-tree` — turn top opportunities into framed problems and solution options
 
 ## References
 

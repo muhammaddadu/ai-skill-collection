@@ -28,6 +28,12 @@ Guide product managers through identifying the most important things to measure,
 
 This is not a generic risk list. It's a guided scan tied to *your* specific product, customer, and market context. The question it answers: **is the orange worth the squeeze?**
 
+## Outputs
+**Artifact:** Prioritized risk register — internal (DUFV) and external (PESTEL) risks triaged into act-now vs. start-tracking
+**Format:** markdown
+**Location:** inline in conversation; save to `docs/product/risk-register-<idea-slug>.md` if kept
+**Audience:** PM and team deciding what to measure, test, or track first
+
 ## Key Concepts
 
 ### Two Lenses, One Question
@@ -452,6 +458,13 @@ Start tracking (5 items):
 **Fix:** Every "act now" item must have a concrete next step: who does what, by when, and how you'll know the risk is addressed. "Run a test" is not a next step. "Launch a 1-week landing page with email capture targeting [customer role], measure signup rate, and decide go/no-go by [date]" is.
 
 ---
+
+## Prerequisites
+- A product or AI idea with a defined customer and context — e.g. a `problem-statement` or `lean-ux-canvas`
+
+## Next steps
+- `pol-probe-advisor` — choose the cheapest validation method for the top act-now risk
+- `recommendation-canvas` — structure a go/no-go recommendation from the register findings
 
 ## References
 
