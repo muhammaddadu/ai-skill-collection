@@ -82,7 +82,8 @@ Two rules make the pyramid come out right-side up:
   contract level; E2E exists to prove that the proven parts are actually
   wired together. Plan one or two golden-path E2E tests plus any invariant
   the system must never regress (e.g. "no write happens without approval") —
-  not one E2E per criterion.
+  not one E2E per criterion. Building and maintaining the automated suite
+  itself is `../e2e-automation/`.
 
 ### 3. Set the test-double policy
 
