@@ -21,6 +21,12 @@ Guide product managers through structured PRD (Product Requirements Document) cr
 
 This is not a waterfall spec—it's a living document that captures strategic context, customer problems, proposed solutions, and success criteria, evolving as you learn through delivery.
 
+## Outputs
+**Artifact:** Product Requirements Document (PRD), following the 10-section structure below (fill-in document: `template.md`)
+**Format:** markdown
+**Location:** `docs/product/<feature-slug>-prd.md` in the target repo, or the team's PRD space
+**Audience:** Engineering, design, and stakeholders — the alignment and handoff document for a major initiative
+
 ## Key Concepts
 
 ### What is a PRD?
@@ -618,6 +624,14 @@ Mini example excerpt:
 **Consequence:** Scope creep, stakeholders expect features not planned
 
 **Fix:** Explicitly document out of scope in Phase 8
+
+---
+
+## Next steps
+
+- [`../tech-spec/SKILL.md`](../tech-spec/SKILL.md) — hand the approved PRD to engineering via tech-spec: it turns the "what" into an implementable design (options, chosen architecture, data/API impact, rollout)
+- `../epic-breakdown-advisor/SKILL.md` — split Section 7's epic into development-ready stories if not done during Phase 7
+- `../roadmap-planning/SKILL.md` — sequence the initiative against the rest of the roadmap
 
 ---
 
