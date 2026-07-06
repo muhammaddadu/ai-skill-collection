@@ -21,7 +21,8 @@ changes — skills are scanned at session start.
 
 Organized around the product blueprint — "Make Building Products Fun Again":
 Exploration -> Sign-Off -> Discovery -> Sign-Off -> Delivery -> Learn & Iterate.
-`BLUEPRINT.md` maps every stage, lane, sign-off, and output to its skill.
+`BLUEPRINT.md` maps every stage, lane, sign-off, and output to its skill;
+`WALKTHROUGH.md` drives the map once end-to-end with a worked feature.
 
 | Dir | Blueprint phase | Contents |
 |---|---|---|

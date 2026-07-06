@@ -120,3 +120,8 @@ updated (never abandoned), and the next pass re-enters the flow at whatever
 column the size of the change warrants — a business-rule tweak may re-enter at
 Norming; a new problem starts at Intake. Use each column as a milestone;
 skipping a step doesn't save time — it just pushes the rework later.
+
+---
+
+For this map driven once end to end — one feature, every stage, every gate,
+including the conditional paths — see [WALKTHROUGH.md](WALKTHROUGH.md).
