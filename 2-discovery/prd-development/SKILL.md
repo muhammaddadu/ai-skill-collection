@@ -27,6 +27,22 @@ This is not a waterfall spec—it's a living document that captures strategic co
 **Location:** `docs/product/<feature-slug>-prd.md` in the target repo, or the team's PRD space
 **Audience:** Engineering, design, and stakeholders — the alignment and handoff document for a major initiative
 
+## Blueprint stage mapping
+
+In the org blueprint (see `BLUEPRINT.md` in the skills repo root), the PRD is
+one living document that moves through named maturity stages; this workflow
+produces and evolves it:
+
+- **Forming** — problem + assumptions + risks; stakeholders consulted on
+  problem alignment.
+- **Storming** — solution shaping, with `design-signal` (30%) and
+  `eng-feasibility-spike` running in parallel.
+- **Norming** — business-rule validation with stakeholders (not the user
+  journey); `design-signal` at 60%; architecture recorded via `adr`.
+- **Commitment-Ready** — reached at `pi-planning`, after Sign-Off 2.
+- **Live** — shipped; the PRD reflects what was built.
+- **Updated** — revised via `learn-iterate` as post-launch learning lands.
+
 ## Key Concepts
 
 ### What is a PRD?

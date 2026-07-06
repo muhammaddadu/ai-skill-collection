@@ -46,6 +46,25 @@ writing or editing a skill, use these words — don't invent synonyms.
   (`release-readiness`).
 - **Postmortem** — blameless incident write-up with contributing factors and
   owned action items (`incident-postmortem`).
+- **Product Brief** — the intake artifact that earns Sign-Off 1: intent,
+  constraints, success criteria, priority (`product-brief`).
+- **Design Signal** — declared design confidence at 30/60/90% with evidence;
+  confidence, not completion (`design-signal`).
+- **Spike report** — the evidenced answer to one feasibility question from a
+  time-boxed investigation; its POC is disposable (`eng-feasibility-spike`).
+- **PI plan** — the committed increment: MVP cut-line, sequence, epics/tickets;
+  marks the PRD **Commitment-Ready** (`pi-planning`).
+- **Iteration review** — post-release scorecard against success criteria with
+  persevere/iterate/expand/kill decisions; produces PRD-Updated (`learn-iterate`).
+- **Feature flag / TTL** — a toggle with an owner and a removal date set at
+  creation; a flag past its TTL is a defect (`progressive-delivery`).
+- **Ramp** — staged percentage rollout with per-step abort criteria and soak
+  time; rollback is a config flip, not a deploy (`progressive-delivery`).
+- **Expand-and-contract** — parallel-change data migration so old and new
+  paths coexist until 100% + soak (`progressive-delivery`).
+- **Sign-Off 1 / Sign-Off 2** — the blueprint's human gates: brief approved to
+  enter Discovery; scope/sequencing/outcomes validated to enter Delivery
+  (see BLUEPRINT.md).
 
 ## Review & scoring (ads-pack conventions, reused by api-design and release-readiness)
 

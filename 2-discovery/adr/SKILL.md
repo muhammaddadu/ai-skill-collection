@@ -1,6 +1,6 @@
 ---
 name: adr
-description: "Record an architecture decision — context, options, decision, consequences — in the repo's append-only ADR log. Use when choosing between technologies/patterns/approaches, answering 'why did we choose X', or documenting a decision (ADR). Do NOT use for full system designs (tech-spec) or product decisions (prd-development)."
+description: "Record an architecture decision — context, options, decision, consequences — in the repo's append-only ADR log. Use when choosing between technologies/patterns/approaches, answering 'why did we choose X', or documenting a decision (ADR / Architecture Change Record, ACR). Do NOT use for full system designs (tech-spec) or product decisions (prd-development)."
 type: component
 domain: 2-discovery
 ---
@@ -16,7 +16,8 @@ file, but the point is the **discipline**: writing the ADR forces the options to
 be enumerated honestly *before* the decision hardens, and the log preserves the
 WHY so future engineers (and agents) don't relitigate or accidentally reverse it.
 An ADR is a page, not a paper: if it takes more than ~30 minutes to write, the
-decision probably needs a tech spec first, not a longer ADR.
+decision probably needs a tech spec first, not a longer ADR. Known in the org
+blueprint as the **Architecture Change Record (ACR)** — same artifact.
 
 ## Outputs
 
