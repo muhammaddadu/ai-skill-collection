@@ -22,6 +22,15 @@ Guide Directors and senior product leaders through the specific challenges of th
 
 The VP/CPO transition is not a continuation of the Director transition. The landscape changes. Strategy becomes largely unwritten. Your primary customer may shift. You stop using product language with executives. Constraints don't disappear — the Rubik's Cube just goes from 3×3 to 9×9. This advisor names what's actually hard at this level and what to do about it.
 
+## Outputs
+**Artifact:** Situation-calibrated executive coaching and a personal action plan (prepare / interview / land / recalibrate)
+**Format:** markdown
+**Location:** inline in conversation; save as a personal plan doc to track it
+**Audience:** the Director or VP navigating the executive transition — private
+
+## Prerequisites
+- `altitude-horizon-framework` — the altitude/horizon concepts underneath this assessment
+
 ## Key Concepts
 
 ### The Three Ps Framework
@@ -391,6 +400,9 @@ See `examples/conversation-flow.md` for a full interaction covering the evaluati
 **Fix:** Be honest about the gap between where you aspire to be and where you actually are. The recalibrating branch will be more useful if the role has already landed badly.
 
 ---
+
+## Next steps
+- `executive-onboarding-playbook` — run the 30-60-90 diagnostic once the role lands
 
 ## References
 

@@ -7,6 +7,15 @@ description: Helps users discover and install agent skills when they ask questio
 
 This skill helps you discover and install skills from the open agent skills ecosystem.
 
+## Outputs
+**Artifact:** An install recommendation — matching skill(s) with the `npx skills add` command(s) to run
+**Format:** inline in conversation
+**Location:** installed skills land in the agent's skills directory
+**Audience:** the user extending their agent's capabilities
+
+## Prerequisites
+- None — only `npx` is required
+
 ## When to Use This Skill
 
 Use this skill when the user:
@@ -131,3 +140,7 @@ I can still help you with this task directly! Would you like me to proceed?
 If this is something you do often, you could create your own skill:
 npx skills init my-xyz-skill
 ```
+
+## Next steps
+- `skill-authoring-workflow` — author the skill yourself when the search finds nothing suitable
+

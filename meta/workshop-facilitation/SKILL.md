@@ -18,6 +18,15 @@ estimated_time: "varies by workshop"
 ## Purpose
 Provide the canonical facilitation pattern for interactive skills: one step at a time, with clear progress, adaptive recommendations at decision points, and predictable interruption handling.
 
+## Outputs
+**Artifact:** None — the hosted session flow itself (pacing, progress labels, numbered options); the delegating skill owns the deliverable
+**Format:** multi-turn conversation protocol
+**Location:** n/a — applied live in the session
+**Audience:** interactive skills that delegate their facilitation to this protocol
+
+## Prerequisites
+- An interactive skill that delegates pacing here — this protocol is rarely invoked standalone
+
 ## Key Concepts
 - **One-step-at-a-time:** Ask a single targeted question per turn.
 - **Session heads-up + entry mode:** Start by setting expectations and offering `Guided`, `Context dump`, or `Best guess` mode.
@@ -81,6 +90,9 @@ Provide the canonical facilitation pattern for interactive skills: one step at a
 - Hiding progress, so users don't know how much remains.
 - Ignoring the user's chosen option or custom direction.
 - Failing to label assumptions when running in best-guess mode.
+
+## Next steps
+- `skill-authoring-workflow` — cite this protocol when authoring a new interactive skill
 
 ## References
 - Use as the source of truth for interactive facilitation behavior.

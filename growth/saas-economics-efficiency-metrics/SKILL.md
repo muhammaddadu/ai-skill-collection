@@ -21,6 +21,16 @@ Determine whether your SaaS business model is fundamentally viable and capital-e
 
 This is not a finance reporting tool—it's a framework for PMs to understand whether the business can sustain growth, when to prioritize efficiency over growth, and which investments have positive returns.
 
+## Outputs
+**Artifact:** Unit-economics and capital-efficiency assessment (gross margin, CAC, LTV:CAC, payback, burn multiple, Rule of 40) with a scale-vs-optimize call
+**Format:** markdown
+**Location:** inline in conversation; feeds board decks and business reviews
+**Audience:** PM, founder, or leadership evaluating whether the model scales
+
+## Prerequisites
+- Revenue and cost inputs: S&M spend, COGS, burn, new ARR for the period
+- `finance-metrics-quickref` — cheat-sheet sibling for fast formula lookups
+
 ## Key Concepts
 
 ### Unit Economics Family
@@ -671,6 +681,9 @@ See `examples/` folder for detailed scenarios. Mini examples below:
 **Fix:** Account for working capital when calculating runway. Cash-based runway ≠ revenue-based runway.
 
 ---
+
+## Next steps
+- `business-health-diagnostic` — orchestrates this with retention and growth into one health review
 
 ## References
 

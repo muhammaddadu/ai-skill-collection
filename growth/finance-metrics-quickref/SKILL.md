@@ -21,6 +21,15 @@ Quick reference for any SaaS finance metric without deep teaching. Use this when
 
 This is not a teaching tool—it's a cheat sheet optimized for speed. Scan, find, apply.
 
+## Outputs
+**Artifact:** The requested metric definition, formula, benchmark, or decision rule
+**Format:** markdown (inline answer)
+**Location:** inline in conversation — nothing is saved
+**Audience:** PM mid-analysis who needs the number fast
+
+## Prerequisites
+- None — standalone cheat sheet
+
 ## Key Concepts
 
 ### Metric Categories
@@ -285,6 +294,10 @@ Quick output:
 - Tracking many metrics without a clear decision question
 
 ---
+
+## Next steps
+- `saas-revenue-growth-metrics` or `saas-economics-efficiency-metrics` — the deep-dive siblings when a lookup turns into real analysis
+- `business-health-diagnostic` — the full cross-metric health review
 
 ## References
 

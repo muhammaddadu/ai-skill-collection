@@ -22,6 +22,15 @@ Guide PMs and Directors through the specific challenges of the PM-to-Director tr
 
 This is not a readiness checklist. It's a coaching conversation that names what's actually hard, why it's hard, and what to do about it.
 
+## Outputs
+**Artifact:** Situation-calibrated coaching and a personal transition plan (prepare / interview / land / recalibrate)
+**Format:** markdown
+**Location:** inline in conversation; save as a personal plan doc to track it
+**Audience:** the PM or Director in transition — private, not a team artifact
+
+## Prerequisites
+- `altitude-horizon-framework` — the altitude/horizon concepts this coaching builds on (recommended first read)
+
 ## Key Concepts
 
 ### The Four Transition Situations
@@ -332,6 +341,10 @@ See `examples/conversation-flow.md` for a full end-to-end interaction, including
 **Fix:** Use this skill to identify what will be hardest for you specifically and how to address it — not to get a pass/fail verdict.
 
 ---
+
+## Next steps
+- `executive-onboarding-playbook` — plan the first 90 days once a role lands
+- `vp-cpo-readiness-advisor` — when the next jump (VP/CPO) comes into view
 
 ## References
 

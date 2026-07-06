@@ -24,6 +24,16 @@ This playbook runs in three phases: **Diagnose** (Month 1), **Validate** (Month 
 
 This is not a 100-day plan for impressing your new boss. It's a diagnostic protocol for making durable decisions.
 
+## Outputs
+**Artifact:** A 30-60-90 day diagnostic onboarding plan (Diagnose, Validate, Act with Evidence)
+**Format:** markdown
+**Location:** personal plan doc — private to the incoming executive
+**Audience:** the incoming VP/CPO (optionally shared with the CEO for expectation-setting)
+
+## Prerequisites
+- An accepted or near-accepted VP/CPO role
+- `vp-cpo-readiness-advisor` — its interviewing branch supplies the questions to ask before accepting
+
 ## Key Concepts
 
 ### The Consultant Mindset
@@ -263,6 +273,10 @@ See `examples/sample.md` for a full 30-60-90 diagnostic walkthrough with concret
 **Fix:** Expect dysfunction. Patrick Lencioni's *Five Dysfunctions of a Team* applies to leadership teams as much as any other. Integrity gets tested more at higher levels, not less. Map the alliances in Month 1 as carefully as you map the product portfolio.
 
 ---
+
+## Next steps
+- `vp-cpo-readiness-advisor` — recalibrate when something isn't working after month 3
+- `altitude-horizon-framework` — the operating-level concepts behind the diagnostic
 
 ## References
 

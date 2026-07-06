@@ -22,6 +22,16 @@ Master revenue and retention metrics to understand SaaS business momentum, evalu
 
 This is not a business intelligence tool—it's a framework for PMs to understand which metrics matter, how to calculate them correctly, and what actions to take based on the numbers.
 
+## Outputs
+**Artifact:** Revenue and retention metric calculations with interpretation (MRR/ARR movements, churn, NRR, expansion, PMF signals)
+**Format:** markdown
+**Location:** inline in conversation; feeds dashboards and board decks
+**Audience:** PM or leadership diagnosing momentum and retention
+
+## Prerequisites
+- MRR movement data (new, expansion, contraction, churned) for the period
+- `finance-metrics-quickref` — cheat-sheet sibling for fast formula lookups
+
 ## Key Concepts
 
 ### Revenue Metrics Family
@@ -607,6 +617,10 @@ See `examples/` folder for detailed scenarios. Mini examples below:
 **Fix:** Calculate ARPU/ARPA by segment (SMB, mid-market, enterprise). Optimize each segment independently.
 
 ---
+
+## Next steps
+- `business-health-diagnostic` — orchestrates this with efficiency metrics into one health review
+- `saas-economics-efficiency-metrics` — the unit-economics and capital-efficiency companion
 
 ## References
 

@@ -22,6 +22,15 @@ Defines the two-axis mental model that distinguishes Director-level thinking fro
 
 This is not a seniority hierarchy. A PM operating at the right altitude for their role is doing excellent work. A Director operating at PM altitude is leaving their actual job undone.
 
+## Outputs
+**Artifact:** A diagnosis of which transition zone is creating friction, plus a Cascading Context Map when direction is vague
+**Format:** markdown
+**Location:** inline in conversation; keep the Context Map as a personal working doc if useful
+**Audience:** PM or new Director calibrating their own operating level
+
+## Prerequisites
+- None — this is the concepts reference for the career-transition skills
+
 ## Key Concepts
 
 ### The Two Axes
@@ -235,6 +244,10 @@ See `examples/sample.md` for a full worked scenario with a completed Cascading C
 **Fix:** Play your current role with full commitment. The transition will demand Director thinking soon enough — you'll be ready because you did your PM work well, not because you rehearsed the Director role prematurely.
 
 ---
+
+## Next steps
+- `director-readiness-advisor` — the guided assessment for the PM-to-Director journey
+- `vp-cpo-readiness-advisor` — the guided assessment at executive level
 
 ## References
 

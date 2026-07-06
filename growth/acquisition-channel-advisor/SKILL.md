@@ -21,6 +21,16 @@ Guide product managers through evaluating whether to scale, test, or kill an acq
 
 This is not a channel strategy framework—it's a financial lens for channel evaluation that helps you avoid scaling unprofitable channels or killing channels with fixable problems. Use when deciding how to allocate marketing budget across channels.
 
+## Outputs
+**Artifact:** Scale / test / kill recommendation per channel, backed by a unit-economics scorecard (CAC, LTV:CAC, payback, magic number)
+**Format:** markdown
+**Location:** inline in conversation; save to the team's growth docs if it needs to persist
+**Audience:** PM or growth lead allocating channel budget
+
+## Prerequisites
+- Per-channel data: spend, customers acquired, retention or NRR by cohort
+- `finance-metrics-quickref` for formula or benchmark lookups mid-session
+
 ## Key Concepts
 
 ### The Channel Evaluation Framework
@@ -622,6 +632,10 @@ See `examples/` folder for sample conversation flows. Mini examples below:
 **Fix:** Cap spend on strategic channels. Set timeline for improvement (6-12 months). If no progress, kill.
 
 ---
+
+## Next steps
+- `roadmap-planning` — fold the channel decision into the growth roadmap
+- `feature-investment-advisor` — when the fix is product work (activation, onboarding), not budget
 
 ## References
 

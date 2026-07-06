@@ -50,6 +50,15 @@ This skill does three things and nothing more:
 
 ---
 
+## Outputs
+**Artifact:** Growth path recommendation (L2–L5) with rationale, a diagnostic question, and a first experiment
+**Format:** markdown
+**Location:** inline in conversation
+**Audience:** PM or growth lead choosing the next organic growth motion
+
+## Prerequisites
+- Evidence of the current growth constraint (stalled metric, saturated segment) — rough is fine
+
 ## Key Concepts
 
 ### The Growth Path Matrix
@@ -353,6 +362,10 @@ First experiment: Interview eight current customers who have requested forecasti
 **Fix:** Make a best-guess placement in five minutes. Use the first experiment to validate or invalidate. The matrix points you in a direction. It does not make the decision for you.
 
 ---
+
+## Next steps
+- `roadmap-planning` — sequence the chosen path's experiments
+- `feature-investment-advisor` — build the investment case when the path needs product work
 
 ## References
 

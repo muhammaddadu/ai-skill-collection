@@ -26,6 +26,15 @@ Help PM candidates and interview coaches structure product-sense answers that so
 
 This is not a memorize-and-recite script. It is a reasoning scaffold that prevents solution-jumping, forces real prioritization, and leaves the interviewer with a clean story they can follow.
 
+## Outputs
+**Artifact:** A structured spoken-answer outline (six-part spine) for the practiced question, plus coaching feedback
+**Format:** markdown / spoken practice
+**Location:** inline in conversation — practice material, nothing saved
+**Audience:** the PM candidate (or coach) preparing for product-sense interviews
+
+## Prerequisites
+- A practice prompt: "improve X", "design a product for Y", or "what would you build next for Z"
+
 ## Key Concepts
 
 ### What Product Sense Interviews Actually Test
@@ -237,6 +246,9 @@ This kind of answer can sound energetic in the moment, but it signals weak PM ju
 - **Three fake options:** Your three solutions are really one solution with minor variations. Fix it by varying the product mechanism, not just the packaging.
 - **Weak close:** You end after listing features. Fix it by restating the target segment, the pain, and the first bet in one sentence.
 - **Over-answering every branch:** You try to prove breadth instead of making choices. Product-sense interviews reward focus more than exhaustiveness.
+
+## Next steps
+- `director-readiness-advisor` — interview prep when the target role is leadership, not IC
 
 ## References
 

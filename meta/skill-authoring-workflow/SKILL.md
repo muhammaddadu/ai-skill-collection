@@ -24,6 +24,16 @@ Use it when you want to ship a new skill without "looks good to me" roulette.
 
 **Where this skill fits:** an external plugin already provides a generic `skill-creator` for scaffolding skills from scratch. This skill's niche is **this repo's standards** — the PM skill anatomy, metadata limits, catalog integration, and validation gates. For generic skill scaffolding, the skill-creator plugin skill applies; use this skill to meet this repo's conventions and validation gates.
 
+## Outputs
+**Artifact:** A compliant, publish-ready skill directory (SKILL.md plus references/) that passes this repo's validation gates
+**Format:** markdown skill files
+**Location:** the skills repo, under the chosen domain directory
+**Audience:** this repo's skill portfolio (Claude Code + Codex consume it via symlinks)
+
+## Prerequisites
+- Raw source material (notes, prompts, workshop content) or at least an idea to shape
+- `find-skills` — check the ecosystem first so you don't author a duplicate
+
 ## Key Concepts
 
 ### Dogfood First
@@ -175,6 +185,9 @@ Result:
 - Letting `intent` become a substitute for a weak trigger description.
 - Forgetting to update README counts after adding a skill.
 - Treating generated output as final without review.
+
+## Next steps
+- `workshop-facilitation` — delegate pacing to it if the new skill is interactive
 
 ## References
 
