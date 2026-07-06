@@ -60,4 +60,18 @@ Exploration -> Sign-Off -> Discovery -> Sign-Off -> Delivery -> Learn & Iterate.
   guardians live in each repo's `.claude/agents/`).
 
 Vendored third-party skills record their origin in a `.upstream` file
-(agent-docs, ffmpeg-usage, humanizer).
+(agent-docs, ffmpeg-usage, humanizer, and the adopted community skills —
+tdd, diagnosing-bugs, resolving-merge-conflicts, postgres-best-practices,
+mcp-builder, react-best-practices, react-native-skills, web-design-guidelines).
+
+## Companion tooling (per-project, not vendored here)
+
+- **skilld** (`npx -y skilld`) — generates version-aware skills from a
+  project's npm dependencies; run inside project repos, never vendor output.
+- **@tanstack/intent** (`npx @tanstack/intent install`) — wires up SKILL.md
+  files shipped inside npm packages (Expo, Prisma, Stripe, Vercel adopt it).
+- **AWS Agent Toolkit** — `/plugin install aws-core@claude-plugins-official`,
+  enabled per-project for CDK/serverless/IAM/observability work.
+
+> Watch item: Expo now ships official intent skills — dedupe the `expo-*`
+> pack against them at the next portfolio audit.
