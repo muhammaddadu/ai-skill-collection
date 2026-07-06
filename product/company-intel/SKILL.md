@@ -1,6 +1,6 @@
 ---
 name: company-intel
-description: Research a company, industry, or competitor set using web search and seven analytical lenses. Use when you need structured intel that feeds downstream PM skills.
+description: Research engine for a company, industry, or competitor set — web-grounded intel across seven analytical lenses, structured for downstream PM skills. Use when you need the underlying research. Do NOT use for an executive-narrative brief with quotes and takeaways — feed this output into company-research for that.
 intent: >-
   Act as a research engine that builds deep, structured understanding of companies, industries,
   and competitor sets through **seven analytical lenses** — financial landscape, market offer,
@@ -303,6 +303,12 @@ Select a number, combine them (e.g., '1 and 4'), or describe what you need."
 
 ---
 
+### Next Steps: Narrative Form
+
+For an executive-narrative brief — the 11-section research retold as a readable profile with executive quotes, product strategy, transformation initiatives, and key takeaways — hand this output to [`company-research`](../company-research/SKILL.md). That skill is the narrative synthesis layer on top of this skill's structured research.
+
+---
+
 ### Rerun Pattern
 
 When the user reruns the skill on a previously researched entity:
@@ -439,7 +445,7 @@ When handing off to a downstream skill, pass the relevant sections explicitly:
 ## References
 
 ### Related Skills
-- **[company-research](../company-research/SKILL.md)** (Component) — Lighter-weight company profile focused on executive quotes and product strategy; `company-intel` is deeper and broader, producing structured output for downstream consumption
+- **[company-research](../company-research/SKILL.md)** (Component) — The narrative synthesis layer: consumes this skill's 7-lens output and retells it as an executive brief with quotes, product strategy, and org context
 - **[pestel-analysis](../pestel-analysis/SKILL.md)** (Component) — Deep PESTEL template; consumes Sections 6 and 8 from company-intel
 - **[derisk-measurement-advisor](../derisk-measurement-advisor/SKILL.md)** (Interactive) — Risk scan that benefits from Sections 6 and 8 as context input
 - **[tam-sam-som-calculator](../tam-sam-som-calculator/SKILL.md)** (Component) — Market sizing; consumes Sections 2, 3, 5

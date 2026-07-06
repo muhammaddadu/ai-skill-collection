@@ -1,6 +1,6 @@
 ---
 name: company-research
-description: Create a company research brief with executive quotes, product strategy, and org context. Use when preparing for interviews, competitive analysis, partnerships, or market-entry work.
+description: Synthesize company research into an executive-narrative brief — executive quotes, product strategy, transformation initiatives, org context. Use when preparing for interviews, partnerships, competitive analysis, or market entry. Do NOT use for structured 7-lens intel gathering — run company-intel first; this skill narrates its output.
 intent: >-
   Create a comprehensive company profile that extracts executive insights, product strategy, transformation initiatives, and organizational dynamics from publicly available sources. Use this to understand competitive landscape, evaluate partnership opportunities, benchmark best practices, prepare for interviews, or inform market entry decisions by understanding how successful companies think about product management and strategy.
 type: component
@@ -11,6 +11,10 @@ type: component
 Create a comprehensive company profile that extracts executive insights, product strategy, transformation initiatives, and organizational dynamics from publicly available sources. Use this to understand competitive landscape, evaluate partnership opportunities, benchmark best practices, prepare for interviews, or inform market entry decisions by understanding how successful companies think about product management and strategy.
 
 This is not surface-level research—it's strategic intelligence gathering focused on product management perspectives and executive vision.
+
+### Prerequisites
+
+This skill consumes the structured 7-lens output of [`company-intel`](../company-intel/SKILL.md). **Run company-intel first for the underlying research; this skill synthesizes it into an executive narrative brief** — quotes, product strategy, transformation initiatives, and organizational context woven into a readable profile. If company-intel output isn't available, you can gather sources directly with the steps below, but the intel skill produces deeper, better-cited raw material.
 
 ## Key Concepts
 
@@ -363,6 +367,7 @@ Mini example excerpt:
 ## References
 
 ### Related Skills
+- **[company-intel](../company-intel/SKILL.md)** (Workflow) — Run first to generate the structured 7-lens research; this skill consumes that output and synthesizes the executive narrative brief
 - `skills/positioning-statement/SKILL.md` — Use company research to understand competitive positioning
 - `skills/pestel-analysis/SKILL.md` — Company research informs market context
 - `skills/proto-persona/SKILL.md` — Executive quotes may reveal target personas

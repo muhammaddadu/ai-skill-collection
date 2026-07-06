@@ -1,8 +1,8 @@
 ---
 name: user-story-splitting
-description: Break a large story or epic into smaller deliverable stories using proven split patterns. Use when backlog items are too big for estimation, sequencing, or independent release.
+description: The reference for Humanizing Work story-split patterns — full definitions, examples, anti-patterns, and validation checks for all 12 splitting patterns. Use to look up or apply a specific split pattern to a story or epic. Do NOT use for a guided, question-by-question breakdown session — use epic-breakdown-advisor for that.
 intent: >-
-  Break down large user stories, epics, or features into smaller, independently deliverable stories using systematic splitting patterns. Use this to make work more manageable, reduce risk, enable faster feedback cycles, and maintain flow in agile development. This skill applies to user stories, epics, and any work that's too large to complete in a single sprint.
+  Break down large user stories, epics, or features into smaller, independently deliverable stories using systematic splitting patterns. This is the canonical pattern reference: every split pattern is defined here with examples, validation checks, and anti-patterns. Use this to make work more manageable, reduce risk, enable faster feedback cycles, and maintain flow in agile development. This skill applies to user stories, epics, and any work that's too large to complete in a single sprint. For a facilitated, interactive breakdown session, use epic-breakdown-advisor, which delegates pattern definitions to this skill.
 type: component
 ---
 
@@ -12,19 +12,31 @@ Break down large user stories, epics, or features into smaller, independently de
 
 This is not arbitrary slicing—it's strategic decomposition that preserves user value while reducing complexity.
 
+**This skill is the canonical pattern reference.** For a guided, question-by-question session that walks an epic through pattern selection, use [`epic-breakdown-advisor`](../epic-breakdown-advisor/SKILL.md) — it facilitates; this file defines the patterns.
+
 ## Key Concepts
 
 ### The Story Splitting Framework
-Based on Richard Lawrence and Peter Green's "Humanizing Work Guide to Splitting User Stories," the framework provides 8 systematic patterns for splitting work:
+Based on Richard Lawrence and Peter Green's "Humanizing Work Guide to Splitting User Stories," the framework provides 12 systematic patterns for splitting work (Lawrence's original flowchart patterns plus practical extensions):
 
-1. **Workflow steps:** Split along sequential steps in a user's journey
-2. **Business rule variations:** Split by different rule scenarios (permissions, calculations, etc.)
-3. **Data variations:** Split by different data types or inputs
-4. **Acceptance criteria complexity:** Split when multiple "When" or "Then" statements exist
-5. **Major effort:** Split by technical milestones or implementation phases
-6. **External dependencies:** Split along dependency boundaries (APIs, third parties, etc.)
-7. **DevOps steps:** Split by deployment or infrastructure requirements
-8. **Tiny Acts of Discovery (TADs):** When none of the above apply, use small experiments to unpack unknowns
+1. **Workflow steps:** Split into thin end-to-end slices of a multi-step journey
+2. **Operations (CRUD):** Split "manage/handle/maintain" into Create, Read, Update, Delete
+3. **Business rule variations:** Split by different rule scenarios (permissions, calculations, etc.)
+4. **Data variations:** Split by different data types or inputs
+5. **Data entry methods:** Simple UI first, fancy UI later
+6. **Acceptance criteria complexity:** Split when multiple "When" or "Then" statements exist
+7. **Major effort:** "Implement one + add remaining" — first implementation carries the complexity
+8. **Simple/complex:** Core simplest version first, variations later
+9. **External dependencies:** Split along dependency boundaries (APIs, third parties, etc.)
+10. **DevOps steps:** Split by deployment or infrastructure requirements
+11. **Defer performance:** "Make it work" before "make it fast"
+12. **Tiny Acts of Discovery (TADs) / Break out a spike:** When none of the above apply, use small time-boxed experiments to unpack unknowns
+
+### The Meta-Pattern (Applies Across All Patterns)
+1. **Identify the core complexity** — What makes this story hard?
+2. **List all variations** — What are all the different ways/cases/rules?
+3. **Reduce variations to one complete slice** — Pick the simplest variation that still delivers end-to-end value
+4. **Make other variations separate stories**
 
 ### Why Split Stories?
 - **Faster feedback:** Smaller stories ship sooner, allowing earlier validation
@@ -32,6 +44,7 @@ Based on Richard Lawrence and Peter Green's "Humanizing Work Guide to Splitting 
 - **Better estimation:** Small stories are easier to estimate accurately
 - **Maintain flow:** Keeps work moving through the sprint without bottlenecks
 - **Testability:** Smaller scope = easier to write and run tests
+- **Reveals waste:** Good splits expose low-value work you can deprioritize or eliminate
 
 ### Anti-Patterns (What This Is NOT)
 - **Not horizontal slicing:** Don't split into "front-end story" and "back-end story" (each story should deliver user value)
@@ -49,6 +62,7 @@ Based on Richard Lawrence and Peter Green's "Humanizing Work Guide to Splitting 
 - Story is already small and well-scoped (don't over-split)
 - Splitting would create dependencies that slow delivery
 - The story is a technical task (use engineering task breakdown instead)
+- You want a facilitated conversation rather than a reference — use `epic-breakdown-advisor`
 
 ---
 
@@ -68,10 +82,12 @@ Start with the story/epic/feature that needs splitting. Ensure it's written usin
 
 Use `template.md` for the full fill-in structure and output format.
 
-Work through the 8 splitting patterns in order. Stop when you find one that applies.
+Work through the 12 splitting patterns in order. Stop when you find one that applies.
 
 #### Pattern 1: Workflow Steps
 **Ask:** Does this story contain multiple sequential steps?
+
+**Key insight:** Split into **thin end-to-end slices**, not step-by-step. Start with a simple case covering the **full workflow**, then add intermediate steps as separate stories. Each story delivers the full workflow, just with increasing sophistication.
 
 **Example:**
 - Original: "As a user, I want to sign up, verify my email, and complete onboarding"
@@ -80,9 +96,30 @@ Work through the 8 splitting patterns in order. Stop when you find one that appl
   2. "As a user, I want to verify my email via a confirmation link"
   3. "As a user, I want to complete onboarding by answering 3 profile questions"
 
+**Thin end-to-end example (workflow with gates):**
+- Original: "Publish content (requires editorial review, legal approval, staging)"
+- ❌ Wrong split (step-by-step): Story 1 = Editorial review, Story 2 = Legal approval, Story 3 = Publish — Story 1 delivers no user-visible value
+- ✅ Right split (thin end-to-end):
+  1. Publish content (simple path: author uploads, content goes live immediately—no reviews)
+  2. Add editorial review step (content waits for editor approval before going live)
+  3. Add legal approval step (content waits for legal + editorial before going live)
+
 ---
 
-#### Pattern 2: Business Rule Variations
+#### Pattern 2: Operations (CRUD)
+**Ask:** Does this story use words like "manage," "handle," or "maintain"? Those words signal multiple bundled operations.
+
+**Example:**
+- Original: "Manage user accounts"
+- Split:
+  1. "As an admin, I want to create a user account"
+  2. "As an admin, I want to view user account details"
+  3. "As an admin, I want to edit user account info"
+  4. "As an admin, I want to delete a user account"
+
+---
+
+#### Pattern 3: Business Rule Variations
 **Ask:** Does this story have different rules for different scenarios?
 
 **Example:**
@@ -94,8 +131,8 @@ Work through the 8 splitting patterns in order. Stop when you find one that appl
 
 ---
 
-#### Pattern 3: Data Variations
-**Ask:** Does this story handle different types of data or inputs?
+#### Pattern 4: Data Variations
+**Ask:** Does this story handle different types of data or inputs? Add variations **just-in-time** as needed, simplest first.
 
 **Example:**
 - Original: "As a user, I want to upload files (images, PDFs, videos)"
@@ -106,7 +143,18 @@ Work through the 8 splitting patterns in order. Stop when you find one that appl
 
 ---
 
-#### Pattern 4: Acceptance Criteria Complexity
+#### Pattern 5: Data Entry Methods
+**Ask:** Does this story include fancy UI elements (date pickers, autocomplete, drag-and-drop) that aren't essential to core functionality? UI complexity is independent of core functionality — build the simplest interface first, then add sophisticated UI as follow-ups.
+
+**Example:**
+- Original: "Search with calendar date picker"
+- Split:
+  1. "As a user, I want to search by date (basic text input: YYYY-MM-DD)"
+  2. "As a user, I want to pick the date from a visual calendar"
+
+---
+
+#### Pattern 6: Acceptance Criteria Complexity
 **Ask:** Does this story have multiple "When" or "Then" statements?
 
 **Example:**
@@ -123,10 +171,16 @@ Work through the 8 splitting patterns in order. Stop when you find one that appl
 
 ---
 
-#### Pattern 5: Major Effort
-**Ask:** Does this story require significant technical work that can be delivered incrementally?
+#### Pattern 7: Major Effort
+**Ask:** Does this story require significant technical work where the **first implementation** carries most of the complexity, with additions being trivial? Frame as "implement one + add remaining."
 
 **Example:**
+- Original: "Accept credit card payments (Visa, Mastercard, Amex, Discover)"
+- Split:
+  1. "Accept Visa payments" (builds the full payment infrastructure: gateway, security, compliance)
+  2. "Add Mastercard, Amex, Discover support" (trivial additions once the infrastructure exists)
+
+**Example (incremental capability):**
 - Original: "As a user, I want real-time collaboration on documents"
 - Split:
   1. "As a user, I want to see who else is viewing the document (read-only presence)"
@@ -135,7 +189,20 @@ Work through the 8 splitting patterns in order. Stop when you find one that appl
 
 ---
 
-#### Pattern 6: External Dependencies
+#### Pattern 8: Simple/Complex
+**Ask:** What's the **simplest version** of this story that still delivers value? Strip away complexity, deliver the core, and add variations back as separate stories.
+
+**Example:**
+- Original: "Flight search (with max stops, nearby airports, flexible dates)"
+- Split:
+  1. "Basic flight search (origin, destination, date)" — core value
+  2. "Add max stops filter"
+  3. "Add nearby airports option"
+  4. "Add flexible dates option"
+
+---
+
+#### Pattern 9: External Dependencies
 **Ask:** Does this story depend on multiple external systems or APIs?
 
 **Example:**
@@ -147,7 +214,7 @@ Work through the 8 splitting patterns in order. Stop when you find one that appl
 
 ---
 
-#### Pattern 7: DevOps Steps
+#### Pattern 10: DevOps Steps
 **Ask:** Does this story require complex deployment, infrastructure, or operational work?
 
 **Example:**
@@ -159,8 +226,21 @@ Work through the 8 splitting patterns in order. Stop when you find one that appl
 
 ---
 
-#### Pattern 8: Tiny Acts of Discovery (TADs)
-**Ask:** If none of the above apply, are there unknowns or assumptions that need unpacking?
+#### Pattern 11: Defer Performance
+**Ask:** Can you deliver functional value first and optimize performance/security/scalability later? Split "make it work" from "make it fast."
+
+**Example:**
+- Original: "Real-time search with <100ms response time"
+- Split:
+  1. "Search works" (functional, no performance guarantee)
+  2. "Optimize search to <100ms" (add caching, indexing)
+
+---
+
+#### Pattern 12: Tiny Acts of Discovery (TADs) / Break Out a Spike
+**Ask:** If none of the above apply, are there unknowns or assumptions that need unpacking? Not finding a pattern usually signals **high uncertainty** — run a small, time-boxed investigation before splitting.
+
+A spike/TAD answers questions like: Is this technically feasible? Which approach performs best? What does the API actually return?
 
 **Example:**
 - Original: "As a user, I want AI-powered recommendations" (too vague, too many unknowns)
@@ -170,7 +250,7 @@ Work through the 8 splitting patterns in order. Stop when you find one that appl
   3. Build the simplest recommendation engine (collaborative filtering)
   4. Measure and iterate
 
-**Note:** TADs aren't stories—they're experiments. Use them to de-risk and clarify before writing stories.
+**Note:** TADs and spikes aren't stories—they're experiments. They produce learning, not shippable code. Use them to de-risk and clarify, then restart at Pattern 1 with better understanding.
 
 ---
 
@@ -206,8 +286,9 @@ Ask these questions:
 3. **Can each split be tested independently?** (Clear acceptance criteria)
 4. **Is each split small enough for a sprint?** (1-5 days of work)
 5. **Do the splits, when combined, equal the original?** (Nothing lost in translation)
+6. **Does the split reveal low-value work you can deprioritize or eliminate?** (Good splits expose the 80/20)
 
-If any answer is "no," revise.
+If any answer to 1-5 is "no," revise.
 
 ---
 
@@ -221,7 +302,7 @@ Mini example excerpt:
 ### Original Story:
 As a team admin, I want to manage team members so that I can control access.
 
-### Suggested Splits (Acceptance Criteria Complexity):
+### Suggested Splits (Operations/CRUD + Acceptance Criteria Complexity):
 1. Invite new team members
 2. Remove team members
 3. Update team member roles
@@ -254,7 +335,7 @@ As a team admin, I want to manage team members so that I can control access.
 
 **Consequence:** Arbitrary splits that don't map to user value or workflow.
 
-**Fix:** Use one of the 8 splitting patterns—each split should have a clear rationale.
+**Fix:** Use one of the 12 splitting patterns—each split should have a clear rationale.
 
 ---
 
@@ -276,15 +357,25 @@ As a team admin, I want to manage team members so that I can control access.
 
 ---
 
+### Pitfall 6: Step-by-Step Workflow Splitting (Pattern 1 Done Wrong)
+**Symptom:** Story 1 = "Editorial review," Story 2 = "Legal approval."
+
+**Consequence:** Stories don't deliver end-to-end value—users see nothing until the last story ships.
+
+**Fix:** Each story should cover the **full workflow** (thin end-to-end slice), just with increasing sophistication.
+
+---
+
 ## References
 
 ### Related Skills
+- `skills/epic-breakdown-advisor/SKILL.md` — Interactive facilitated session that walks an epic through these patterns (INVEST pre-check, guided pattern selection, split evaluation)
 - `skills/user-story/SKILL.md` — Format for writing the split stories
 - `skills/epic-hypothesis/SKILL.md` — Epics often need splitting before becoming stories
 - `skills/jobs-to-be-done/SKILL.md` — Helps identify meaningful splits along user jobs
 
 ### External Frameworks
-- Richard Lawrence & Peter Green, *The Humanizing Work Guide to Splitting User Stories* — Origin of the 8 splitting patterns
+- Richard Lawrence & Peter Green, *The Humanizing Work Guide to Splitting User Stories* — Origin of the splitting patterns (https://www.humanizingwork.com/the-humanizing-work-guide-to-splitting-user-stories/)
 - Bill Wake, *INVEST in Good Stories* (2003) — Criteria for well-formed stories (Independent, Negotiable, Valuable, Estimable, Small, Testable)
 - Mike Cohn, *User Stories Applied* (2004) — Story decomposition techniques
 
@@ -299,5 +390,5 @@ As a team admin, I want to manage team members so that I can control access.
 **Skill type:** Component
 **Suggested filename:** `user-story-splitting.md`
 **Suggested placement:** `/skills/components/`
-**Dependencies:** References `skills/user-story/SKILL.md`, `skills/epic-hypothesis/SKILL.md`
+**Dependencies:** References `skills/user-story/SKILL.md`, `skills/epic-hypothesis/SKILL.md`; referenced by `skills/epic-breakdown-advisor/SKILL.md`
 **Applies to:** User stories, epics, and any work that's too large to complete in a single sprint
