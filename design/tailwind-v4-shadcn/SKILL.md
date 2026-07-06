@@ -17,6 +17,8 @@ description: |
   typography plugin, forms plugin, prose class, @tailwindcss/typography,
   @tailwindcss/forms
 license: MIT
+tested_date: 2026-07-06
+requires: "Tailwind CSS >= 4, < 5"
 ---
 
 # Tailwind v4 + shadcn/ui Production Stack
@@ -523,6 +525,14 @@ Load reference files based on user's specific needs:
 - Need advanced component patterns
 - Questions about component best practices
 - Component composition questions
+
+---
+
+## Related Tailwind skills
+
+- **`tailwind-fundamentals`** — Tailwind concepts and theory (v4 `@theme`, OKLCH colors, container queries) for any stack
+- **`tailwind-v4-shadcn`** (this skill) — Vite + React + shadcn/ui project setup
+- **`expo-tailwind-setup`** — Expo/NativeWind v5 setup for universal styling (iOS, Android, Web)
 
 ---
 

@@ -1,7 +1,9 @@
 ---
-name: tailwindcss
-description: This skill should be used when the user asks to "style with Tailwind", "add CSS", "configure theme", "use @theme", "add custom colors", "implement dark mode", "use container queries", "add responsive design", "use OKLCH colors", or discusses styling, theming, or visual design. Always use the latest Tailwind CSS version and modern patterns.
+name: tailwind-fundamentals
+description: Tailwind CSS concepts and theory — v4 @theme directive, OKLCH colors, container queries, dark mode, responsive patterns — for any stack. Use when styling, theming, or configuring Tailwind itself. Do NOT use for React+shadcn setup (tailwind-v4-shadcn) or Expo (expo-tailwind-setup).
 version: 1.0.0
+tested_date: 2026-07-06
+requires: "Tailwind CSS >= 4, < 5"
 ---
 
 # Tailwind CSS Development
@@ -380,6 +382,12 @@ Style based on container size, not viewport:
   disabled:bg-gray-100 disabled:cursor-not-allowed
 " />
 ```
+
+## Related Tailwind skills
+
+- **`tailwind-fundamentals`** (this skill) — Tailwind concepts and theory (v4 `@theme`, OKLCH colors, container queries) for any stack
+- **`tailwind-v4-shadcn`** — Vite + React + shadcn/ui project setup (CSS variable architecture, dark mode, v4 gotchas)
+- **`expo-tailwind-setup`** — Expo/NativeWind v5 setup for universal styling (iOS, Android, Web)
 
 ## Additional Resources
 
