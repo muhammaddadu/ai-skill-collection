@@ -42,6 +42,7 @@ director-readiness-advisor
 discovery-interview-prep
 discovery-process
 e2e-automation
+electron
 eng-feasibility-spike
 eol-message
 epic-breakdown-advisor
