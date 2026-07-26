@@ -122,3 +122,17 @@ user-story-splitting
 vp-cpo-readiness-advisor
 web-design-guidelines
 workshop-facilitation
+# Leonxlnx/taste-skill bundle
+brandkit
+design-taste-frontend
+design-taste-frontend-v1
+full-output-enforcement
+gpt-taste
+high-end-visual-design
+image-to-code
+imagegen-frontend-mobile
+imagegen-frontend-web
+industrial-brutalist-ui
+minimalist-ui
+redesign-existing-projects
+stitch-design-taste

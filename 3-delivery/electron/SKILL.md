@@ -1,6 +1,6 @@
 ---
 name: electron
-description: "Build, secure, and package Electron desktop apps — main/preload/renderer split, contextIsolation-safe typed IPC over a preload bridge, BrowserWindow + application menu + app naming, a strict CSP, and distribution (electron-builder/Forge, productName, code signing). Use when building an Electron app, wiring IPC, hardening security, fixing the app/menu name, or packaging. Do NOT use for web-only React UI (use cleanui) or Expo/React Native."
+description: "Build, secure, and package Electron desktop apps with a main/preload/renderer split, typed IPC, strict CSP, correct app naming, and electron-builder or Forge distribution. Use for Electron architecture, IPC, security, menus, naming, signing, or packaging. Do NOT use for web-only React UI or Expo/React Native."
 type: component
 domain: 3-delivery
 tested_date: 2026-07-09

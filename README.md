@@ -61,9 +61,10 @@ Exploration -> Sign-Off -> Discovery -> Sign-Off -> Delivery -> Learn & Iterate.
   guardians live in each repo's `.claude/agents/`).
 
 Vendored third-party skills record their origin in a `.upstream` file
-(agent-docs, ffmpeg-usage, humanizer, and the adopted community skills —
-tdd, diagnosing-bugs, resolving-merge-conflicts, postgres-best-practices,
-mcp-builder, react-best-practices, react-native-skills, web-design-guidelines).
+(agent-docs, ffmpeg-usage, humanizer, the Leonxlnx taste-skill bundle, and the
+adopted community skills — tdd, diagnosing-bugs, resolving-merge-conflicts,
+postgres-best-practices, mcp-builder, react-best-practices,
+react-native-skills, web-design-guidelines).
 
 ## Companion tooling (per-project, not vendored here)
 

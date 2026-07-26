@@ -1,6 +1,6 @@
 ---
 name: cleanui
-description: Distinctive, professional UI without generic AI patterns: pick a bold aesthetic direction, then enforce typography, layout, and platform rules. Use when building or styling web pages, landing pages, dashboards, or components — React, React Native, SwiftUI, Compose, HTML/CSS. Do NOT use for palette/font/style lookups (use ui-design-system-search).
+description: "Distinctive, professional UI without generic AI patterns: pick a bold aesthetic direction, then enforce typography, layout, and platform rules. Use when building or styling web pages, landing pages, dashboards, or components - React, React Native, SwiftUI, Compose, HTML/CSS. Do NOT use for palette/font/style lookups (use ui-design-system-search)."
 version: 1.0.0
 ---
 
