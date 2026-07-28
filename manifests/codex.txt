@@ -30,6 +30,7 @@ api-design
 building-native-ui
 business-health-diagnostic
 cleanui
+co-intelligence
 company-intel
 company-research
 context-engineering-advisor
