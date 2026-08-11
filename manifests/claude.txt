@@ -34,6 +34,7 @@ co-intelligence
 company-intel
 company-research
 context-engineering-advisor
+critical-review
 customer-journey-map
 customer-journey-mapping-workshop
 derisk-measurement-advisor
