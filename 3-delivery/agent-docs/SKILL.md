@@ -40,6 +40,28 @@ These are the point of the whole exercise — preserve them verbatim in the gene
 - **Stable section numbers** in the requirements doc (PRD §1, §2, …) so cross-references don't rot — slim bodies, don't renumber.
 - **Epics are self-evaluating.** Each epic carries `- [ ]` acceptance criteria; a box is ticked only when a test or shipped artifact proves it, never on intent. Don't build ahead of the current epic.
 - **Learnings are append-only.** Never rewrite or delete an entry.
+- **Rules cite their receipts.** A rule in `AGENTS.md` links to the `LEARNINGS.md` entry (or postmortem) that produced it. A rule without a reason gets "simplified away" by the next contributor; a rule with an incident attached survives.
+- **Scoped `AGENTS.md` where the risk lives.** A directory holding the dangerous part (the code that reaches production data, the payment path, the migration runner) gets its own short `AGENTS.md` supplementing the root one. Rules are followed where they are read, and nobody reads the root file while editing a query.
+- **Deferred work is written down, not remembered.** Each package README carries a `## Known Limitations and Deferred Work` section. Honest gaps beat invisible ones.
+- **Enforcement lives in the code, not the prompt.** Documentation and system prompts describe a constraint; the executor enforces it. Never let a doc be the only thing standing between an agent and a destructive action.
+
+## Machine-checkable gates
+
+Conventions that only a human notices get violated. Wire these into one command (`npm run verify`, `make check`) and into CI, so the standard is enforced rather than requested:
+
+| Gate | Catches | Typical tool |
+|---|---|---|
+| Types | contract drift | `tsc --noEmit` |
+| Lint | correctness/suspicious patterns | `oxlint` (fast), `eslint` |
+| **Duplication** | the copy-paste that later diverges into a bug | `jscpd` with `exitCode: 1` |
+| **Dead code** | unused files, exports and dependencies | `knip` |
+| Tests | behaviour, including denial paths | project's runner |
+
+The two in bold are the ones teams usually skip, and they catch a specific, expensive class of defect: a second copy of a serializer that never got the escaping fix, and a "utility" nobody has imported since the refactor. Both are found by config, not by review.
+
+Local hooks stay fast (lint only what is staged; regenerate derived files rather than rejecting the commit) and let CI own the full matrix.
+
+When a gate has a rule disabled, record why next to it — a disabled rule with no stated reason is indistinguishable from an accident. Some suppressions are load-bearing: a project that must run database queries strictly sequentially has to disable `no-await-in-loop`, because the "fix" the linter suggests would break a safety property.
 
 ## Workflow
 

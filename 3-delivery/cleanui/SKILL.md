@@ -99,6 +99,12 @@ If your output contains ANY of these, stop and fix before returning code.
 - **BANNED:** Entire app in a single file
 - **USE INSTEAD:** Separate: screens/pages, components, constants/theme, data, navigation
 
+### Fabricated Data
+- **BANNED:** Sparklines, trend lines, bars, gauges or figures made from hard-coded or randomly generated values, in any product that displays real data
+- **USE INSTEAD:** Chart only what a query returns. If the honest series isn't available or is too expensive to compute, show a different *measured* fact (a count, a share, a "top X holds N%") or nothing at all.
+- **WHY:** In an analytics, finance, health or ops product, a decorative chart is a false claim about the data. The design-system tile that has a sparkline slot does not entitle you to invent a series to fill it.
+- **SELF-CHECK:** For every visual encoding on the screen, name the field it came from. Can't? Delete it.
+
 ---
 
 ## LAYOUT RULES
@@ -115,6 +121,10 @@ If your output contains ANY of these, stop and fix before returning code.
 | Chat/messages | Contact list + chat detail | Hero cards or stat grids |
 | Maps/location | Map view + bottom sheet overlay | Standard list layout |
 
+### Component-Relative Layout
+- A component that renders in more than one container width (full page, side panel, modal, print) must respond to **its own** width, not the viewport. Use container queries (`@container` + `@md:`/`@lg:` in Tailwind v4, `container-type: inline-size` in CSS).
+- Symptom you are missing this: a card looks right on the page and breaks inside a drawer or split view, and the "fix" is a pile of viewport breakpoints that contradict each other.
+
 ### Anti-Templating Rules
 - **NEVER use the same layout skeleton for every app.** Read the prompt, identify the content type, pick the right layout.
 - **NEVER use ALL of these together:** hero card + grid buttons + drag handle + segmented control + vertical list. That's a template.
@@ -124,6 +134,10 @@ If your output contains ANY of these, stop and fix before returning code.
 ---
 
 ## DESIGN TASTE
+
+### One Expressive Element
+- When a brand owns a signature gradient, texture or illustration style, use it **once per view**: one headline word, one card edge, one primary action. Repeating it on every surface turns a brand asset into wallpaper and destroys hierarchy.
+- Never use a brand gradient as a fill for data (bars, lines, map regions). Data colour comes from a dedicated chart palette, so series stay distinguishable and never collide with chrome.
 
 ### Color Restraint
 - Monochrome or near-monochrome palettes often look better than colorful ones.
