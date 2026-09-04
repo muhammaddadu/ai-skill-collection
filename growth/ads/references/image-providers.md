@@ -1,9 +1,17 @@
 # Image Generation Providers
 
 <!-- Updated: 2026-04-01 -->
-<!-- Used by: ads-generate, ads-photoshoot, visual-designer agent -->
+<!-- Used by: ads-generate, ads-photoshoot, visual-design phase -->
 
-## Default Provider: banana-claude
+## Codex default: imagegen
+
+When Codex exposes `imagegen`, use its built-in mode by default for generation
+and editing. It does not require `OPENAI_API_KEY`. Load local edit targets for
+visual inspection first, preserve edit invariants, and copy every selected
+project-bound output into the workspace. Use its CLI fallback only when the user
+explicitly chooses that path.
+
+## Optional provider: banana-claude
 
 banana-claude (v1.4.1) is the default image generation provider. It acts as a Creative Director
 layer on top of Google Gemini, providing 5-component prompt engineering, 9 domain modes,

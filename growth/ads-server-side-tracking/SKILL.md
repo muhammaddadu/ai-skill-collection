@@ -22,7 +22,7 @@ which audits the *attribution model* sitting on top of these events.
 1. Collect server-side stack inventory: sGTM container info, Meta CAPI
    integration method (Gateway / direct / partner integration), event
    schema documentation, hosting infrastructure (Cloud Run / GCS / AWS)
-2. Read `ads/references/conversion-tracking.md` for cross-platform baseline
+2. Read `../ads/references/conversion-tracking.md` for cross-platform baseline
 3. Test event flow: trigger known events → verify they appear in BOTH
    client-side (Pixel Helper / Tag Assistant) AND server-side (Events
    Manager test events / GA4 DebugView)

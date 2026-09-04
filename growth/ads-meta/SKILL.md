@@ -101,9 +101,9 @@ default. Audit confirms:
 ## Process
 
 1. Collect Meta Ads data (Ads Manager export, Events Manager screenshot, EMQ scores)
-2. Read `ads/references/meta-audit.md` for full 50-check audit
-3. Read `ads/references/benchmarks.md` for Meta-specific benchmarks
-4. Read `ads/references/scoring-system.md` for weighted scoring
+2. Read `../ads/references/meta-audit.md` for full 50-check audit
+3. Read `../ads/references/benchmarks.md` for Meta-specific benchmarks
+4. Read `../ads/references/scoring-system.md` for weighted scoring
 5. Evaluate all applicable checks as PASS, WARNING, or FAIL
 6. Calculate Meta Ads Health Score (0-100)
 7. Generate findings report with action plan
@@ -167,7 +167,7 @@ If ads are in restricted categories:
 - Special Ad Category declared before campaign creation
 - Targeting restrictions verified (no ZIP, age 18-65+ only, no Lookalike)
 - Creative compliance with category-specific policies
-- Read `ads/references/compliance.md` for full requirements
+- Read `../ads/references/compliance.md` for full requirements
 
 ## EMQ Optimization Guide
 

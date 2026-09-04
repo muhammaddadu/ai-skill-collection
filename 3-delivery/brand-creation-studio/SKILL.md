@@ -35,6 +35,7 @@ Do not use this full workflow when the user only wants a single brand-board imag
 - Use current public research when competitors, culture, category, naming, domains, market, or trends materially affect the work.
 - Describe trademark, company-name, and domain checks as preliminary screening, never legal clearance.
 - When image-generation tools are available, use them throughout exploration, critique, and contextual testing—not only for final mockups.
+- In Codex, use `imagegen` built-in mode for raster moodboards, sketch sheets, imagery, and mockups. Move selected project assets into the project workspace; use its CLI fallback only when the user explicitly chooses it.
 - Never rely on generated image text for final wordmarks or typographic specifications. Render final lettering with accurate type/vector/design tools.
 - Avoid close replication of living designers, studios, brands, or recognisable copyrighted campaigns. Competitor references support analysis and differentiation, not cloning.
 - Do not hide weak identity design behind beautiful mockups.

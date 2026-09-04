@@ -1,6 +1,6 @@
 ---
 name: ads-photoshoot
-description: "Product photography enhancement for ad creatives via banana-claude (v1.4.1+ with nanobanana-mcp): generates 5 styles from one product image — Studio, Floating, Ingredient, In Use, Lifestyle. Use when user says product photo, photoshoot, studio shot, lifestyle photo, or enhance product image."
+description: "Create ad-ready product photography in Studio, Floating, Ingredient, In Use, or Lifestyle styles with an available image provider. Use for product photoshoots, enhancement, or platform-sized product imagery."
 user-invokable: false
 tested_date: 2026-05-17
 tested_with: claude-code v2.x
@@ -21,10 +21,13 @@ and 9:16 (TikTok/Reels/Stories).
 | `/ads photoshoot --product shoe.jpg` | Start with a product image file |
 | `/ads photoshoot --all-platforms` | Generate all 5 sizes per style |
 
-## Environment Setup
+## Provider setup
 
-Requires banana-claude (v1.4.1+) with nanobanana-mcp configured.
-Run `/banana setup` to configure API key and MCP.
+In Codex, prefer `imagegen` built-in mode. Load a local product image for visual
+inspection before editing, preserve invariants, and copy selected project-bound
+outputs into the workspace. Elsewhere, use configured banana-claude or another
+runtime image provider. If no provider accepts the required source image or
+prompt, explain the setup requirement and stop.
 
 ## Process
 
@@ -51,10 +54,13 @@ If found, extract for style injection:
 
 If not found, proceed with standard style templates.
 
-### Step 3: Verify banana-claude
+### Step 3: Select the image provider
 
-Verify banana-claude is installed (run `/banana setup` to check). If not installed,
-display setup instructions and exit.
+In Codex, select `imagegen` built-in mode when available and follow its edit flow
+for local source images. Otherwise select configured banana-claude or another
+runtime image provider. Prefer a provider that accepts the original product image
+as a reference or edit input; description-only generation does not prove product,
+packaging, logo, or label fidelity.
 
 ### Step 4: Construct Prompts per Style
 
@@ -138,20 +144,25 @@ For iterative refinement: if initial generation doesn't match brand expectations
 
 ### Step 5: Generate Images
 
-**Domain mode selection per style:**
-- Use banana **Product** mode for Studio, Floating, and Ingredient styles
-- Use banana **Editorial** mode for In Use and Lifestyle styles
-- Set resolution to 2K (default) for all generations
+**Provider configuration:**
+- With banana, use **Product** mode for Studio, Floating, and Ingredient styles
+- With banana, use **Editorial** mode for In Use and Lifestyle styles
+- With another provider, map the same intent to its supported reference-image,
+  edit, quality, and aspect-ratio controls
+- Preserve the source product's geometry, packaging, logo, and exact label text;
+  flag any output where fidelity cannot be verified
 
-**Aspect ratio setup:** Use banana MCP `set_aspect_ratio` before each generation:
+**Aspect ratios:**
 - For 1080x1080: set ratio to 1:1
 - For 1080x1920: set ratio to 9:16
 
-For each style x size combination, use `/banana generate` with the constructed
-prompt, selected domain mode, and correct aspect ratio. Save output to
+For each style and size combination, use the selected provider with the
+constructed prompt, source image when available, and correct aspect ratio. Save output to
 `./product-photos/[style]/[product-slug]-[style]-[WxH].png`.
 
-Track results. If a generation fails, retry once with a simplified prompt.
+Validate or crop to the requested pixel dimensions without distortion. Track
+results. If generation fails, retry once with a simplified prompt, then stop
+that variant and report the failure rather than looping.
 
 ### Step 6: Organize and Report
 
@@ -185,7 +196,7 @@ Track results. If a generation fails, retry once with a simplified prompt.
   In Use:     ./product-photos/in-use/ (2 sizes)
   Lifestyle:  ./product-photos/lifestyle/ (2 sizes)
 
-  Cost: see ~/.banana/costs.json for total spend
+  Cost: [provider-reported total, or unknown when unavailable]
 
   Best for:
   • Meta Feed → Studio (4:5) or Lifestyle (4:5)
@@ -200,7 +211,7 @@ Track results. If a generation fails, retry once with a simplified prompt.
 
 Before generating, show:
 - Number of styles selected x 2 sizes = total images
-- Estimated cost based on banana pricing tiers
+- Estimated cost from the selected provider's current pricing when available
 - If >$0.50, ask for confirmation
 
 ## Platform Recommendations

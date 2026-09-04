@@ -20,7 +20,7 @@ attribution windows or unverified Consent Mode setups will mis-attribute
 1. Collect current attribution stack: GA4 property ID, Google Ads conversion
    actions, Meta CAPI config, Apple Ads / AdAttributionKit registration,
    MMP dashboard (AppsFlyer / Adjust / Branch / Singular), any sGTM container
-2. Read `ads/references/conversion-tracking.md` for the cross-platform
+2. Read `../ads/references/conversion-tracking.md` for the cross-platform
    tracking baseline
 3. Evaluate attribution health per surface (web, iOS app, Android app,
    server-side)

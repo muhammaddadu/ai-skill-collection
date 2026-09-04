@@ -28,8 +28,8 @@ vendors. Detailed Amazon DSP audit (programmatic / Twitch / Fire TV / Freevee
    Search Terms, Repeat Purchase Behavior, Item Comparison
 3. Verify Seller / Vendor Central context (vendor strategy differs from
    seller strategy on portfolio, coupons, and Sponsored Brands video)
-4. Read `ads/references/benchmarks.md` for Amazon-specific benchmarks
-5. Read `ads/references/scoring-system.md` for weighted scoring
+4. Read `../ads/references/benchmarks.md` for Amazon-specific benchmarks
+5. Read `../ads/references/scoring-system.md` for weighted scoring
 6. Evaluate checks per category
 7. Calculate Amazon Ads Health Score (0-100)
 8. Generate findings report with action plan

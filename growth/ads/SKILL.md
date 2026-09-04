@@ -1,6 +1,6 @@
 ---
 name: ads
-description: "Multi-platform paid advertising audit and optimization skill. Analyzes Google, Meta, YouTube, LinkedIn, TikTok, Microsoft, Apple, and Amazon Ads. 250+ checks with scoring, parallel agents, industry templates, AI creative generation, attribution and server-side tracking deep dives."
+description: "Audit and optimize paid advertising across Google, Meta, YouTube, LinkedIn, TikTok, Microsoft, Apple, and Amazon using scoring, creative, attribution, and tracking workflows. Use for multi-platform paid-media audits; use a platform-specific `ads-*` skill for one channel."
 argument-hint: "audit | google | meta | youtube | linkedin | tiktok | microsoft | apple | amazon | attribution | tracking | creative | landing | budget | plan <type> | competitor | math | test | report | dna <url> | create | generate | photoshoot"
 license: MIT
 tested_date: 2026-05-17
@@ -11,13 +11,13 @@ tested_with: claude-code v2.x
 
 Comprehensive ad account analysis across all major platforms (Google, Meta,
 LinkedIn, TikTok, Microsoft, Apple, Amazon). Orchestrates 22 specialized
-sub-skills and 10 agents (6 audit + 4 creative).
+sub-skills plus bounded audit and creative roles.
 
 ## Quick Reference
 
 | Command | What it does |
 |---------|-------------|
-| `/ads audit` | Full multi-platform audit with parallel subagent delegation |
+| `/ads audit` | Full multi-platform audit with optional parallel role execution |
 | `/ads google` | Google Ads deep analysis (Search, PMax, YouTube) |
 | `/ads meta` | Meta Ads deep analysis (FB, IG, Advantage+) |
 | `/ads youtube` | YouTube Ads specific analysis |
@@ -77,12 +77,12 @@ before continuing.
 
 ## Orchestration Logic
 
-When the user invokes `/ads audit`, delegate to subagents in parallel:
+When the user invokes `/ads audit`:
 1. **Collect context** (see Context Intake above; do this first)
 2. Collect account data (exports, screenshots, or pasted metrics)
 3. Detect business type and identify active platforms
-4. Spawn subagents via Task tool with `context: fork`: audit-google, audit-meta, audit-creative, audit-tracking, audit-budget, audit-compliance
-5. **Validate**: verify each subagent returned valid JSON scores with required fields before aggregating
+4. If delegation is available and authorized, run the audit roles below in parallel through the runtime's supported mechanism; otherwise run them inline, sequentially
+5. **Validate**: verify each role returned valid JSON scores with required fields before aggregating
 6. Collect results and generate unified report with Ads Health Score (0-100)
 7. Create prioritized action plan with Quick Wins
 
@@ -90,9 +90,8 @@ For individual commands (`/ads google`, `/ads meta`, `/ads amazon`,
 `/ads attribution`, `/ads tracking`, etc.), load the relevant sub-skill
 directly. Still collect context first if not already provided.
 
-**Wave 2 sub-skills run standalone (no dedicated agent yet):** `ads-amazon`,
-`ads-attribution`, and `ads-server-side-tracking`. See the Wave 3 backlog at
-the bottom of the Subagents section for the planned paired audit agents.
+Run `ads-amazon`, `ads-attribution`, and `ads-server-side-tracking` as standalone
+sub-skills and include their results when those surfaces are in scope.
 
 ## Creative Workflow
 
@@ -102,9 +101,10 @@ Sequential pipeline (each step is independently runnable):
 3. `/ads generate` → reads brief + profile → `ad-assets/` directory
 4. `/ads photoshoot` → standalone or reads profile for style injection
 
-Requires `GOOGLE_API_KEY` (Gemini default) or `ADS_IMAGE_PROVIDER` + matching key.
-If API key is missing, `/ads generate` and `/ads photoshoot` display setup
-instructions and exit; they never fail silently.
+In Codex, `/ads generate` and `/ads photoshoot` use `imagegen` built-in mode by
+default and do not require an API key. Other providers may require their own
+configuration. If no usable provider is available, explain the setup requirement
+and stop; never fail silently.
 
 ## Industry Detection
 
@@ -178,7 +178,8 @@ Do NOT show the footer after:
 Load these on-demand as needed; do NOT load all at startup.
 
 **Path resolution:** All references are in this skill's own `references/` directory (spokes reach them via `../ads/references/`, a sibling path that works in any skills root).
-When sub-skills or agents reference `ads/references/*.md`, resolve to
+When sub-skills or agents reference this material, use `../ads/references/*.md`,
+which resolves from sibling skills in the growth pack, or resolve to
 `references/*.md` relative to the ads skill directory.
 
 - `references/thinking-framework.md`: 10-Principle Thinking Framework (OBSERVE/LISTEN/THINK/CONNECT/FEEL/ACCEPT/CREATE/GROW) — load before any audit, plan, or creative output
@@ -261,23 +262,20 @@ This skill orchestrates 22 specialized sub-skills:
 21. **ads-generate**: AI image generation with pluggable providers
 22. **ads-photoshoot**: Product photography in 5 professional styles
 
-## Subagents
+## Audit and creative roles
 
-For parallel analysis during full audits:
+These are bounded roles, not assumed agent files. Delegate them only when the
+runtime supports delegation and the user or applicable instructions authorize it;
+otherwise perform the same work inline.
+
+For full audits:
 - `audit-google`: Google Ads checks (G01-G61 + 19 hyphenated v1.5+ IDs = 80 total; incl. AI Max)
 - `audit-meta`: Meta Ads checks (M01-M40 + 10 hyphenated v1.5+ IDs = 50 total; incl. Andromeda + Entity-ID clustering)
 - `audit-creative`: Creative quality for LinkedIn, TikTok, Microsoft (plus cross-platform creative-diversity scoring for Andromeda Entity-ID retrieval)
 - `audit-tracking`: Conversion tracking health across all platforms
 - `audit-budget`: Budget, bidding, structure for LinkedIn, TikTok, Microsoft
 - `audit-compliance`: Compliance, settings, performance across all platforms
-- `creative-strategist`: Campaign concepts from brand profile + audit results (Opus, maxTurns: 25)
-- `visual-designer`: Image generation with brand injection through the active image-generation tool (Sonnet, maxTurns: 30)
-- `copy-writer`: Headlines, CTAs, primary text within platform limits (Sonnet, maxTurns: 20)
-- `format-adapter`: Asset dimension validation and spec compliance reporting (Haiku, maxTurns: 15)
-
-**Wave 3 backlog (planned, not yet shipped):**
-- `audit-amazon`: Amazon Sponsored Products / Brands / Display + DSP audit (currently invoked via `ads-amazon` sub-skill standalone)
-- `audit-attribution`: Cross-platform attribution audit (currently invoked via `ads-attribution` sub-skill standalone)
-- `audit-server-side`: Server-side tracking pipeline audit (currently invoked via `ads-server-side-tracking` sub-skill standalone)
-
-Once these land, `/ads audit` will dispatch all three in parallel alongside the existing six.
+- `creative-strategist`: Campaign concepts from brand profile and audit results
+- `visual-designer`: Image generation with brand injection through the active image-generation tool
+- `copy-writer`: Headlines, CTAs, and primary text within platform limits
+- `format-adapter`: Asset dimension validation and specification-compliance reporting

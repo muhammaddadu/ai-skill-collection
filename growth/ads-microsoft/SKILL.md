@@ -11,9 +11,9 @@ tested_with: claude-code v2.x
 ## Process
 
 1. Collect Microsoft Ads data (account export, UET tag status, import results)
-2. Read `ads/references/microsoft-audit.md` for full 24-check audit
-3. Read `ads/references/benchmarks.md` for Microsoft-specific benchmarks
-4. Read `ads/references/scoring-system.md` for weighted scoring
+2. Read `../ads/references/microsoft-audit.md` for full 24-check audit
+3. Read `../ads/references/benchmarks.md` for Microsoft-specific benchmarks
+4. Read `../ads/references/scoring-system.md` for weighted scoring
 5. Evaluate all applicable checks as PASS, WARNING, or FAIL
 6. Calculate Microsoft Ads Health Score (0-100)
 7. Generate findings report with action plan

@@ -1,6 +1,6 @@
 ---
 name: ads-audit
-description: "Full multi-platform paid advertising audit via parallel subagents across Google, Meta, LinkedIn, TikTok, Microsoft, and Apple Ads, with per-platform health scores and an aggregate 0-100 score. Use when user says audit my ads, account health check, paid media audit, ad spend audit, or PPC audit."
+description: "Audit paid advertising across Google, Meta, LinkedIn, TikTok, Microsoft, and Apple with platform health scores and an aggregate score. Use for multi-platform account-health or spend audits; use a platform-specific `ads-*` skill for one channel."
 user-invokable: false
 tested_date: 2026-05-17
 tested_with: claude-code v2.x
@@ -9,7 +9,7 @@ tested_with: claude-code v2.x
 # Full Multi-Platform Ads Audit
 
 This audit operates under the **10-Principle Thinking Framework** (see
-`ads/references/thinking-framework.md`). OBSERVE (External + Internal)
+`../ads/references/thinking-framework.md`). OBSERVE (External + Internal)
 dominates data collection, THINK + CONNECT (Lateral) dominate analysis,
 CONNECT (System) + ACCEPT dominate synthesis and prioritization. If the
 audit feels mechanical, you are skipping a principle.
@@ -20,14 +20,14 @@ audit feels mechanical, you are skipping a principle.
 2. **Validate**: confirm at least one platform's data is available before proceeding
 3. **Detect business type**: analyze account signals per ads orchestrator
 4. **Identify active platforms**: determine which platforms are in use
-5. **Delegate to subagents** (if available, otherwise run inline sequentially):
+5. **Run audit roles** (delegate only when available and authorized; otherwise run inline sequentially):
    - `audit-google`: Conversion tracking, wasted spend, structure, keywords, ads, settings (80 checks; G01-G61 + 19 hyphenated v1.5+ IDs incl. AI Max)
    - `audit-meta`: Pixel/CAPI health, creative fatigue, structure, audience (50 checks; M01-M40 + 10 hyphenated v1.5+ IDs incl. Andromeda)
    - `audit-creative`: LinkedIn, TikTok, Microsoft creative checks + cross-platform synthesis
    - `audit-tracking`: LinkedIn, TikTok, Microsoft tracking + cross-platform tracking health
    - `audit-budget`: LinkedIn, TikTok, Microsoft budget/bidding + cross-platform allocation
    - `audit-compliance`: All-platform compliance, settings, performance benchmarks
-6. **Validate**: verify each subagent returned valid scores with required fields before aggregating
+6. **Validate**: verify each role returned valid scores with required fields before aggregating
 7. **Score**: calculate per-platform and aggregate Ads Health Score (0-100)
 8. **Report**: generate prioritized action plan with Quick Wins
 
@@ -44,7 +44,7 @@ If no exports available, audit from screenshots or manual data entry.
 
 ## Scoring
 
-Read `ads/references/scoring-system.md` for full algorithm.
+Read `../ads/references/scoring-system.md` for full algorithm.
 
 ### Per-Platform Weights
 

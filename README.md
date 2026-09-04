@@ -42,7 +42,7 @@ Exploration -> Sign-Off -> Discovery -> Sign-Off -> Delivery -> Learn & Iterate.
 - **Name:** `<domain>-<object>[-workshop|-advisor]`, kebab-case, dir name ==
   frontmatter `name`. One skill = one deliverable or one decision.
 - **Description:** `"Verb the artifact… Use when <trigger>. Do NOT use for
-  <adjacent case>."` Target ≤350 chars, hard cap 500 — descriptions are
+  <adjacent case>."` Hard cap 350 chars — descriptions are
   injected into every session; triggers must be mutually exclusive within a
   domain.
 - **Body:** ≤~500 lines; push detail into `references/` with explicit routing

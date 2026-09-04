@@ -1,6 +1,6 @@
 ---
 name: co-intelligence
-description: "Decide whether and how to use AI on a given task, and check a draft for over-reliance before a human sees it. Covers the jagged frontier, centaur vs cyborg working modes, human-accountability questions, and a reusable self-review prompt. Use when handing work to AI, dividing a task with it, or verifying AI output. Do NOT use for prompt syntax or model selection."
+description: "Decide whether and how to use AI on a task, choose a human-AI working mode, and review drafts for over-reliance. Use when delegating or dividing knowledge work with AI; not for prompt syntax, model selection, or artifact-specific critical review."
 type: advisor
 domain: meta
 ---

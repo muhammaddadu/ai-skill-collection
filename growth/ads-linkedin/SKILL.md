@@ -14,9 +14,9 @@ Campaigns are now called Ad Sets. This skill uses the new terminology.
 ## Process
 
 1. Collect LinkedIn Ads data (Campaign Manager export, Insight Tag status)
-2. Read `ads/references/linkedin-audit.md` for full 27-check audit
-3. Read `ads/references/benchmarks.md` for LinkedIn-specific benchmarks
-4. Read `ads/references/scoring-system.md` for weighted scoring
+2. Read `../ads/references/linkedin-audit.md` for full 27-check audit
+3. Read `../ads/references/benchmarks.md` for LinkedIn-specific benchmarks
+4. Read `../ads/references/scoring-system.md` for weighted scoring
 5. Evaluate all applicable checks as PASS, WARNING, or FAIL
 6. Calculate LinkedIn Ads Health Score (0-100)
 7. Generate findings report with action plan

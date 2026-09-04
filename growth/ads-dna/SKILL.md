@@ -12,7 +12,7 @@ Extracts brand identity from a website and saves it as `brand-profile.json`
 for use by `/ads create`, `/ads generate`, and `/ads photoshoot`.
 
 Brand DNA extraction is OBSERVE and LISTEN made concrete (see the
-**10-Principle Thinking Framework** in `ads/references/thinking-framework.md`).
+**10-Principle Thinking Framework** in `../ads/references/thinking-framework.md`).
 The website is the input; the brand profile is what the site is *saying*
 about itself when no one is curating the message. Listen to the voice
 before you label it. Observe the visual choices before you classify them.
@@ -151,8 +151,7 @@ Example of a low-confidence field:
 
 ### Step 5: Write brand-profile.json
 
-Write the JSON to `./brand-profile.json` in the current working directory
-(where the user is running Claude Code).
+Write the JSON to `./brand-profile.json` in the user's current working directory.
 
 If screenshots were captured successfully in Step 2b, include a `screenshots` field:
 ```json
@@ -185,7 +184,7 @@ Run `/ads create` to generate campaign concepts from this profile.
 
 ## Visual Designer Integration
 
-The visual-designer agent uses the most relevant screenshot per concept as a style
+The visual-design phase uses the most relevant screenshot per concept as a style
 reference when generating images via banana. For example, a product-focused concept
 references the product page screenshot, while a brand awareness concept references
 the homepage or about page screenshot.

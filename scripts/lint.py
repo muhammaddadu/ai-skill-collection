@@ -3,7 +3,7 @@
 
 Checks:
   1. every skill dir has SKILL.md with frontmatter `name` == directory name
-  2. description present and <= 400 chars (no exemptions — descriptions are
+  2. description present and <= 350 chars (no exemptions — descriptions are
      paid in every session and overflow blanks the harness skills listing)
   3. no absolute skill-root paths in SKILL.md / references (breaks the other
      tool's install; install-location docs are allowlisted)
@@ -25,7 +25,7 @@ DOMAINS = [
     "1-exploration", "2-discovery", "3-delivery", "4-iteration",
     "growth", "career", "utilities", "meta",
 ]
-DESC_CAP = 400
+DESC_CAP = 350
 ABS_PATH = re.compile(r"(/Users/[a-z]+/|~/\.claude/skills|~/\.codex/skills|~/\.agents/)")
 ABS_PATH_ALLOWLIST = {  # install-location documentation, not runtime references
     "3-delivery/agent-docs/SKILL.md",
@@ -38,7 +38,9 @@ ABS_PATH_ALLOWLIST = {  # install-location documentation, not runtime references
 }
 CROSS_REF = re.compile(r"\.\./([a-z0-9][a-z0-9-]*)\b")
 MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
-LOCAL_RESOURCE = re.compile(r"`((?:scripts|references)/[^`\s]+)`")
+LOCAL_RESOURCE = re.compile(r"`((?:scripts|references?)/[^`\s]+)`")
+RELATIVE_RESOURCE = re.compile(r"`((?:\.\./)+[^`\s]+)`")
+FLAT_RESOURCE = re.compile(r"`([a-z0-9][a-z0-9-]+/(?:references?|assets?|scripts?)/[^`\s]+)`")
 NON_SKILL_REF = {"references", "data", "scripts", "assets", "docs", "src",
                  "components", "images", "utils"}
 
@@ -122,6 +124,20 @@ def main():
                     resolved = os.path.normpath(os.path.join(sdir, target))
                     if not os.path.isfile(resolved):
                         errors.append(f"missing local resource: {rel} -> {target}")
+                for target in RELATIVE_RESOURCE.findall(text):
+                    target = target.rstrip(".,;:)")
+                    if "*" in target or "<" in target or ">" in target or "[" in target:
+                        continue
+                    resolved = os.path.normpath(os.path.join(root, target))
+                    if not os.path.exists(resolved):
+                        errors.append(f"missing relative resource: {rel} -> {target}")
+                for target in FLAT_RESOURCE.findall(text):
+                    target_skill = target.split("/", 1)[0]
+                    if target_skill in skill_domain and target_skill != s:
+                        errors.append(
+                            f"ambiguous cross-skill resource: {rel} -> {target} "
+                            "(use a sibling-relative path within one domain, or reference the installed skill by name)"
+                        )
                 for target in MARKDOWN_LINK.findall(text):
                     target = target.strip().strip("<>").split("#", 1)[0].split("?", 1)[0]
                     if (not target or "://" in target or target.startswith(("#", "mailto:"))

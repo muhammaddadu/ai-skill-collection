@@ -1,6 +1,6 @@
 ---
 name: adr
-description: "Record an architecture decision — context, options, decision, consequences — in the repo's append-only ADR log. Use when choosing between technologies/patterns/approaches, answering 'why did we choose X', or documenting a decision (ADR / Architecture Change Record, ACR). Do NOT use for full system designs (tech-spec) or product decisions (prd-development)."
+description: "Record one architecture decision—context, options, choice, and consequences—in an append-only ADR log. Use for durable technology or pattern choices and explaining why X was chosen; use `tech-spec` for full system designs and `prd-development` for product decisions."
 type: component
 domain: 2-discovery
 ---

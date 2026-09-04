@@ -9,7 +9,7 @@ tested_with: claude-code v2.x
 # Strategic Paid Advertising Plan
 
 Strategic planning is where the **10-Principle Thinking Framework** (see
-`ads/references/thinking-framework.md`) earns its weight. THINK and
+`../ads/references/thinking-framework.md`) earns its weight. THINK and
 CONNECT (Lateral) dominate — first-principles unit economics combined
 with cross-platform leverage are what make a plan strategic rather than
 prescriptive. FEEL gates the messaging and audience choices; ACCEPT
@@ -35,8 +35,8 @@ gates the constraints (budget, timeline, team capacity).
 ### 3. Platform Selection
 - Load industry template from `assets/` directory
 - Match business type to recommended platform mix
-- Read `ads/references/budget-allocation.md` for platform selection matrix
-- Read `ads/references/conversion-tracking.md` for tracking setup requirements
+- Read `../ads/references/budget-allocation.md` for platform selection matrix
+- Read `../ads/references/conversion-tracking.md` for tracking setup requirements
 - Assess platform fit based on:
   - Target audience demographics per platform
   - Product/service type suitability
@@ -77,7 +77,7 @@ Account
 ### 5. Budget Planning
 
 #### Monthly Budget Distribution
-Read `ads/references/budget-allocation.md` for the 70/20/10 framework.
+Read `../ads/references/budget-allocation.md` for the 70/20/10 framework.
 
 | Tier | Allocation | Purpose |
 |------|-----------|---------|

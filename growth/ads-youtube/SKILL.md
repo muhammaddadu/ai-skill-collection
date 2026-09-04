@@ -13,10 +13,10 @@ tested_with: claude-code v2.x
 ## Process
 
 1. Collect YouTube Ads data (Google Ads export filtered to Video campaigns)
-2. Read `ads/references/google-audit.md` for YouTube-relevant checks (incl. G-DG1 through G-DG3, G-CTV1)
-3. Read `ads/references/platform-specs.md` for video specifications
-4. Read `ads/references/benchmarks.md` for YouTube benchmarks
-5. Read `ads/references/scoring-system.md` for health score algorithm
+2. Read `../ads/references/google-audit.md` for YouTube-relevant checks (incl. G-DG1 through G-DG3, G-CTV1)
+3. Read `../ads/references/platform-specs.md` for video specifications
+4. Read `../ads/references/benchmarks.md` for YouTube benchmarks
+5. Read `../ads/references/scoring-system.md` for health score algorithm
 6. **Validate**: confirm at least one active video campaign exists before proceeding
 7. **Check**: flag any remaining Video Action Campaigns (VAC). All auto-upgraded to Demand Gen by April 2026
 8. Evaluate campaign setup, creative quality, targeting, and measurement
@@ -141,7 +141,7 @@ tested_with: claude-code v2.x
 
 ### YouTube Ads Health Score (0-100)
 
-Weighted assessment from `ads/references/scoring-system.md`:
+Weighted assessment from `../ads/references/scoring-system.md`:
 
 ```
 Category Weights:

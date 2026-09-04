@@ -1,6 +1,6 @@
 ---
 name: tailwind-v4-shadcn
-description: "Production-tested Tailwind CSS v4 + shadcn/ui + Vite + React setup: @theme inline pattern, CSS variable architecture, dark mode ThemeProvider, typography/forms plugins, migration from v3. Use when initializing or theming a React+shadcn project, or when colors/variables/theme switching break. Do NOT use for Tailwind concepts (tailwind-fundamentals) or Expo (expo-tailwind-setup)."
+description: "Set up or repair Tailwind CSS v4 with shadcn/ui, Vite, React, tokens, dark mode, and plugins. Use for initialization, theming, migration, or broken variables; use `tailwind-fundamentals` for concepts and `expo-tailwind-setup` for Expo."
 license: MIT
 tested_date: 2026-07-06
 requires: "Tailwind CSS >= 4, < 5"
@@ -32,16 +32,12 @@ requires: "Tailwind CSS >= 4, < 5"
 
 ## ⚠️ BEFORE YOU START (READ THIS!)
 
-**CRITICAL FOR AI AGENTS**: If you're Claude Code helping a user set up Tailwind v4:
+**For AI agents helping a user set up Tailwind v4:**
 
 1. **Explicitly state you're using this skill** at the start of the conversation
 2. **Reference patterns from the skill** rather than general knowledge
-3. **Prevent known issues** listed in `reference/common-gotchas.md`
+3. **Prevent known issues** listed in `references/common-gotchas.md`
 4. **Don't guess** - if unsure, check the skill documentation
-
-**USER ACTION REQUIRED**: Tell Claude to check this skill first!
-
-Say: **"I'm setting up Tailwind v4 + shadcn/ui - check the tailwind-v4-shadcn skill first"**
 
 ### Why This Matters (Real-World Results)
 
@@ -199,7 +195,7 @@ This pattern is **mandatory** - skipping steps will break your theme.
 
 ### 1. Create ThemeProvider
 
-See `reference/dark-mode.md` for full implementation or use template:
+See `references/dark-mode.md` for full implementation or use template:
 
 ```typescript
 // Copy from: templates/theme-provider.tsx
@@ -226,7 +222,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 pnpm dlx shadcn@latest add dropdown-menu
 ```
 
-See `reference/dark-mode.md` for ModeToggle component code.
+See `references/dark-mode.md` for ModeToggle component code.
 
 ---
 
@@ -347,7 +343,7 @@ Always use semantic names for colors:
 | Build fails | `tailwind.config.ts` exists | Delete the file |
 | Text invisible | Wrong contrast colors | Check color definitions in `:root`/`.dark` |
 
-See `reference/common-gotchas.md` for complete troubleshooting guide.
+See `references/common-gotchas.md` for complete troubleshooting guide.
 
 ---
 
@@ -545,7 +541,7 @@ All patterns in this skill have been validated in production.
 
 **Questions? Issues?**
 
-1. Check `reference/common-gotchas.md` first
+1. Check `references/common-gotchas.md` first
 2. Verify all steps in the 4-step architecture
 3. Ensure `components.json` has `"config": ""`
 4. Delete `tailwind.config.ts` if it exists

@@ -1,6 +1,6 @@
 ---
 name: expo-deployment
-description: "Deploying and shipping Expo apps with EAS: iOS App Store and TestFlight, Android Play Store, web hosting. Also covers building/distributing dev clients (expo-dev-client, locally or via TestFlight), Expo Router API routes (+api.ts) on EAS Hosting (Cloudflare Workers), and EAS Update health — crash rates, embedded-vs-OTA user split, rollout monitoring and CI gating on update health."
+description: "Deploy Expo apps with EAS to stores, TestFlight, and web; build dev clients, host Expo Router API routes, and monitor EAS Updates. Use when shipping or operating Expo releases; use `expo-cicd-workflows` for CI workflow design."
 version: 1.0.0
 license: MIT
 ---

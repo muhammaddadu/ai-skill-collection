@@ -12,9 +12,9 @@ tested_with: claude-code v2.x
 
 1. Collect Google Ads account data (export, Change History, Search Terms Report)
 2. **Validate**: confirm data covers ≥30 days and includes Search Terms Report before proceeding
-3. Read `ads/references/google-audit.md` for full 80-check audit
-4. Read `ads/references/benchmarks.md` for Google-specific benchmarks
-5. Read `ads/references/scoring-system.md` for weighted scoring
+3. Read `../ads/references/google-audit.md` for full 80-check audit
+4. Read `../ads/references/benchmarks.md` for Google-specific benchmarks
+5. Read `../ads/references/scoring-system.md` for weighted scoring
 6. Evaluate all applicable checks as PASS, WARNING, or FAIL
 7. **Validate**: confirm all 80 checks evaluated before calculating score
 8. Calculate Google Ads Health Score (0-100)
@@ -85,7 +85,7 @@ tested_with: claude-code v2.x
 
 ## GAQL & Data Accuracy
 
-Before analyzing data, read `ads/references/gaql-notes.md` for known GAQL field incompatibilities,
+Before analyzing data, read `../ads/references/gaql-notes.md` for known GAQL field incompatibilities,
 deduplication patterns, and filter scope best practices. Key rules:
 
 - Deduplicate keywords by `(ad_group_id + keyword_text + match_type)` before any analysis
@@ -100,8 +100,8 @@ deduplication patterns, and filter scope best practices. Key rules:
 For automated data collection, connect the [Google Ads MCP server](https://github.com/googleads/google-ads-mcp):
 
 - **Tools available**: `search` (GAQL queries), `list_accessible_customers`
-- **Setup**: Configure in `.mcp.json` or Claude Code MCP settings
-- **Customer ID**: Extract from CLAUDE.md under Accounts > Google Ads, or ask the user
+- **Setup**: Configure through the active runtime's MCP settings
+- **Customer ID**: Read it from project account documentation when available, or ask the user
 - **Fallback**: If MCP is not configured, fall back to manual data export (the default workflow)
 
 When MCP is available, use it to pull Search Terms Reports, keyword data, conversion actions,

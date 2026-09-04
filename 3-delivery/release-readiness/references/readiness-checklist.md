@@ -73,7 +73,7 @@ SORT BY (severity_multiplier × estimated_impact) DESC
 | ID | Check | Severity | Tier | Evidence |
 |----|-------|----------|------|----------|
 | R01 | Release-blocking test suite is green on the exact release candidate (same commit/build ID) | Critical | All | CI run link pinned to the RC SHA |
-| R02 | Tests meet the done-bar defined per `../test-strategy` (or the team's written equivalent) | High | All | Done-bar doc + coverage/report against it |
+| R02 | Tests meet the done-bar defined by `test-strategy` (or the team's written equivalent) | High | All | Done-bar doc + coverage/report against it |
 | R03 | No known Critical or release-blocking bugs open against the RC | Critical | All | Tracker query (saved filter link), triage note per exception |
 | R04 | Regression executed on the critical user paths touched by this release | High | 2+ | Test run record (automated report or signed-off manual run) |
 | R05 | Performance on the changed surface is within budget (latency, memory, bundle/app size) | Medium | 2+ | Benchmark or perf test output vs stated budget |

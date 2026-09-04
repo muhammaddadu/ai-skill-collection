@@ -12,7 +12,7 @@ Generates structured campaign concepts and platform-specific copy from your bran
 profile and optional audit data. Outputs `campaign-brief.md` for use by `/ads generate`.
 
 Operates under the **10-Principle Thinking Framework** (see
-`ads/references/thinking-framework.md`). LISTEN to the brand voice before
+`../ads/references/thinking-framework.md`). LISTEN to the brand voice before
 typing; FEEL the emotional resonance of every headline and CTA; CREATE
 the deliverable — do not hedge concepts so heavily that the next person
 has to do the work. Spec compliance without emotional pull is a fail.
@@ -64,7 +64,7 @@ Ask (combine into one message; omit any already provided via flags):
 
 ### Step 4: Select Copy Framework
 
-Read `ads/references/copy-frameworks.md` and recommend a framework based on
+Read `../ads/references/copy-frameworks.md` and recommend a framework based on
 campaign goal + platform + audience temperature:
 
 | Framework | Best For |
@@ -76,42 +76,44 @@ campaign goal + platform + audience temperature:
 | FAB (Features, Advantages, Benefits) | Product-focused, comparison shoppers |
 | Star-Story-Solution | Brand storytelling, warm audiences |
 
-Include the selected framework name in campaign-brief.md for the copy-writer agent.
+Include the selected framework name in campaign-brief.md for the copywriting phase.
 
-### Step 5: Spawn Creative Agents in Sequence
+### Step 5: Run the creative roles in sequence
 
-Agents must run **sequentially**; `copy-writer` reads the file that `creative-strategist`
-writes, so running them in parallel creates a race condition on `campaign-brief.md`.
+The roles must run **sequentially** because copywriting reads the strategy file.
+If delegation is available and authorized, delegate each bounded role through the
+runtime's supported mechanism; otherwise perform both roles inline. Never run
+them in parallel because that creates a race on `campaign-brief.md`.
 
-**Step 5a; Spawn `creative-strategist`** (Task tool):
-This agent creates `campaign-brief.md` and writes the strategic sections:
+**Step 5a — Creative strategist:**
+Create `campaign-brief.md` and write the strategic sections:
 `## Brand DNA Summary`, `## Campaign Concepts`, `## Image Generation Briefs`, `## Next Steps`.
 
-Additional instructions for `creative-strategist`:
-- For e-commerce businesses, also read `skills/ads-plan/assets/ecommerce-creative.md`
+Additional instructions:
+- For e-commerce businesses, also read `../ads-plan/assets/ecommerce-creative.md`
   and select the appropriate creative playbook (Product Launch, Sale/Promotion,
   Seasonal, Retargeting, Brand Awareness)
-- Include banana domain mode recommendations in each Image Generation Brief
-  (Product, Editorial, Cinema, UI/Web, or Portrait)
+- Include provider-neutral scene, composition, quality, and aspect-ratio guidance
+  in every Image Generation Brief; add banana domain modes only when banana is active
 
-Wait for `creative-strategist` to **fully complete** before continuing.
+Finish and verify this phase before continuing.
 
-**Step 5b; Spawn `copy-writer`** (Task tool):
-After `creative-strategist` completes, spawn `copy-writer`. It reads the existing
+**Step 5b — Copywriter:**
+Read the completed
 `campaign-brief.md` and appends the `## Copy Deck` section with platform-specific
 headlines, primary text, and CTAs.
 
-Additional instructions for `copy-writer`:
-- Read `ads/references/copy-frameworks.md` and apply the selected framework
+Additional instructions:
+- Read `../ads/references/copy-frameworks.md` and apply the selected framework
   structure to all ad copy
 - Generate 2 framework variants per platform: primary (recommended framework)
   + secondary (alternative for A/B testing)
 
-Wait for `copy-writer` to complete before proceeding to Step 6.
+Finish and verify this phase before proceeding to Step 6.
 
 ### Step 6: Review and Present
 
-After both agents complete, confirm `campaign-brief.md` exists and is complete.
+After both roles complete, confirm `campaign-brief.md` exists and is complete.
 
 Present a summary to the user:
 ```
@@ -131,7 +133,7 @@ Next steps:
 
 ## campaign-brief.md Format Specification
 
-The following section headings are a **parsing contract**; agents downstream depend on these exact heading names.
+The following section headings are a **parsing contract**; downstream workflows depend on these exact heading names.
 
 ```markdown
 # Campaign Brief: [brand_name]
@@ -165,7 +167,7 @@ The following section headings are a **parsing contract**; agents downstream dep
 [repeat for all concepts]
 
 ## Copy Deck
-[appended by copy-writer agent; headlines, primary text, CTAs per concept per platform]
+[appended during the copywriting phase; headlines, primary text, and CTAs per concept and platform]
 
 ## Image Generation Briefs
 

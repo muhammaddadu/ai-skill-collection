@@ -48,7 +48,7 @@ import { Pressable } from "react-native";
 
 ### Instructions
 
-- Expo UI's API mirrors Jetpack Compose's API. Use Jetpack Compose and Material Design 3 knowledge to decide which components or modifiers to use. If you need deeper Jetpack Compose or Material 3 guidance (e.g. which component to pick, layout patterns, theming), spawn a subagent to research [Jetpack Compose](https://developer.android.com/develop/ui/compose/components) and [Material Design 3](https://m3.material.io/) best practices.
+- Expo UI's API mirrors Jetpack Compose's API. Use Jetpack Compose and Material Design 3 guidance to decide which components or modifiers to use. When current component, layout, or theming guidance is needed, consult the primary [Jetpack Compose](https://developer.android.com/develop/ui/compose/components) and [Material Design 3](https://m3.material.io/) documentation; delegate that bounded research only when delegation is available and authorized.
 - Components are imported from `@expo/ui/jetpack-compose`, modifiers from `@expo/ui/jetpack-compose/modifiers`.
 - **Always read the `.d.ts` type files** to confirm the exact API before using a component or modifier. Run `node -e "console.log(path.dirname(require.resolve('@expo/ui/jetpack-compose')))"` to locate the package, then read the relevant `{ComponentName}/index.d.ts` files. This is the most reliable source of truth.
 - When about to use a component, fetch its docs to confirm the API - https://docs.expo.dev/versions/v55.0.0/sdk/ui/jetpack-compose/{component-name}/index.md

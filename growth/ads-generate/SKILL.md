@@ -9,8 +9,8 @@ tested_with: claude-code v2.x
 # Ads Generate: AI Ad Image Generator
 
 Generates platform-sized ad creative images from a campaign brief and brand
-profile. Prefer banana-claude when configured; otherwise use an image provider
-exposed by the active runtime.
+profile. In Codex, use `imagegen` built-in mode by default. Elsewhere, use an
+image provider exposed by the active runtime, including banana when configured.
 
 ## Quick Reference
 
@@ -20,12 +20,15 @@ exposed by the active runtime.
 | `/ads generate --platform meta` | Generate Meta assets only |
 | `/ads generate --prompt "text" --ratio 9:16` | Standalone generation without brief |
 
-## Environment Setup
+## Provider selection
 
-**Required before running:**
+Before running:
 
-- Requires banana-claude (v1.4.1+) with nanobanana-mcp configured
-- Run `/banana setup` to configure API key and MCP
+- In Codex, prefer `imagegen` built-in mode; it does not require `OPENAI_API_KEY`
+- Copy selected project-bound outputs from the built-in location into `./ad-assets/`
+- Use the `imagegen` CLI fallback only when the user explicitly chooses it
+- Outside Codex, prefer banana-claude (v1.4.1+) when nanobanana-mcp is already configured
+- Use `/banana setup` only when the user wants to configure that provider
 - Fallback: if banana is unavailable, use an image-generation skill or tool exposed by the active runtime; do not call or invent a missing local script
 
 If banana-claude is unavailable but the runtime exposes another image provider,
@@ -37,9 +40,9 @@ setup requirement and stop. Never fail silently.
 
 ### Step 1: Select the image provider
 
-Check whether banana-claude is configured. If it is not, select an image provider
-exposed by the active runtime. If none is available, display setup instructions
-and exit.
+In Codex, select `imagegen` built-in mode when available. Otherwise check whether
+banana-claude or another runtime image provider is configured. If none is
+available, display setup instructions and exit.
 
 ### Step 2: Locate Source Files
 
@@ -92,26 +95,28 @@ When banana is active, select its domain mode from the campaign brief:
 - **UI/Web**: app install, SaaS
 - **Portrait**: testimonials, people
 
-### Step 6: Spawn Visual Designer Agent
+### Step 6: Run visual generation
 
-Spawn the `visual-designer` agent using the Task tool with `context: fork`,
-passing the selected domain mode and preset name.
+If delegation is available and authorized, delegate this bounded generation phase
+through the runtime's supported mechanism, passing the selected provider, domain
+mode, and brand inputs. Otherwise perform it inline.
 
-The agent will:
+The generation phase must:
 - Parse the image generation briefs from campaign-brief.md
 - Inject brand colors and mood from brand-profile.json
 - Use the selected provider with its configured brand inputs for each asset
 - Save to `./ad-assets/[platform]/[concept]/` directory structure
 - Write `generation-manifest.json`
 
-### Step 7: Validate with Format Adapter
+### Step 7: Validate formats
 
-After the visual-designer completes, spawn the `format-adapter` agent
-with `context: fork` to validate dimensions and report missing formats.
+After generation completes, validate dimensions and report missing formats. This
+may be a separate delegated role when delegation is available and authorized;
+otherwise run it inline.
 
 ### Step 8: Quality Gate
 
-Use Claude vision to assess each generated image against the brief (score 1 to 10
+Use the runtime's available visual inspection capability to assess each generated image against the brief (score 1 to 10
 on brand alignment, composition, platform fit). If any image scores below 6,
 regenerate once with an adjusted prompt.
 

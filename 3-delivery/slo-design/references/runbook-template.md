@@ -51,7 +51,7 @@
 
 Mitigate **before** diagnosing root cause. In order of preference:
 
-1. **Kill switch:** flip `<flag name>` OFF (see `../progressive-delivery/`
+1. **Kill switch:** flip `<flag name>` OFF (see `progressive-delivery`
    for flag conventions) — `<exact command / console link>`
 2. **Rollback:** `<exact command / pipeline link to redeploy N-1>`
 3. `<degrade gracefully: shed load / disable feature — command>`

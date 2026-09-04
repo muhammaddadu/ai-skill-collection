@@ -13,7 +13,7 @@ tested_with: claude-code v2.x
 ## Process
 
 1. Identify target competitors (from user input or industry analysis)
-2. Read `ads/references/benchmarks.md` for industry CPC/CTR/CVR baselines
+2. Read `../ads/references/benchmarks.md` for industry CPC/CTR/CVR baselines
 3. Research competitor ad presence across platforms
 4. Analyze ad copy, creative, and messaging themes
 5. Estimate competitor spend and keyword strategy
@@ -97,7 +97,7 @@ Available from the user's own Google Ads account:
 - **Custom Product Page (CPP) competitive analysis**: competitors can run different product page variants per ad group. Analyze CPP strategies
 - **Maximize Conversions bidding**: AI auto-bidder (GA February 2026). Check if competitors have adopted automated bidding
 
-> **MCP Integration**: For live API access to competitor data sources, see `ads/references/mcp-integration.md`.
+> **MCP Integration**: For live API access to competitor data sources, see `../ads/references/mcp-integration.md`.
 
 ## Competitive Analysis Framework
 
