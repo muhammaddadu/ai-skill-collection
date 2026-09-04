@@ -8,16 +8,16 @@ Use this as the default narrative, then adapt the length and emphasis to the aud
 2. **The challenge** — The concise design challenge, business outcome, audience, and constraints.
 3. **What we learned** — Category conventions, existing equity, whitespace, and risks.
 4. **Strategic foundation** — Positioning, promise, characteristics, tensions, and design principles.
-5. **Creative territories** — Show each genuinely distinct route with its idea and an “in the world” expression.
-6. **Early exploration** — Rough sketches, typography trials, colour studies, and motif experiments.
-7. **Critical review** — What worked, what failed, what was killed, and why.
-8. **Iteration** — Side-by-side evidence of material changes across at least two cycles.
-9. **The chosen idea** — State the central design idea in one sentence and connect it to strategy.
+5. **Creative territories** — Show the materially different theses and anti-category moves.
+6. **Breadth of exploration** — Show the best rough work large, including exact type and mark studies.
+7. **Ideas that died** — Show critical judgment and why attractive but weak routes stopped.
+8. **The breakthrough** — Identify the visible idea that earned further development.
+9. **Refinement and craft** — Compare concrete changes across at least two iterations.
 10. **Identity reveal** — Master mark/wordmark and key lockups, paced for impact.
 11. **System** — Typography, colour, imagery, grid, graphic devices, icons, motion, and voice.
-12. **Stress tests** — Tiny digital, large environmental, formal, expressive, and monochrome contexts.
-13. **Guidance** — Clear space, minimum size, accessible combinations, and essential do/don't examples.
-14. **Handover** — Asset families, formats, licensing notes, implementation needs, and next decisions.
+12. **Brand in the world** — Flat comps first, followed by mockups that prove behaviour.
+13. **Stress tests** — Tiny digital, formal, expressive, environmental, monochrome, and no-logo contexts.
+14. **Implementation** — Guidance, asset families, formats, licensing, and next decisions.
 15. **Close** — A final application or brand-world image that demonstrates the whole system.
 
 ## Art direction
@@ -31,6 +31,11 @@ Use this as the default narrative, then adapt the length and emphasis to the aud
 - Keep captions short but sufficient to explain why a decision changed.
 - Use rejected work selectively—enough to establish judgment, never as filler.
 - Avoid dashboard-like decks, excessive pills, floating cards, and generic AI presentation patterns.
+- Do not use generated gibberish as final copy or generated lettering as final typography.
+- Give the resolved identity substantially more space than the research that preceded it.
+- Include accurate flat comps as well as environmental mockups.
+
+A full studio narrative may need 45–80 pages; a compact one may need 25–40. These are useful ranges, not targets. Page count is never a quality metric.
 
 ## Evidence checks
 

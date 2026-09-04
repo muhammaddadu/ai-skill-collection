@@ -13,7 +13,7 @@ metadata:
 
 Use this skill to create a new brand, rebrand an organisation, refresh an identity, explore visual directions, or produce a brand-identity presentation that shows the full creative journey.
 
-Behave like a senior brand strategist, creative director, and identity designer working in visible stages. The thinking, experimentation, rejection, refinement, and application are part of the deliverable.
+Behave like a senior brand strategist, creative director, and identity designer. Create an identity that is strategically right, visually distinctive, formally resolved, and usable in the real world. The process is evidence of how the answer was reached; it is not the product.
 
 Do not use this full workflow when the user only wants a single brand-board image; use `brandkit` for that narrower task.
 
@@ -29,9 +29,12 @@ Do not use this full workflow when the user only wants a single brand-board imag
 
 ## Core principles
 
-- Do not jump from brief to polished logo. Show the creative journey.
+- Before beginning, read [`references/failure-modes.md`](references/failure-modes.md).
+- A complete-looking deck around an average identity is a failed run. Never let a polished deck, mockup, or rationale rescue weak design.
 - Use existing conversation and project context before asking questions. Ask only when an unknown genuinely blocks useful progress.
 - When information is incomplete, create a provisional brief and label assumptions.
+- Proceed end to end without seeking approval at every phase. If the user wants involvement, useful review points are strategy/category diagnosis, first divergent visual round, refined shortlist, and final route before production.
+- Do not ask the user to choose among weak routes. If nothing passes a quality gate, say so and loop back.
 - Use current public research when competitors, culture, category, naming, domains, market, or trends materially affect the work.
 - Describe trademark, company-name, and domain checks as preliminary screening, never legal clearance.
 - When image-generation tools are available, use them throughout exploration, critique, and contextual testing—not only for final mockups.
@@ -49,16 +52,24 @@ brand-work/<brand-slug>/
   00-brief/
   01-research/
   02-strategy/
-  03-creative-territories/
-  04-sketches/
-  05-concept-development/
-  06-identity-system/
-  07-applications/
-  08-brand-deck/
-  09-handover/
+  03-territories/
+  04-visual-lab/
+    raw/
+    wordmarks/
+    marks/
+    typography/
+    colour/
+    systems/
+  05-shortlist/
+  06-refinement/
+  07-final-identity/
+  08-flat-comps/
+  09-mockups/
+  10-brand-story/
+  11-handover/
 ```
 
-Maintain `decision-log.md` with each material decision, rationale, evidence, alternatives considered, critique, and resulting change. Use it to write the final brand story.
+Maintain `decision-log.md`, `cliche-red-list.md`, `quality-gates.md`, and `asset-manifest.md`. The decision log records material changes, evidence, alternatives, critique, and next moves; it is not marketing copy.
 
 ## Workflow
 
@@ -78,6 +89,8 @@ Distil it into this design challenge:
 
 > We need to create a brand that feels **[desired qualities]** for **[audience]**, while avoiding **[category clichés or undesired traits]**, so that **[business outcome]** becomes more likely.
 
+Also capture one sentence each for the brand, what the audience needs to feel or believe, and the desired future-state perception. Do not preselect colours, typefaces, or logo metaphors in the brief.
+
 ### 2. Research and diagnose
 
 Audit a useful sample of direct competitors and adjacent brands. When the market supports it, prefer 8–15 direct competitors and 3–8 adjacent references.
@@ -86,13 +99,13 @@ For each, examine logo structure, typography, colour, imagery, layout, motion/di
 
 For a rebrand, also identify what should be retained, what has equity, what feels dated or inconsistent, and what fails at small scale or in digital contexts.
 
-Produce a one-page synthesis:
+Create a category saturation map showing what is overused, underused, and genuinely open. Produce `cliche-red-list.md` and a synthesis with:
 
 - category conventions
 - whitespace and opportunities
 - equity worth preserving
 - risks to avoid
-- design implications
+- five to eight actionable design implications
 
 Research must change design decisions; avoid decorative competitor boards without conclusions.
 
@@ -107,27 +120,31 @@ Create:
 - voice guidance: sound, anti-voice, rhythm, formality, vocabulary, and headline examples
 - 4–6 strategic design principles
 
+Create three intentionally sharp design provocations that turn the strategic tension into a question the visual lab can test. A provocation should challenge a category assumption rather than restate a brand value.
+
 Avoid personality lists that could describe any brand.
 
 ### 4. Build distinct creative territories
 
 Create 3–5 genuinely different territories before selecting a route. Each includes:
 
-- a name, core idea, and strategic rationale
-- visual keywords
-- typography, colour, imagery, layout, and composition direction
-- symbol or mark opportunities
-- a sample verbal line
-- 4–8 reference images or generated moodboard frames
-- one quick expression “in the world”
+- a central idea and the strategic tension it resolves
+- an anti-category move and recognition mechanism
+- typography, composition, imagery, and colour-behaviour hypotheses
+- potential mark behaviours rather than a premature finished logo
+- verbal expression and explicit failure conditions
 
 Territory test: if the logo were hidden, every territory should still feel recognisably different. Minor colour variations are not distinct territories.
 
+Do not select a winner from territory prose. A territory earns advancement only after visual evidence exists.
+
 ### 5. Experiment before polishing
 
-When image generation is available, generate several intentionally rough black-and-white or limited-colour sketch sheets. Explore 12–30 ideas across wordmarks, monograms, abstract marks, negative space, geometric constructions, ligatures, metaphors, framing, cropping, heritage cues where relevant, and radical/simple extremes.
+Read and apply [`references/visual-lab-protocol.md`](references/visual-lab-protocol.md). This is the most important phase. Use multiple independent visual rounds and inspect every actual output before choosing the next move; never critique the prompt instead of the rendered image.
 
-Explore accurate real-type specimens across case, stacking, width, classification, tracking, weight contrast, and custom letter modifications.
+Explore at least four conceptual families. When scope allows, aim for 40–80 raw ideas across wordmarks, typographic interruptions, monograms, negative space, abstract or geometric devices, transformed metaphors, no-symbol systems, responsive marks, and image-led routes.
+
+Explore accurate real-type specimens across case, stacking, width, classification, tracking, weight contrast, and custom letter modifications. Generated lettering is never final typography. Redraw promising marks accurately in vector or another deterministic method.
 
 Test colour as a system across light/dark modes, tonal ranges, accessible text/background combinations, imagery, print-like contexts, and digital UI.
 
@@ -135,13 +152,15 @@ Develop motifs that live beyond the logo: frames, lines, crops, patterns, grids,
 
 ### 6. Critique and iterate
 
-After every meaningful visual round, read and apply [`references/creative-review-rubric.md`](references/creative-review-rubric.md). Record what works, what fails, strategic fit, distinctiveness, practicality, and the exact next move.
+After every meaningful visual round, inspect the work and apply [`references/creative-review-rubric.md`](references/creative-review-rubric.md). Record what works, what fails, strategic fit, distinctiveness, practicality, and the exact next move.
 
 Create at least two visible critique-and-iteration cycles between first sketches and final identity unless the user explicitly requests a smaller exploration. Do not praise everything. Kill weak ideas and explain why.
 
 ### 7. Select and develop the route
 
-Choose 1–2 routes on strategic fit and creative quality, not taste alone. Develop:
+Before shortlisting, create a flat mini-system probe for every serious contender: exact logo/wordmark, type hierarchy, colour behaviour, recognisable layout and graphic devices, imagery direction, one digital application, and one print or environmental application.
+
+Read and apply [`references/quality-gates.md`](references/quality-gates.md). Shortlist no more than 2–3 routes on visible strategic, formal, and system evidence—not taste or rationale alone. If none passes, return to visual exploration. Develop:
 
 - master wordmark and stacked/horizontal lockups
 - symbol or mark where appropriate
@@ -151,7 +170,7 @@ Choose 1–2 routes on strategic fit and creative quality, not taste alone. Deve
 - typography hierarchy
 - supporting visual language
 
-State the central design idea in one sentence, then connect it directly to strategy.
+Create at least two refinement iterations for the leading route, documenting specific changes to geometry, spacing, typography, colour, composition, and system logic. State the central design idea in one sentence, then connect it directly to strategy.
 
 ### 8. Build the identity system
 
@@ -169,11 +188,14 @@ Define:
 
 Add sound cues, data-visualisation principles, UI tokens, co-branding, sub-brand architecture, campaign systems, or environmental graphics only when relevant.
 
+The system needs at least three recognition assets beyond the logo, such as distinctive type behaviour, colour behaviour, a framing/crop system, a graphic device, imagery treatment, motion, or signature composition.
+
 ### 9. Stress-test in context
 
-Choose applications that match the actual business. Include at least:
+Design accurate flat comps before environmental mockups. Choose applications that match the actual business, including:
 
 - one tiny digital context
+- one core product or conversion context
 - one large environmental context
 - one formal or corporate context
 - one expressive or marketing context
@@ -181,23 +203,23 @@ Choose applications that match the actual business. Include at least:
 
 Use image generation for environmental mockups, photography direction, signage, campaigns, branded spaces, and contextual tests. Overlay accurate logo artwork and typography where possible instead of asking an image model to redraw them.
 
-If the identity only succeeds on a luxury mockup, it is not finished.
+A mockup must answer a design question. Composite accurate artwork where possible; do not let an image model invent the final logo or wordmark. If the identity only succeeds on a luxury mockup, it is not finished.
 
 ### 10. Review the complete system
 
-Run a final critique against strategic fit, distinctiveness, memorability, coherence, flexibility, accessibility, typography, colour usability, digital readiness, production realism, longevity, category differentiation, and likely confusion risk.
+Run the red-team review in [`references/failure-modes.md`](references/failure-modes.md), then apply the final-route and production gates in [`references/quality-gates.md`](references/quality-gates.md).
 
 Ask:
 
 > If every logo were removed, would the remaining typography, colour, imagery, and composition still feel like this brand?
 
-If not, strengthen the wider system.
+If not, strengthen the wider system. Do not proceed to presentation because the schedule or folder structure says to.
 
 ### 11. Tell the creation story
 
 Read [`references/brand-deck-structure.md`](references/brand-deck-structure.md) before building the deck.
 
-Make it editorial and art-directed: generous whitespace, confident typography, full-bleed moments, varied pacing, and restrained UI-like decoration. Show rough work before polished work, explain why ideas changed, and include rejected routes only when they clarify the story.
+Curate the presentation only after the identity is good. Make it editorial and art-directed: generous whitespace, confident typography, full-bleed moments, varied pacing, and restrained UI-like decoration. Show visual evidence, ideas that died, breakthrough, and refinement; include rejected routes only when they clarify the story.
 
 ### 12. Package the handover
 
@@ -222,17 +244,17 @@ When a concept fails, record why and change direction rather than endlessly poli
 
 Do not call the brand finished until:
 
-- research has been synthesised into design implications
-- strategy is explicit
-- at least three creative territories were explored
-- visual experiments and sketch sheets exist
-- at least two critique/iteration cycles are visible
-- the chosen route has a clear rationale
-- typography and colour are accurately specified
-- a wider visual system exists beyond the logo
-- the identity has been stress-tested in realistic contexts
-- accessibility and practical constraints were checked
-- the final deck tells the creation story
-- final assets are organised for handover
+- research produced a specific cliché red list and actionable implications
+- at least three materially distinct territories were visually explored
+- divergent generated rounds were inspected between iterations
+- exact typography studies use named, licensable typefaces
+- promising marks were redrawn accurately
+- two or three serious routes became flat mini-systems before selection
+- the leading route has at least two visible refinement iterations
+- the final route passes the quality gates, including no-logo, monochrome, small-size, accessibility, and production tests
+- at least three recognition assets exist beyond the logo
+- flat comps prove the system before mockups
+- the final red-team review has no unresolved generic default
+- the deck was curated after the identity and final assets are organised for handover
 
 If the user explicitly requests a smaller scope, state which completion criteria remain outside that scope instead of pretending the full identity is finished.
