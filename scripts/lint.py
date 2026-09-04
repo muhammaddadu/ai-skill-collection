@@ -9,8 +9,9 @@ Checks:
      tool's install; install-location docs are allowlisted)
   4. no cross-directory `../<skill>` path references (use the skill name;
      path refs are allowed only between skills in the same phase/pack dir)
-  5. manifests resolve: every entry names exactly one real skill dir
-  6. no duplicate skill names across domains
+  5. local Markdown links and explicit script/reference paths resolve
+  6. manifests exactly cover every real skill dir
+  7. no duplicate skill names across domains
 
 Exit 0 clean, 1 on any failure. Run from anywhere: `python3 scripts/lint.py`.
 """
@@ -36,6 +37,8 @@ ABS_PATH_ALLOWLIST = {  # install-location documentation, not runtime references
     "utilities/screenshot/SKILL.md",
 }
 CROSS_REF = re.compile(r"\.\./([a-z0-9][a-z0-9-]*)\b")
+MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
+LOCAL_RESOURCE = re.compile(r"`((?:scripts|references)/[^`\s]+)`")
 NON_SKILL_REF = {"references", "data", "scripts", "assets", "docs", "src",
                  "components", "images", "utils"}
 
@@ -88,7 +91,7 @@ def main():
             elif len(desc) > DESC_CAP:
                 errors.append(f"description {len(desc)}ch > {DESC_CAP}: {rel}")
 
-    # content checks: absolute paths + cross-domain refs need bridges
+    # content checks: absolute paths, cross-domain refs, and local links
     for s, d in skill_domain.items():
         sdir = os.path.join(REPO, d, s)
         for root, dirs, files in os.walk(sdir):
@@ -108,7 +111,28 @@ def main():
                     if td and td != d:
                         errors.append(f"cross-directory path ref: {rel} -> ../{t} (reference cross-directory skills by name in backticks, paths only within the same phase/pack dir)")
 
-    # manifests resolve
+                # Template documents intentionally link to files that will be
+                # created in their eventual output tree, not this repository.
+                if f.endswith(".template.md"):
+                    continue
+                for target in LOCAL_RESOURCE.findall(text):
+                    target = target.rstrip(".,;:)")
+                    if "*" in target or "<" in target or ">" in target:
+                        continue
+                    resolved = os.path.normpath(os.path.join(sdir, target))
+                    if not os.path.isfile(resolved):
+                        errors.append(f"missing local resource: {rel} -> {target}")
+                for target in MARKDOWN_LINK.findall(text):
+                    target = target.strip().strip("<>").split("#", 1)[0].split("?", 1)[0]
+                    if (not target or "://" in target or target.startswith(("#", "mailto:"))
+                            or "<" in target or ">" in target or not target.endswith(".md")):
+                        continue
+                    resolved = os.path.normpath(os.path.join(root, target))
+                    if not os.path.isfile(resolved):
+                        errors.append(f"broken local Markdown link: {rel} -> {target}")
+
+    # Manifests resolve and cover every real skill. Without the coverage check,
+    # a valid skill can silently exist in the repo but remain unavailable.
     for mf in ("claude", "codex"):
         mpath = os.path.join(REPO, "manifests", f"{mf}.txt")
         seen = set()
@@ -121,6 +145,8 @@ def main():
             seen.add(name)
             if name not in skill_domain:
                 errors.append(f"manifest entry has no skill dir: {name} ({mf}.txt)")
+        for name in sorted(set(skill_domain) - seen):
+            errors.append(f"skill missing from manifest: {name} ({mf}.txt)")
 
     if errors:
         print(f"LINT FAILED — {len(errors)} error(s):")

@@ -1,6 +1,6 @@
 ---
 name: ads-generate
-description: "AI image generation for paid ad creatives: reads campaign-brief.md and brand-profile.json to produce platform-sized ad images via banana-claude (v1.4.1+ with nanobanana-mcp). Use when user says generate ads, create ad images, make ad creatives, generate visuals, or generate from brief."
+description: "Generate ad images from campaign-brief.md and brand-profile.json using an available provider and platform specs. Use when the user asks to create ad visuals or generate from a campaign brief."
 user-invokable: false
 tested_date: 2026-05-17
 tested_with: claude-code v2.x
@@ -8,8 +8,9 @@ tested_with: claude-code v2.x
 
 # Ads Generate: AI Ad Image Generator
 
-Generates platform-sized ad creative images from your campaign brief and brand
-profile. Uses banana-claude as the image generation provider.
+Generates platform-sized ad creative images from a campaign brief and brand
+profile. Prefer banana-claude when configured; otherwise use an image provider
+exposed by the active runtime.
 
 ## Quick Reference
 
@@ -25,19 +26,20 @@ profile. Uses banana-claude as the image generation provider.
 
 - Requires banana-claude (v1.4.1+) with nanobanana-mcp configured
 - Run `/banana setup` to configure API key and MCP
-- Fallback: if banana is not available, use `scripts/generate_image.py` (deprecated)
+- Fallback: if banana is unavailable, use an image-generation skill or tool exposed by the active runtime; do not call or invent a missing local script
 
-If banana-claude is not installed, this skill will display setup instructions
-and stop. It will never fail silently.
-
-If banana-claude is unavailable, alternatives include: OpenAI gpt-image-1 ($0.040/image), Stability SD 3.5 ($0.065), or Replicate FLUX.1 Pro ($0.055). Configure via ADS_IMAGE_PROVIDER env var.
+If banana-claude is unavailable but the runtime exposes another image provider,
+follow that provider's active skill and preserve the same brief, brand, size,
+and output-manifest requirements. If no provider is available, explain the
+setup requirement and stop. Never fail silently.
 
 ## Process
 
-### Step 1: Verify banana-claude
+### Step 1: Select the image provider
 
-Verify banana-claude is installed (run `/banana setup` to check). If not installed,
-display setup instructions and exit.
+Check whether banana-claude is configured. If it is not, select an image provider
+exposed by the active runtime. If none is available, display setup instructions
+and exit.
 
 ### Step 2: Locate Source Files
 
@@ -76,12 +78,14 @@ For each platform in the campaign brief, load the relevant spec reference:
 - `../ads/references/youtube-creative-specs.md`
 - `../ads/references/microsoft-creative-specs.md`
 
-### Step 5: Prepare banana Configuration
+### Step 5: Prepare provider configuration
 
-Create banana brand preset from brand-profile.json if one does not already exist
-at `~/.banana/presets/{brand-slug}.json`.
+For banana, create a brand preset from brand-profile.json if one does not already
+exist at `~/.banana/presets/{brand-slug}.json`. For another provider, translate
+the same brand constraints into its supported prompt or reference-image inputs;
+do not create shared configuration or credentials without user authorization.
 
-Select banana domain mode based on campaign brief content:
+When banana is active, select its domain mode from the campaign brief:
 - **Product**: e-commerce, packshots
 - **Editorial**: brand awareness, lifestyle
 - **Cinema**: video thumbnails, dramatic
@@ -96,7 +100,7 @@ passing the selected domain mode and preset name.
 The agent will:
 - Parse the image generation briefs from campaign-brief.md
 - Inject brand colors and mood from brand-profile.json
-- Use banana-claude with the configured domain mode for each asset
+- Use the selected provider with its configured brand inputs for each asset
 - Save to `./ad-assets/[platform]/[concept]/` directory structure
 - Write `generation-manifest.json`
 
@@ -119,8 +123,9 @@ Quality Gate Rubric:
 
 ### Step 9: Aggregate Costs
 
-Read banana cost data from `~/.banana/costs.json` and include total creative spend
-in generation-manifest.json.
+For banana, read cost data from `~/.banana/costs.json`. For another provider,
+use its returned usage/cost data when available. Record unavailable cost data as
+unknown, not zero, in generation-manifest.json.
 
 ### Step 10: Report Results
 
@@ -147,7 +152,7 @@ Generation complete:
 
 Before generating, estimate and show the cost:
 - Count the number of image briefs in campaign-brief.md
-- Show estimated cost based on banana pricing tiers
+- Show an estimated cost from the active provider's current pricing when available
 - If >$1.00, ask for confirmation before proceeding
 
 ## Standalone Mode (No campaign-brief.md)
@@ -165,7 +170,7 @@ Platform target → dimensions used:
   youtube-short → 1080×1920 (9:16)
 ```
 
-Use `/banana generate` directly with the specified prompt and aspect ratio.
+Use the selected provider directly with the specified prompt and aspect ratio.
 
 ## Reference Files
 

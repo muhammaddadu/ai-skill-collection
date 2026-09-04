@@ -1,6 +1,6 @@
 ---
 name: brand-creation-studio
-description: Create or rebrand a brand end-to-end through research, strategy, visual exploration, iteration, identity-system design, stress testing, and a presentation-ready story. Use when the user wants the full creative journey, not only a logo or brand board.
+description: Create or rebrand an identity through research, strategy, visual exploration, iteration, stress testing, and handover. Use for a full brand journey; use `brandkit` for one presentation board.
 metadata:
   intent: Build a strategically grounded, distinctive identity while preserving the visible research, experimentation, critique, rejected routes, refinement, real-world application, and handover evidence that explain how the final system was reached.
   type: workflow

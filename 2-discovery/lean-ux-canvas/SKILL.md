@@ -201,7 +201,7 @@ Describe:
 
 1. **I'll describe the business problem** — [Paste or write your description]
 2. **Help me identify the business problem** — [Agent asks follow-up questions: What changed? What metrics are affected? What are competitors doing?]
-3. **I'm not sure what the business problem is** — [Agent suggests starting with `skills/problem-statement/SKILL.md` or `skills/problem-framing-canvas/SKILL.md` first]
+3. **I'm not sure what the business problem is** — [Agent suggests starting with `problem-statement` or `problem-framing-canvas` first]
 
 **User response:** [Selection or description]
 
@@ -259,9 +259,9 @@ Consider:
 
 **Agent offers 3 options:**
 
-1. **I have personas already** — [Reference `skills/proto-persona/SKILL.md` or paste persona]
+1. **I have personas already** — [Reference `proto-persona` or paste persona]
 2. **Help me identify target users** — [Agent asks: Who experiences the business problem most? Who's most likely to adopt? Who's easiest to reach?]
-3. **I need to create personas first** — [Agent suggests using `skills/proto-persona/SKILL.md` component skill]
+3. **I need to create personas first** — [Agent suggests using the `proto-persona` component skill]
 
 **User response:** [Selection or description]
 
@@ -289,7 +289,7 @@ Focus on **goals, benefits, emotions, empathy**—not metrics (those go in Box 2
 
 1. **I know what users want to achieve** — [Describe user benefits]
 2. **Help me identify user benefits** — [Agent prompts: What job are they hiring this product to do? What pain are they avoiding? What gain are they seeking?]
-3. **I need to research this first** — [Agent suggests `skills/jobs-to-be-done/SKILL.md` or `skills/discovery-interview-prep/SKILL.md`]
+3. **I need to research this first** — [Agent suggests `jobs-to-be-done` or `discovery-interview-prep`]
 
 **User response:** [Selection or description]
 
@@ -472,7 +472,7 @@ Here's your completed Lean UX Canvas (v2):
 
 Would you like me to:
 1. **Export this canvas** as a Markdown file?
-2. **Suggest related skills** to use next (e.g., `skills/discovery-interview-prep/SKILL.md` for customer interviews)?
+2. **Suggest related skills** to use next (e.g., `discovery-interview-prep` for customer interviews)?
 3. **Refine a specific box** (if something feels incomplete)?
 
 ---
@@ -541,7 +541,7 @@ Mini example excerpt:
 
 **Consequence:** Waste weeks/months building the wrong thing.
 
-**Fix:** Design smallest experiment first. If you can't think of one, use `skills/pol-probe-advisor/SKILL.md` to choose a validation method.
+**Fix:** Design the smallest experiment first. If you can't think of one, use `pol-probe-advisor` to choose a validation method.
 
 ---
 
@@ -555,13 +555,13 @@ Mini example excerpt:
 ## References
 
 ### Related Skills
-- **[problem-statement](skills/problem-statement/SKILL.md)** (Component) — Frame problem before filling Box 1
-- **[problem-framing-canvas](skills/problem-framing-canvas/SKILL.md)** (Interactive) — MITRE Problem Framing before canvas
-- **[proto-persona](skills/proto-persona/SKILL.md)** (Component) — Create personas for Box 3
-- **[jobs-to-be-done](skills/jobs-to-be-done/SKILL.md)** (Component) — Identify user benefits for Box 4
-- **[epic-hypothesis](skills/epic-hypothesis/SKILL.md)** (Component) — Write testable hypotheses (Box 6)
-- **[discovery-interview-prep](skills/discovery-interview-prep/SKILL.md)** (Interactive) — Design customer interviews for Box 8
-- **[pol-probe-advisor](skills/pol-probe-advisor/SKILL.md)** (Interactive) — Choose experiment type for Box 8
+- `problem-statement` (Component) — Frame the problem before filling Box 1
+- `problem-framing-canvas` (Interactive) — Run MITRE Problem Framing before the canvas
+- `proto-persona` (Component) — Create personas for Box 3
+- `jobs-to-be-done` (Component) — Identify user benefits for Box 4
+- `epic-hypothesis` (Component) — Write testable hypotheses for Box 6
+- `discovery-interview-prep` (Interactive) — Design customer interviews for Box 8
+- `pol-probe-advisor` (Interactive) — Choose an experiment type for Box 8
 
 ### External Frameworks
 - **Jeff Gothelf** — *Lean UX: Designing Great Products with Agile Teams* (O'Reilly, 2013; 2nd ed. 2016)

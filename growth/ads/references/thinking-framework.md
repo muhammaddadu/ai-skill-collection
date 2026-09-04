@@ -230,8 +230,8 @@ write the code, draft the content, ship the deliverable.
 - Write the actual ad copy, not a copy brief about a copy brief.
 - Generate the ad assets through `/ads generate` — don't stop at the
   conceptual stage.
-- Render the PDF: `scripts/generate_report.py --check` then `--output`.
-  Quality gate before delivery (see Quality Gates in `ads/SKILL.md`).
+- Render the PDF with the installed `pdf` workflow, then inspect every rendered
+  page before delivery (see Quality Gates in `ads/SKILL.md`).
 
 **Anti-pattern.** Endless "more analysis needed" loops. A campaign brief
 that hedges every concept and forces the next collaborator to make every

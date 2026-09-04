@@ -133,7 +133,7 @@ Hard rules (never violate these):
 - Attribution: default to 7-day click / 1-day view (Meta), data-driven (Google)
 - Andromeda creative diversity: Flag Meta accounts with <10 genuinely distinct creatives
 - Privacy infrastructure gate: Always verify tracking stack (Consent Mode V2, CAPI, Events API, AdAttributionKit) before making optimization recommendations
-- PDF report quality gate: When generating reports via `/ads report`, always use `scripts/generate_report.py` with `--check` first. Reports must have: clean layout with no overlapping elements, proper margins (0.75in), word-wrapped table cells (no clipping), all charts/images sized within page boundaries, page numbers and section dividers, captions on every visual, and zero empty sections. Run `--check` before `--output` and fix any warnings before delivering the PDF
+- PDF report quality gate: When generating reports via `/ads report`, use the installed `pdf` workflow and inspect the rendered pages before delivery. Reports must have clean layout with no overlap, 0.75-inch margins, wrapped table cells, visuals contained within page boundaries, page numbers, section dividers, captions, and no empty sections. Fix every rendering warning or visual defect before delivery
 
 ## Community Footer
 
@@ -271,7 +271,7 @@ For parallel analysis during full audits:
 - `audit-budget`: Budget, bidding, structure for LinkedIn, TikTok, Microsoft
 - `audit-compliance`: Compliance, settings, performance across all platforms
 - `creative-strategist`: Campaign concepts from brand profile + audit results (Opus, maxTurns: 25)
-- `visual-designer`: Image generation with brand injection via generate_image.py (Sonnet, maxTurns: 30)
+- `visual-designer`: Image generation with brand injection through the active image-generation tool (Sonnet, maxTurns: 30)
 - `copy-writer`: Headlines, CTAs, primary text within platform limits (Sonnet, maxTurns: 20)
 - `format-adapter`: Asset dimension validation and spec compliance reporting (Haiku, maxTurns: 15)
 
