@@ -1,6 +1,6 @@
 ---
 name: critical-review
-description: "Run a structured critical review of a draft, design, plan, doc set, or recommendation — challenge assumptions, failure modes, evidence, alternatives, measurement, scope, and accountability; produce a findings report with prioritized actions. Use when asked to critically review, challenge, stress-test, or red-team an artifact before it ships or gets signed off. Do NOT use for choosing whether/how to work with AI (`co-intelligence`) or line-level code review."
+description: "Critically review an artifact by challenging assumptions, failure modes, evidence, alternatives, measurement, scope, and accountability. Use when asked to challenge, stress-test, or red-team a draft before sign-off. Do NOT use for AI-task selection (`co-intelligence`) or line-level code review."
 type: component
 domain: meta
 ---

@@ -28,7 +28,7 @@ Exploration -> Sign-Off -> Discovery -> Sign-Off -> Delivery -> Learn & Iterate.
 |---|---|---|
 | `1-exploration/` | Exploration (human) — intake/intent framing -> **Sign-Off 1** | problem framing, stakeholders, market/company research, positioning, strategy, roadmap, prioritization, product-brief |
 | `2-discovery/` | Discovery (humans + AI) — PRD Forming/Storming/Norming, design discovery, eng feasibility -> **Sign-Off 2** | prd-development, user research (JTBD, personas, journeys, interviews), stories/epics, design-signal, eng-feasibility-spike, tech-spec, adr, api-design |
-| `3-delivery/` | Delivery (AI codes, humans review/ship) — PI Planning -> build/test/release | pi-planning, test-strategy, release-readiness, agent-docs, UI/design + framework packs (cleanui, tailwind, Expo, NestJS), ralph |
+| `3-delivery/` | Delivery (AI codes, humans review/ship) — PI Planning -> build/test/release | pi-planning, test-strategy, release-readiness, agent-docs, brand creation, UI/design + framework packs (cleanui, tailwind, Expo, NestJS), ralph |
 | `4-iteration/` | Learn & Iterate + operate | learn-iterate, SaaS/finance metrics, business health, pricing, incident-postmortem, sentry-cli, eol-message |
 | `growth/` | (pack, off-blueprint) | `ads-*` marketing pack, acquisition/organic growth |
 | `career/` | (pack, off-blueprint) | PM career coaching |
