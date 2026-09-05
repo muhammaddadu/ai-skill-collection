@@ -40,7 +40,7 @@ Provide the canonical facilitation pattern for interactive skills: one step at a
 
 ## Application
 1. Start with a brief heads-up on estimated time and number of questions.
-2. Ask the user to choose an entry mode:
+2. Reuse the user's stated interaction preference and supplied context. Ask for an entry mode only when it would change how the session proceeds:
    - `1` Guided mode (one question at a time)
    - `2` Context dump (paste known context; skip redundancies)
    - `3` Best guess mode (infer missing details and label assumptions)
@@ -52,7 +52,7 @@ Provide the canonical facilitation pattern for interactive skills: one step at a
 6. Ask follow-up clarifications only when they materially improve recommendation quality.
 7. For regular context/scoring questions, offer quick-select numbered response options when practical:
    - Keep options concise and mutually exclusive when possible.
-   - Include `Other (specify)` if likely answers are open-ended.
+   - Allow custom answers. When the runtime already supplies a free-text option, do not duplicate it as `Other (specify)`.
    - Accept multi-select responses like `1,3` or `1 and 3`.
 8. Provide numbered recommendations only at decision points:
    - after context synthesis,

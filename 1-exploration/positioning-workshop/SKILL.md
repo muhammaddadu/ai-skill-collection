@@ -1,6 +1,6 @@
 ---
 name: positioning-workshop
-description: Run a positioning workshop that surfaces target customer, unmet need, category, benefits, and differentiation. Use when your product messaging feels fuzzy, generic, or misaligned.
+description: "Facilitate choices about target customer, unmet need, category, benefits, and differentiation. Use when positioning is unclear or disputed; use `positioning-statement` to write the statement from agreed inputs."
 intent: >-
   Guide product managers through discovering and articulating product positioning by asking adaptive questions about target customers, unmet needs, product category, benefits, and competitive differentiation. Use this to align stakeholders on strategic positioning before writing PRDs, launch plans, or marketing materials—ensuring you've made deliberate choices about who you serve, what need you address, and how you differ from alternatives.
 type: interactive
@@ -64,23 +64,11 @@ An interactive discovery process that:
 
 ### Facilitation Source of Truth
 
-Use `workshop-facilitation` as the default interaction protocol for this skill.
-
-It defines:
-- session heads-up + entry mode (Guided, Context dump, Best guess)
-- one-question turns with plain-language prompts
-- progress labels (for example, Context Qx/8 and Scoring Qx/5)
-- interruption handling and pause/resume behavior
-- numbered recommendations at decision points
-- quick-select numbered response options for regular questions (include `Other (specify)` when useful)
-
-This file defines the domain-specific assessment content. If there is a conflict, follow this file's domain logic.
+Read `workshop-facilitation` for pacing, question format, and pause/resume behavior. This skill owns the domain questions, workflow, and outputs. Honor a requested single-shot response using labelled assumptions.
 
 ## Application
 
 This interactive skill asks **up to 5 adaptive questions**, offering **3-4 enumerated context-aware options** at each step.
-
-Interaction pattern: Pair with `skills/workshop-facilitation/SKILL.md` when you want a one-step-at-a-time flow with numbered recommendations at decision points and quick-select options for regular questions. If the user asks for a single-shot output, skip the multi-turn facilitation.
 
 ---
 

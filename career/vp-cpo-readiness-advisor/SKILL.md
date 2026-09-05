@@ -105,17 +105,7 @@ Without them, you're a "dead man walking." Executives can appear supportive in m
 
 ### Facilitation Source of Truth
 
-Use `workshop-facilitation` as the default interaction protocol for this skill.
-
-It defines:
-- Session heads-up + entry mode (Guided, Context dump, Best guess)
-- One-question turns with plain-language prompts
-- Progress labels (e.g., Context Q1/3)
-- Interruption handling and pause/resume behavior
-- Numbered recommendations at decision points
-- Quick-select numbered response options (include `Other (specify)` when useful)
-
-This file defines the domain-specific assessment content. If there is a conflict, follow this file's domain logic.
+Read `workshop-facilitation` for pacing, question format, and pause/resume behavior. This skill owns the domain questions, workflow, and outputs. Honor a requested single-shot response using labelled assumptions.
 
 ---
 
@@ -410,7 +400,7 @@ See `examples/conversation-flow.md` for a full interaction covering the evaluati
 - `skills/executive-onboarding-playbook/SKILL.md` — The 30-60-90 diagnostic playbook; essential reading for Branch 3 (Newly Landed) and Branch 2 (Evaluating)
 - `skills/altitude-horizon-framework/SKILL.md` — The Director-level mental model; foundational context for understanding where the VP/CPO transition begins
 - `skills/director-readiness-advisor/SKILL.md` — The Director-level transition equivalent; useful if you're coaching a Director report through their own transition
-- `skills/workshop-facilitation/SKILL.md` — Facilitation protocol for this interactive skill
+- `workshop-facilitation` — Facilitation protocol for this interactive skill
 
 ### Source Material
 - *The Product Porch*, Episode 43: [Becoming a VP & CPO: Leading Product at the Executive Level (Part 2)](https://the-product-porch-43ca35c0.simplecast.com/episodes/becoming-a-vp-cpo-leading-product-at-the-executive-level-part-2) — David Nash, Todd Blaquiere, Ryan Cantwell, Joe Ghali

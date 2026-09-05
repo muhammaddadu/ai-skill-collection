@@ -1,6 +1,6 @@
 ---
 name: ads
-description: "Audit and optimize paid advertising across Google, Meta, YouTube, LinkedIn, TikTok, Microsoft, Apple, and Amazon using scoring, creative, attribution, and tracking workflows. Use for multi-platform paid-media audits; use a platform-specific `ads-*` skill for one channel."
+description: "Route paid-advertising requests to the appropriate ads skill and collect shared business context. Use for broad ads help or choosing a workflow; use `ads-audit` for a multi-platform health audit and platform-specific `ads-*` skills for one channel."
 argument-hint: "audit | google | meta | youtube | linkedin | tiktok | microsoft | apple | amazon | attribution | tracking | creative | landing | budget | plan <type> | competitor | math | test | report | dna <url> | create | generate | photoshoot"
 license: MIT
 tested_date: 2026-05-17
@@ -77,14 +77,9 @@ before continuing.
 
 ## Orchestration Logic
 
-When the user invokes `/ads audit`:
-1. **Collect context** (see Context Intake above; do this first)
-2. Collect account data (exports, screenshots, or pasted metrics)
-3. Detect business type and identify active platforms
-4. If delegation is available and authorized, run the audit roles below in parallel through the runtime's supported mechanism; otherwise run them inline, sequentially
-5. **Validate**: verify each role returned valid JSON scores with required fields before aggregating
-6. Collect results and generate unified report with Ads Health Score (0-100)
-7. Create prioritized action plan with Quick Wins
+For `/ads audit`, collect the shared business context above, then load `ads-audit`.
+That skill owns data collection, platform coverage, scoring, and reporting. Pass
+known context forward so the audit does not repeat intake.
 
 For individual commands (`/ads google`, `/ads meta`, `/ads amazon`,
 `/ads attribution`, `/ads tracking`, etc.), load the relevant sub-skill

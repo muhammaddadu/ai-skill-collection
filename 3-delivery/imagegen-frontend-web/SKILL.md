@@ -5,6 +5,11 @@ description: Generate premium, conversion-aware website references as one separa
 
 # HARD OUTPUT RULE — READ FIRST
 
+This skill owns website reference-image art direction. Use `image-to-code` when
+the user also wants a working frontend; that workflow reuses this image phase
+and then owns extraction, implementation, and rendered verification. Do not run
+two independent image-design phases for the same request.
+
 **Generate one separate horizontal image PER section. Always. No exceptions.**
 
 - 1 section requested -> 1 image

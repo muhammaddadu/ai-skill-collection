@@ -1,6 +1,6 @@
 ---
 name: ads-dna
-description: "Brand DNA extractor for paid advertising: scans a website URL for visual identity, tone of voice, colors, typography, imagery; outputs brand-profile.json. Run before /ads create or /ads generate. Use when user says brand DNA, brand profile, extract brand, brand identity, or brand style guide."
+description: "Extract an existing website's visual identity and voice into brand-profile.json for paid advertising. Use for brand DNA extraction before ad creation; use `brand-creation-studio` to create or rebrand an identity."
 user-invokable: false
 tested_date: 2026-05-17
 tested_with: claude-code v2.x

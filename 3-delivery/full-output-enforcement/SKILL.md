@@ -1,17 +1,17 @@
 ---
 name: full-output-enforcement
-description: Overrides default LLM truncation behavior. Enforces complete code generation, bans placeholder patterns, and handles token-limit splits cleanly. Apply to any task requiring exhaustive, unabridged output.
+description: "Deliver complete files or exhaustive enumerations when the user explicitly requests unabridged output. Use to prevent omission placeholders in full-output tasks; ordinary repository edits and concise explanations do not require this workflow."
 ---
 
 # Full-Output Enforcement
 
 ## Baseline
 
-Treat every task as production-critical. A partial output is a broken output. Do not optimize for brevity — optimize for completeness. If the user asks for a full file, deliver the full file. If the user asks for 5 components, deliver 5 components. No exceptions.
+Apply this workflow when the user asks for complete files or exhaustive output. Deliver every requested item. For repository edits, complete the files on disk and link to them; repeating their contents in chat is necessary only when requested.
 
 ## Banned Output Patterns
 
-The following patterns are hard failures. Never produce them:
+Do not substitute the following patterns for work the user requested. Literal syntax, examples, and TODOs that are themselves part of the requested artifact are allowed:
 
 **In code blocks:** `// ...`, `// rest of code`, `// implement here`, `// TODO`, `/* ... */`, `// similar to above`, `// continue pattern`, `// add more as needed`, bare `...` standing in for omitted code
 
@@ -21,13 +21,13 @@ The following patterns are hard failures. Never produce them:
 
 ## Execution Process
 
-1. **Scope** — Read the full request. Count how many distinct deliverables are expected (files, functions, sections, answers). Lock that number.
+1. **Scope** — Read the full request. Track the deliverables expected (files, functions, sections, answers), updating that inventory when the user changes scope.
 2. **Build** — Generate every deliverable completely. No partial drafts, no "you can extend this later."
 3. **Cross-check** — Before output, re-read the original request. Compare your deliverable count against the scope count. If anything is missing, add it before responding.
 
 ## Handling Long Outputs
 
-When a response approaches the token limit:
+Prefer complete workspace artifacts for large outputs when the environment supports files. Continue working across context compaction without requiring the user to restart the task. If a chat-only response cannot contain the requested artifact:
 
 - Do not compress remaining sections to squeeze them in.
 - Do not skip ahead to a conclusion.
@@ -43,7 +43,7 @@ On "continue", pick up exactly where you stopped. No recap, no repetition.
 ## Quick Check
 
 Before finalizing any response, verify:
-- No banned patterns from the list above appear anywhere in the output
+- No omission placeholders replace requested work
 - Every item the user requested is present and finished
 - Code blocks contain actual runnable code, not descriptions of what code would do
-- Nothing was shortened to save space
+- Concise reporting does not omit any requested artifact

@@ -12,9 +12,9 @@ Load this reference when the user has a raw idea, notes, or a framework and need
 - **Interactive**: Guided conversation with adaptive questions and enumerated recommendations. Ask: "Does this require back-and-forth to be useful?"
 - **Workflow**: Multi-phase orchestration referencing other skills. Ask: "Does this coordinate multiple activities across steps?"
 
-### Non-Negotiable Sections
+### Suggested Sections
 
-Every skill requires these sections in order:
+Use the sections that help the skill's actual workflow; the repository authoring workflow and current skill-creator schema take precedence:
 1. **Purpose** — What it does + when to use it (outcome-focused)
 2. **Key Concepts** — Frameworks, definitions, mental models
 3. **Application** — Step-by-step instructions an agent can follow
@@ -25,9 +25,9 @@ Every skill requires these sections in order:
 ### Metadata Constraints
 
 - `name`: lowercase kebab-case, ≤ 64 characters
-- `description`: ≤ 200 characters, must include trigger cue ("Use when...")
-- `intent`: longer repo-facing summary (no character limit)
-- `type`: one of `component`, `interactive`, `workflow`
+- `description`: at most 350 characters, with a precise trigger
+- `metadata.intent`: longer repo-facing summary
+- `metadata.type`: one of `component`, `interactive`, `workflow`
 
 ### Facilitation Source of Truth
 
@@ -96,11 +96,11 @@ This session asks **up to 5 adaptive questions**, then delivers a **complete SKI
 
 **a) A working name** — lowercase-kebab-case, max 64 characters (e.g., `feature-investment-advisor`, `user-story`, `discovery-process`)
 
-**b) A one-sentence description** — What it does + when to use it. Must fit in 200 characters and start with a verb or 'Use when...'
+**b) A one-sentence description** — What it does + when to use it. Must fit in 350 characters and start with a verb or 'Use when...'
 
 Give me your best attempt and I'll tighten it if needed. Or just describe the skill's purpose and I'll propose both."
 
-**Agent note:** Validate the name format (kebab-case, ≤ 64 chars) and description length (≤ 200 chars) before proceeding. If either fails, suggest a fix.
+**Agent note:** Validate the name format (kebab-case, under 64 characters) and description length (at most 350 characters) before proceeding. If either fails, suggest a fix.
 
 ### Question 4: Key Content (Q4/5)
 
@@ -129,7 +129,7 @@ Give me the decision tree as you see it — even if it's rough."
 "Map out the phases:
 1. **What are the major steps?** (Usually 3-6 phases)
 2. **What's the input and output of each phase?**
-3. **Which existing skills does this reference?** (Check with `scripts/find-a-skill.sh --keyword <topic>`)
+3. **Which existing skills does this reference?** (Search repository names and descriptions with `rg`.)
 4. **Where are the decision points?**
 
 Give me the flow — sequential, branching, or both."
@@ -150,7 +150,7 @@ If you're not sure, tell me the most common mistake you've seen and I'll help st
 
 After collecting answers to Q1-Q5, generate a complete SKILL.md draft including:
 
-1. **YAML frontmatter** — `name`, `description`, `intent`, `type`, `best_for`, `scenarios`, `estimated_time`
+1. **YAML frontmatter** — `name`, `description`, and useful custom fields under `metadata`
 2. **Purpose** — Synthesized from Q1 + Q3
 3. **Key Concepts** — Structured from Q4 content
 4. **Application** — Step-by-step instructions derived from Q4
@@ -163,9 +163,9 @@ After collecting answers to Q1-Q5, generate a complete SKILL.md draft including:
 "Here's your draft SKILL.md. Before we call it done:
 
 1. **Review the draft** — Does it capture your intent?
-2. **Run validation** — `python3 scripts/check-skill-metadata.py skills/<name>/SKILL.md`
-3. **Check triggers** — `python3 scripts/check-skill-triggers.py skills/<name>/SKILL.md --show-cases`
-4. **Smoke test** — `./scripts/test-a-skill.sh --skill <name> --smoke`
+2. **Run validation** — `python3 scripts/lint.py` and the current `skill-creator` validator
+3. **Check triggers** — Compare adjacent descriptions and realistic requests
+4. **Inspect and install** — Follow `skill-authoring-workflow` for diff review and installation checks
 
 Want me to adjust anything, or are you ready to validate?"
 
@@ -221,7 +221,7 @@ Start with one. We can build the others after."
 ### Pitfall 3: Skipping Validation
 **Symptom:** "The draft looks good, let's ship it."
 **Consequence:** Broken frontmatter, missing sections, failed cross-references, inconsistent catalog counts.
-**Fix:** Always run `check-skill-metadata.py` and `check-skill-triggers.py` before considering the skill done. No exceptions.
+**Fix:** Run the repository's `python3 scripts/lint.py`, applicable skill validation, and installation checks described in `skill-authoring-workflow`.
 
 ### Pitfall 4: Kitchen Sink Scope
 **Symptom:** Trying to pack an entire domain into one skill.

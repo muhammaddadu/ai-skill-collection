@@ -39,6 +39,26 @@ Exploration -> Sign-Off -> Discovery -> Sign-Off -> Delivery -> Learn & Iterate.
 
 ## Conventions (enforced by `TEMPLATE/SKILL.md`)
 
+Choose one primary workflow for the requested output. Add a specialist only for
+a distinct part of that work, and pass existing context forward instead of
+repeating intake. Common overlaps are resolved as follows:
+
+| Need | Primary skill | Adjacent scope |
+|---|---|---|
+| Positioning from agreed inputs | `positioning-statement` | `positioning-workshop` elicits the inputs |
+| Customer experience map | `customer-journey-map` | `customer-journey-mapping-workshop` facilitates discovery |
+| Backlog and release slices | `user-story-mapping` | `user-story-mapping-workshop` facilitates planning |
+| General interface implementation | `cleanui` | `design-taste-frontend` specializes in marketing and portfolio art direction |
+| Particular visual treatment | One matching style preset | Avoid stacking conflicting style presets |
+| Website reference images | `imagegen-frontend-web` | `image-to-code` adds implementation; mobile concepts use `imagegen-frontend-mobile` |
+| Complete identity journey | `brand-creation-studio` | `brandkit` produces a single overview board; `ads-dna` extracts an existing identity |
+| Ordinary images in Codex | Built-in `imagegen` | `gpt-image` supports requested CLI/API execution or prompt-gallery consultation |
+| Paid-account health review | `ads-audit` | `ads` routes broad requests; channel skills handle one platform |
+
+Interactive skills read `workshop-facilitation` for the shared interaction
+protocol and keep their own domain questions. Keep optional examples and mode
+catalogs in routed references rather than copying them into every entrypoint.
+
 - **Name:** `<domain>-<object>[-workshop|-advisor]`, kebab-case, dir name ==
   frontmatter `name`. One skill = one deliverable or one decision.
 - **Description:** `"Verb the artifact… Use when <trigger>. Do NOT use for

@@ -84,17 +84,7 @@ Roadmap planning is the process of:
 
 ### Facilitation Source of Truth
 
-When running this workflow as a guided conversation, use `workshop-facilitation` as the interaction protocol.
-
-It defines:
-- session heads-up + entry mode (Guided, Context dump, Best guess)
-- one-question turns with plain-language prompts
-- progress labels (for example, Context Qx/8 and Scoring Qx/5)
-- interruption handling and pause/resume behavior
-- numbered recommendations at decision points
-- quick-select numbered response options for regular questions (include `Other (specify)` when useful)
-
-This file defines the workflow sequence and domain-specific outputs. If there is a conflict, follow this file's workflow logic.
+For guided runs, read `workshop-facilitation` for pacing, question format, and pause/resume behavior. This skill owns the domain questions, workflow, and outputs. Honor a requested single-shot response using labelled assumptions.
 
 ## Application
 

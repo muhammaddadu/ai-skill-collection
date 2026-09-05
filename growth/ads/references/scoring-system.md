@@ -20,6 +20,12 @@ S_total = Σ(C_pass × W_sev × W_cat) / Σ(C_total × W_sev × W_cat) × 100
 - `W_cat` = category weight for that platform
 - Result: 0-100 Health Score
 
+Treat category weights as relative inputs and normalize over applicable checks
+in the denominator. Some legacy tables, notably LinkedIn after the additional
+CRM category, total more than 100; do not add weighted percentages directly or
+drop a category silently. Report the weighting used. An empty assessed-check
+denominator produces `unscored`, never zero or 100.
+
 ## Severity Multipliers
 
 | Severity | Multiplier | Criteria |
@@ -37,6 +43,20 @@ S_total = Σ(C_pass × W_sev × W_cat) / Σ(C_total × W_sev × W_cat) × 100
 | WARNING | 50% of full points |
 | FAIL | 0 points |
 | N/A | Excluded from total possible |
+| UNVERIFIED | Missing evidence; exclude from assessed score and disclose coverage |
+
+Keep N/A (does not apply) separate from UNVERIFIED (not enough evidence). Report
+the proportion of applicable checks assessed so missing data cannot look like
+a clean audit.
+
+## Cross-platform aggregation
+
+Use `sum(platform_score * assessed_spend) / sum(assessed_spend)` for platforms
+with usable scores and known spend. Report what share of total spend this
+covers. If spend is missing or the denominator is zero, omit the aggregate and
+show platform results. Do not double-count YouTube spend within Google Ads.
+Use cross-platform checks as separate findings; do not add another 100% weight
+to an already normalized platform aggregate.
 
 ## Category Weights by Platform
 
@@ -152,7 +172,7 @@ Category weights are calibrated for paid advertising accounts where conversion t
 - Broken tracking invalidates all optimization decisions downstream
 - Creative and targeting quality follow tracking in priority
 - Settings and compliance are important but have lower direct revenue impact
-- Weights sum to 100% per platform, enabling direct cross-platform comparison
+- Relative weights are normalized; coverage and the weighting used accompany comparisons
 
 The grading thresholds (A=90-100, B=75-89, C=60-74, D=40-59, F=<40) use wider bands than academic-style scoring because ad account health is typically distributed lower; a score of 75+ represents genuinely well-managed accounts.
 
@@ -168,7 +188,7 @@ These checks apply across all platforms during full audits:
 | X-CD1 | Creative diversity audit | High | Andromeda, Smart+, and PMax all use creative signals for targeting. Flag accounts with <5 genuinely distinct creative concepts |
 | X-RF1 | Platform-appropriate refresh cadence | High | TikTok 7-10d, Meta 14-21d, LinkedIn 4-6w, Google/MS 8-12w. Flag overdue refreshes |
 
-Cross-platform checks are scored at 100% weight in the aggregate score (not within any single platform).
+Report cross-platform checks separately from the spend-weighted aggregate to avoid double-counting platform findings.
 
 ---
 

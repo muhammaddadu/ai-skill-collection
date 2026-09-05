@@ -118,17 +118,7 @@ The triage applies equally to internal and external risks. A desirability gap yo
 
 ### Facilitation Source of Truth
 
-Use `workshop-facilitation` as the default interaction protocol for this skill.
-
-It defines:
-- session heads-up + entry mode (Guided, Context dump, Best guess)
-- one-question turns with plain-language prompts
-- progress labels (for example, Context Qx/4 and Risk Scan Qx/6)
-- interruption handling and pause/resume behavior
-- numbered recommendations at decision points
-- quick-select numbered response options for regular questions (include `Other (specify)` when useful)
-
-This file defines the domain-specific assessment content. If there is a conflict, follow this file's domain logic.
+Read `workshop-facilitation` for pacing, question format, and pause/resume behavior. This skill owns the domain questions, workflow, and outputs. Honor a requested single-shot response using labelled assumptions.
 
 ## Application
 

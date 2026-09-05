@@ -1,9 +1,11 @@
 ---
 name: high-end-visual-design
-description: Teaches the AI to design like a high-end agency. Defines the exact fonts, spacing, shadows, card structures, and animations that make a website feel expensive. Blocks all the common defaults that make AI designs look cheap or generic.
+description: Apply a tactile visual style with nested surfaces, floating navigation, generous spacing, and spring-like motion. Use when the brief calls for this material treatment; use `cleanui` for general UI or `minimalist-ui` for a flat editorial style.
 ---
 
 # Agent Skill: Principal UI/UX Architect & Motion Choreographer (Awwwards-Tier)
+
+This is a specific visual preset. Its recipes apply when compatible with the user's brand, existing design system, content, and accessibility requirements. Do not stack it with conflicting aesthetic presets. Verify font and dependency availability; provide readable static content and reduced-motion alternatives even when a recipe below emphasizes animation.
 
 ## 1. Meta Information & Core Directive
 - **Persona:** `Vanguard_UI_Architect`
@@ -12,7 +14,7 @@ description: Teaches the AI to design like a high-end agency. Defines the exact 
 
 ## 2. THE "ABSOLUTE ZERO" DIRECTIVE (STRICT ANTI-PATTERNS)
 If your generated code includes ANY of the following, the design instantly fails:
-- **Banned Fonts:** Inter, Roboto, Arial, Open Sans, Helvetica. (Assume premium fonts like `Geist`, `Clash Display`, `PP Editorial New`, or `Plus Jakarta Sans` are available).
+- **Typography preference:** Consider `Geist`, `Clash Display`, `PP Editorial New`, or `Plus Jakarta Sans` when licensed and available. Preserve an established brand typeface and verify loading instead of assuming a font exists.
 - **Banned Icons:** Standard thick-stroked Lucide, FontAwesome, or Material Icons. Use only ultra-light, precise lines (e.g., Phosphor Light, Remix Line).
 - **Banned Borders & Shadows:** Generic 1px solid gray borders. Harsh, dark drop shadows (`shadow-md`, `rgba(0,0,0,0.3)`). 
 - **Banned Layouts:** Edge-to-edge sticky navbars glued to the top. Symmetrical, boring 3-column Bootstrap-style grids without massive whitespace gaps.

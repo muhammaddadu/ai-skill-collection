@@ -1,6 +1,6 @@
 ---
 name: ads-audit
-description: "Audit paid advertising across Google, Meta, LinkedIn, TikTok, Microsoft, and Apple with platform health scores and an aggregate score. Use for multi-platform account-health or spend audits; use a platform-specific `ads-*` skill for one channel."
+description: "Audit active paid-advertising accounts across platforms, with evidence-backed health scores and a prioritized action plan. Use for multi-platform account-health audits; use a platform-specific `ads-*` skill for one channel."
 user-invokable: false
 tested_date: 2026-05-17
 tested_with: claude-code v2.x
@@ -19,7 +19,7 @@ audit feels mechanical, you are skipping a principle.
 1. **Collect account data**: request exports, screenshots, or API access
 2. **Validate**: confirm at least one platform's data is available before proceeding
 3. **Detect business type**: analyze account signals per ads orchestrator
-4. **Identify active platforms**: determine which platforms are in use
+4. **Identify active platforms**: determine which platforms are in use and load each corresponding platform skill, including `ads-apple`, `ads-amazon`, and `ads-youtube` when applicable. Count overlapping Google/YouTube spend once.
 5. **Run audit roles** (delegate only when available and authorized; otherwise run inline sequentially):
    - `audit-google`: Conversion tracking, wasted spend, structure, keywords, ads, settings (80 checks; G01-G61 + 19 hyphenated v1.5+ IDs incl. AI Max)
    - `audit-meta`: Pixel/CAPI health, creative fatigue, structure, audience (50 checks; M01-M40 + 10 hyphenated v1.5+ IDs incl. Andromeda)
@@ -44,24 +44,15 @@ If no exports available, audit from screenshots or manual data entry.
 
 ## Scoring
 
-Read `../ads/references/scoring-system.md` for full algorithm.
+Read `../ads/references/scoring-system.md` for the canonical algorithm, category
+weights, grades, severity definitions, and Quick Wins criteria. Do not maintain
+a second copy here. Use the platform skill for checks not covered by the shared
+catalog and disclose any unresolved scoring conflict.
 
-### Per-Platform Weights
-
-| Platform | Category Weights |
-|----------|-----------------|
-| Google | Conversion 25%, Waste 20%, Structure 15%, Keywords 15%, Ads 15%, Settings 10% |
-| Meta | Pixel/CAPI 30%, Creative 30%, Structure 20%, Audience 20% |
-| LinkedIn | Tech 25%, Audience 25%, Creative 20%, Lead Gen 15%, Budget 15% |
-| TikTok | Creative 30%, Tech 25%, Bidding 20%, Structure 15%, Performance 10% |
-| Microsoft | Tech 25%, Syndication 20%, Structure 20%, Creative 20%, Settings 15% |
-
-### Aggregate Score
-
-```
-Aggregate = Sum(Platform_Score x Platform_Budget_Share)
-Grade: A (90-100), B (75-89), C (60-74), D (40-59), F (<40)
-```
+Report missing evidence as unverified, not as a pass. Publish the assessed spend
+and check coverage alongside scores; do not imply that unassessed accounts were
+audited. If budget shares are unknown, report platform scores without inventing
+a spend-weighted aggregate.
 
 ## Output Files
 
@@ -97,19 +88,3 @@ Each platform section includes:
 - Budget reallocation recommendations
 - Scaling opportunities (platforms/campaigns ready to scale)
 - Kill list (campaigns/ad groups to pause immediately)
-
-## Priority Definitions
-
-- **Critical**: Revenue/data loss risk (fix immediately)
-- **High**: Significant performance drag (fix within 7 days)
-- **Medium**: Optimization opportunity (fix within 30 days)
-- **Low**: Best practice, minor impact (backlog)
-
-## Quick Wins Criteria
-
-```
-IF severity == "Critical" OR severity == "High"
-AND estimated_fix_time < 15 minutes
-THEN flag as Quick Win
-SORT BY (severity_multiplier x estimated_impact) DESC
-```

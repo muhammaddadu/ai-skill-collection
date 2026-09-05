@@ -56,17 +56,7 @@ This skill draws directly on the Altitude & Horizon Framework — see `skills/al
 
 ### Facilitation Source of Truth
 
-Use `workshop-facilitation` as the default interaction protocol for this skill.
-
-It defines:
-- Session heads-up + entry mode (Guided, Context dump, Best guess)
-- One-question turns with plain-language prompts
-- Progress labels (e.g., Context Q1/3)
-- Interruption handling and pause/resume behavior
-- Numbered recommendations at decision points
-- Quick-select numbered response options (include `Other (specify)` when useful)
-
-This file defines the domain-specific assessment content. If there is a conflict, follow this file's domain logic.
+Read `workshop-facilitation` for pacing, question format, and pause/resume behavior. This skill owns the domain questions, workflow, and outputs. Honor a requested single-shot response using labelled assumptions.
 
 ---
 
@@ -350,7 +340,7 @@ See `examples/conversation-flow.md` for a full end-to-end interaction, including
 
 ### Related Skills
 - `skills/altitude-horizon-framework/SKILL.md` — The mental model this skill coaches on; includes the Cascading Context Map template
-- `skills/workshop-facilitation/SKILL.md` — Facilitation protocol for this interactive skill
+- `workshop-facilitation` — Facilitation protocol for this interactive skill
 
 ### Future Skills
 - `director-to-vp-cpo-advisor` (planned) — Coaches the next transition: Director to VP or CPO of Product

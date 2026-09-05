@@ -6,6 +6,8 @@ version: 1.0.0
 
 # CleanUI — AI UI Design Enforcement Skill
 
+Use this as the general interface design workflow. For a marketing page led by art direction, `design-taste-frontend` is an alternative. Choose one primary aesthetic workflow; load a specific style preset only when it matches the brief. User requirements, the existing design system, and accessibility take precedence over stylistic bans below.
+
 > **STOP. Before you write ANY UI code, read this file.**
 >
 > You are an AI code generator with deeply ingrained UI habits that produce recognizable "AI-looking" output. This skill exists to override those habits and produce professional, human-designed interfaces.

@@ -1,6 +1,6 @@
 ---
 name: user-story-mapping-workshop
-description: Run a user story mapping workshop with adaptive questions and a structured map output. Use when you need backbone activities, tasks, and release slices for a workflow.
+description: "Facilitate user story mapping through adaptive questions about users, activities, priorities, and release slices. Use for a guided planning session; use `user-story-mapping` to produce a map from established inputs."
 intent: >-
   Guide product managers through creating a user story map by asking adaptive questions about the system, users, workflow, and priorities—then generating a two-dimensional map with backbone (activities), user tasks, and release slices. Use this to move from flat backlogs to visual story maps that communicate the big picture, identify missing functionality, and enable meaningful release planning—avoiding "context-free mulch" where stories lose connection to the overall system narrative.
 type: interactive
@@ -73,25 +73,13 @@ Details/Acceptance Criteria (at the bottom)
 
 ### Facilitation Source of Truth
 
-Use `workshop-facilitation` as the default interaction protocol for this skill.
-
-It defines:
-- session heads-up + entry mode (Guided, Context dump, Best guess)
-- one-question turns with plain-language prompts
-- progress labels (for example, Context Qx/8 and Scoring Qx/5)
-- interruption handling and pause/resume behavior
-- numbered recommendations at decision points
-- quick-select numbered response options for regular questions (include `Other (specify)` when useful)
-
-This file defines the domain-specific assessment content. If there is a conflict, follow this file's domain logic.
+Read `workshop-facilitation` for pacing, question format, and pause/resume behavior. This skill owns the domain questions, workflow, and outputs. Honor a requested single-shot response using labelled assumptions.
 
 ## Application
 
 This interactive skill asks **up to 5 adaptive questions**, offering **3-4 enumerated options** at each step.
 
 Use `template.md` for the facilitation agenda and outputs checklist.
-
-Interaction pattern: Pair with `skills/workshop-facilitation/SKILL.md` when you want a one-step-at-a-time flow with numbered recommendations at decision points and quick-select options for regular questions. If the user asks for a single-shot output, skip the multi-turn facilitation.
 
 ---
 

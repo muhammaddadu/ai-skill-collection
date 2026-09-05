@@ -1,13 +1,13 @@
 ---
 name: gpt-image
-description: "Generate or edit images with GPT Image 2 / gpt-image-2 — text-to-image, reference-image editing, inpainting, posters, typography, UI mockups, diagrams. Search the bundled Reference Gallery, then use the `gpt-image` CLI or `scripts/generate.py`; don't write new image code. Use when asked to generate, draw, render, or edit images."
+description: "Generate or edit images through the gpt-image CLI/API when that execution path is requested, or consult its bundled prompt gallery. In Codex, use built-in `imagegen` for ordinary image generation and editing."
 compatibility: "Requires Python 3.11+ and either `gpt-image`, `uv`, or `uvx`. CLI/API calls read `OPENAI_API_KEY` and may incur OpenAI API charges."
 metadata: {"openclaw":{"requires":{"anyBins":["gpt-image","uv","uvx"]},"primaryEnv":"OPENAI_API_KEY","homepage":"https://github.com/wuyoscar/gpt_image_2_skill"}}
 ---
 
 # gpt-image
 
-Agent runbook for GPT Image 2 generation/editing. Use the prompt library + packaged CLI. Do not reimplement image API code.
+Agent runbook for requested CLI/API image generation and the bundled prompt library. In Codex, use built-in `imagegen` for ordinary generation/editing; use this CLI path when the user requests it. Loading gallery guidance alone does not select or authorize a paid API call. Do not reimplement image API code.
 
 ## Operating loop
 
