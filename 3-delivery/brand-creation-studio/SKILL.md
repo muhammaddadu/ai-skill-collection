@@ -33,7 +33,7 @@ Do not use this full workflow when the user only wants a single brand-board imag
 - A complete-looking deck around an average identity is a failed run. Never let a polished deck, mockup, or rationale rescue weak design.
 - Use existing conversation and project context before asking questions. Ask only when an unknown genuinely blocks useful progress.
 - When information is incomplete, create a provisional brief and label assumptions.
-- Proceed end to end without seeking approval at every phase. If the user wants involvement, useful review points are strategy/category diagnosis, first divergent visual round, refined shortlist, and final route before production.
+- Keep a human in the loop at the decision gates below unless the user explicitly requests a delegated run. Do not seek approval after every small step.
 - Do not ask the user to choose among weak routes. If nothing passes a quality gate, say so and loop back.
 - Use current public research when competitors, culture, category, naming, domains, market, or trends materially affect the work.
 - Describe trademark, company-name, and domain checks as preliminary screening, never legal clearance.
@@ -69,7 +69,31 @@ brand-work/<brand-slug>/
   11-handover/
 ```
 
-Maintain `decision-log.md`, `cliche-red-list.md`, `quality-gates.md`, and `asset-manifest.md`. The decision log records material changes, evidence, alternatives, critique, and next moves; it is not marketing copy.
+Maintain `decision-log.md`, `feedback-log.md`, `cliche-red-list.md`, `quality-gates.md`, and `asset-manifest.md`. The decision log records material changes, evidence, alternatives, critique, and next moves; it is not marketing copy.
+
+## Human-in-the-loop steering
+
+Default to a collaborative journey. At the start, briefly confirm whether the user wants the standard four checkpoints, fewer decision gates, or a delegated run, unless their request already makes that clear. Identify the decision-maker and whether other contributors' feedback is advisory or approving. If no interaction preference is specified, use the four checkpoints. Apply `workshop-facilitation` for concise, one-question-at-a-time interaction and visible progress.
+
+Pause at these gates and wait for feedback:
+
+1. **Strategy and category diagnosis** — Show the distilled brief, category saturation, cliché red list, strategic principles, and provocations. Recommend the most important tension to preserve, then ask one targeted alignment question.
+2. **First divergent visual round** — Show the actual rendered evidence and honest critique. Ask what feels true, false, memorable, or off-brand and why; do not force a route choice yet.
+3. **Refined shortlist** — Show only routes that passed shortlist eligibility, with flat system probes, trade-offs, and a recommendation. Ask the human to steer or select the route to refine.
+4. **Final route before production** — Show refinement changes, quality-gate results, remaining risks, and the proposed production direction. Ask for the final steer before formalising assets, applications, and handover.
+
+At each checkpoint:
+
+- present the evidence, recommendation, and decision needed—not a vague “thoughts?”
+- ask one focused question per turn; offer a small set of meaningful options only when a real choice exists
+- distinguish constraints, preferences, reactions, and proposed solutions
+- unpack vague feedback such as “more premium” into observable design qualities before acting
+- record what was shown, the human's words, the interpretation, the agreed change, and unresolved tensions in `feedback-log.md`
+- update `decision-log.md` with how feedback changed—or deliberately did not change—the next round and why
+- surface conflicts between feedback, strategy, accessibility, distinctiveness, or production reality rather than silently complying
+- when several people respond, attribute feedback, separate approval from advice, synthesise conflicts, and return unresolved choices to the named decision-maker
+
+Human preference steers the work but does not waive quality gates. If requested direction would create a critical failure, explain the conflict, propose a stronger interpretation, and seek a decision. In a delegated run, proceed with labelled assumptions and include `Feedback needed` items at the same gates so the human can re-enter later.
 
 ## Workflow
 
@@ -226,6 +250,7 @@ Curate the presentation only after the identity is good. Make it editorial and a
 Unless the user requests a smaller scope, deliver:
 
 - `brand-strategy.md`, `research-summary.md`, and `decision-log.md`
+- `feedback-log.md` showing human steering and its effect on the work
 - accurate logo family in appropriate vector/raster formats
 - colour, typography, imagery, and visual-system specifications
 - moodboards, sketch sheets, concept sheets, and iteration comparisons
@@ -245,6 +270,8 @@ When a concept fails, record why and change direction rather than endlessly poli
 Do not call the brand finished until:
 
 - research produced a specific cliché red list and actionable implications
+- human feedback was captured at the agreed decision gates, or the user explicitly chose a delegated run
+- each feedback item is traceable to an interpretation, design change, rejected change, or unresolved decision
 - at least three materially distinct territories were visually explored
 - divergent generated rounds were inspected between iterations
 - exact typography studies use named, licensable typefaces
