@@ -12,7 +12,7 @@ Examples:
 - `S` + sound wave / speech flow
 - `A` + ascent / architecture / momentum
 
-Do not make a boring letter icon.  
+Do not make a boring letter icon.
 Use negative space, cuts, folds, or geometry.
 
 ---
