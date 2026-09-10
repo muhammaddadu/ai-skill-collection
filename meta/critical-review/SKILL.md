@@ -32,6 +32,10 @@ remain human. Nothing important goes to production on unverified claims.
 
 ## Workflow
 
+When reviewing a PRD/spec together with its design or task plan, read
+`references/cross-artifact-consistency.md`. It adds traceability checks to the
+review below without requiring a new document layout or changing the artifacts.
+
 1. **Ground the review.** Read the artifact fully. Separate its claims into *checkable* (against code,
    data, sources) and *judgment* (targets, trade-offs, taste). Verify the checkable ones you can reach —
    findings anchored in ground truth are the ones that survive pushback.

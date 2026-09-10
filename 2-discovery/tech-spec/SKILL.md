@@ -42,6 +42,12 @@ From the PRD and the codebase, before considering any solution:
 
 ### Step 3: Generate real options (minimum 2)
 
+Read applicable repository conventions and accepted ADRs before selecting options.
+Reuse those governing decisions rather than creating a competing constitution.
+Record each material research conclusion as decision, rationale, alternatives,
+and evidence; distinguish verified constraints from assumptions. Resolve unknowns
+that block safe design, or assign a bounded spike before dependent implementation.
+
 This is the step that distinguishes a spec from a justification memo. Produce **at least two options that a competent engineer might genuinely choose** — not one real option plus a strawman.
 
 For each option capture:
@@ -60,6 +66,11 @@ Pick an option and say **why**, referencing the trade-off analysis. Then detail 
 - Failure modes — what happens when each dependency is slow, down, or returns garbage
 
 Detail stops where the implementers' judgment starts: specify contracts and invariants, not variable names.
+
+Map buildable requirement/acceptance IDs to the design sections that satisfy them
+and their planned verification. Recheck governing constraints after design: record
+any conflict and its required decision owner instead of silently overriding it.
+Keep business KPIs in the measurement plan, separate from code obligations.
 
 ### Step 5: Map data & API impact
 

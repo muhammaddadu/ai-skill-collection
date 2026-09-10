@@ -154,6 +154,20 @@ Turn the sequenced slice into tracker-ready work:
 A ticket without acceptance criteria is not a ticket; it is a conversation
 scheduled for the worst possible time (mid-implementation).
 
+Use stable task IDs and preserve existing IDs when replanning. Each task names its
+story/requirement references, dependencies, intended output, and verification.
+Group implementation into independently demonstrable vertical story slices;
+put shared prerequisites first without turning the whole plan into horizontal
+"all backend, then all frontend" phases. State the checkpoint that proves each
+slice works before moving to the next. Follow `test-strategy` for test depth;
+use TDD when requested or required by project conventions, not by default mandate.
+
+For code tasks, inspect the repository before naming affected files; distinguish
+existing paths from proposed new ones. Mark parallel work only when dependencies,
+shared files, contracts, and resources permit it; assign shared edits an owner.
+Planning parallel tracks does not itself authorize spawning agents. Before
+commitment, use `critical-review` for cross-artifact coverage and contradictions.
+
 ### Step 6 — Mark the PRD Commitment-Ready
 
 With scope cut, sequenced, and ticketed, update the PRD's status to

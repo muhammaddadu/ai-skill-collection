@@ -139,6 +139,10 @@ For guided runs, read `workshop-facilitation` for pacing, question format, and p
 
 ## Application
 
+Before engineering handoff, read `references/requirements-quality.md` for targeted
+clarification and testable requirements. Use it to strengthen the existing PRD,
+not to create a second specification or repeat answered workshop questions.
+
 Use `template.md` as the fill-in document. The template includes:
 
 - **Per-section coaching blocks** — each section has its own Instructions, Steps, Contributing Skills, and Activities so the template is self-guiding even without this workflow.

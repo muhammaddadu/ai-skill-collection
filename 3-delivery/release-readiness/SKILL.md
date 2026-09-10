@@ -75,6 +75,11 @@ change" but there's a data migration), the riskier answer wins the tier.
 
 ### Step 1 — Walk the checklist
 
+For releases with an agreed specification or task plan, first read
+`references/implementation-reconciliation.md` and reconcile the release candidate
+against that intent. Scale to the changed scope; do not manufacture a PRD for a
+small patch. Feed material gaps into the checklist and verdict below.
+
 Read `references/readiness-checklist.md` for the full 46 checks, IDs R01–R46,
 in 7 weighted categories. For each check in this release's tier:
 
