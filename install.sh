@@ -7,6 +7,16 @@
 # Idempotent: re-run after adding/renaming skills or editing manifests.
 set -euo pipefail
 
+CONFIGURE_IDEATION=true
+case "${1:-}" in
+  "") ;;
+  --skip-global-instructions) CONFIGURE_IDEATION=false ;;
+  *) echo "Usage: ./install.sh [--skip-global-instructions]" >&2; exit 2 ;;
+esac
+if [ "$#" -gt 1 ]; then
+  echo "Usage: ./install.sh [--skip-global-instructions]" >&2; exit 2
+fi
+
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 STAMP="$(date +%Y%m%d-%H%M%S)"
 
@@ -54,5 +64,9 @@ link_skills "$REPO/manifests/claude.txt" "$HOME/.claude/skills"
 link_skills "$REPO/manifests/codex.txt" "$HOME/.codex/skills"
 link_commands "$HOME/.claude/commands"
 link_commands "$HOME/.codex/prompts"
+
+if [ "$CONFIGURE_IDEATION" = true ]; then
+  python3 "$REPO/meta/divergent-ideation/scripts/setup_global.py"
+fi
 
 echo "Done. Open a fresh Claude Code / Codex session to pick up changes."

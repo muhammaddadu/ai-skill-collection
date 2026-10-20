@@ -22,6 +22,16 @@ and a concrete next experiment for the strongest candidates.
 hosting workflow, using that workflow's existing document.
 **Audience:** The decision-maker and people who will develop the selected option.
 
+## Installation preference
+
+The repository installer runs `scripts/setup_global.py` after linking skills to
+maintain a scoped activation rule in detected local clients. A standalone skill
+copy does not execute a post-install hook automatically. For requested setup,
+preview with `python3 scripts/setup_global.py --dry-run`, apply by omitting that
+flag, or remove the managed block with `--remove`. These paths are relative to
+this skill folder. Do not run setup merely because this skill is used for ideation.
+See the repository README for supported clients, opt-out, and limits.
+
 ## 1. Bound the search
 
 Reuse the supplied brief. Identify the outcome, audience, hard constraints,

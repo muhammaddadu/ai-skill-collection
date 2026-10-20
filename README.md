@@ -17,6 +17,39 @@ real directories are moved to a timestamped `*.backup-*` folder, never deleted.
 Re-run after adding a skill or editing a manifest. Restart sessions to pick up
 changes — skills are scanned at session start.
 
+The installer also maintains a marked global `divergent-ideation` activation rule
+for detected Codex, Claude Code, Gemini CLI, OpenCode, and Cursor configuration
+directories. It points to this checkout's skill and applies to brainstorming,
+naming, strategy, design alternatives, and choices between approaches. Simple
+questions and routine edits keep their direct path. The rule is a model instruction,
+not an enforcement mechanism; project settings or explicit user requests may override it.
+
+Existing instructions are preserved, updates are atomic, and each changed existing
+file receives a unique adjacent `.ideation-backup-*` copy. Repeated installs do
+not duplicate the block. Supported home/config environment overrides are honored;
+Gemini uses the standard `GEMINI.md` filename. Symlink instruction paths and
+malformed managed blocks require manual resolution. Detection means a supported
+configuration directory exists; no running app or account is inspected.
+
+```bash
+# Link skills without changing global instructions
+./install.sh --skip-global-instructions
+# Preview or remove the managed rules (from the repo root)
+python3 meta/divergent-ideation/scripts/setup_global.py --dry-run
+python3 meta/divergent-ideation/scripts/setup_global.py --remove
+```
+
+Removal leaves the instruction files in place, including an empty dedicated Cursor
+file when applicable. A later default install reinstates the rule; use the opt-out
+flag to keep it removed. The checkout must remain available for referenced skills.
+Claude Desktop, ChatGPT, and other browser-only clients require instructions set
+inside their app or project; this installer reports that limitation. Third-party
+skill installers do not automatically run this repository's post-install step.
+Global instruction locations follow the official
+[Gemini CLI](https://geminicli.com/docs/cli/gemini-md/),
+[OpenCode](https://dev.opencode.ai/docs/rules/), and
+[Cursor](https://prod.cursor.com/help/customization/rules) documentation.
+
 ## Layout
 
 Organized around the product blueprint — "Make Building Products Fun Again":
