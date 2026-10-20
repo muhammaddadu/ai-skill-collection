@@ -46,6 +46,7 @@ repeating intake. Common overlaps are resolved as follows:
 | Need | Primary skill | Adjacent scope |
 |---|---|---|
 | Positioning from agreed inputs | `positioning-statement` | `positioning-workshop` elicits the inputs |
+| Broad alternatives before choosing | `divergent-ideation` | Domain skills own implementation; `critical-review` challenges an existing artifact |
 | Customer experience map | `customer-journey-map` | `customer-journey-mapping-workshop` facilitates discovery |
 | Backlog and release slices | `user-story-mapping` | `user-story-mapping-workshop` facilitates planning |
 | General interface implementation | `cleanui` | `design-taste-frontend` specializes in marketing and portfolio art direction |

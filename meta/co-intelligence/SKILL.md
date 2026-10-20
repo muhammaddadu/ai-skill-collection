@@ -218,6 +218,8 @@ Then run the review prompt above, and act on what it surfaces rather than noting
 
 ## Next steps
 
+- `divergent-ideation` — widen and evaluate alternatives when the task needs a
+  broader option set; it owns the generation workflow and its execution modes
 - `humanizer` — strip AI register from anything a human will read
 - `fewer-permission-prompts` — reduce friction once you know which tasks you delegate routinely
 

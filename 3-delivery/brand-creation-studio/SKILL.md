@@ -160,6 +160,11 @@ Create 3–5 genuinely different territories before selecting a route. Each incl
 
 Territory test: if the logo were hidden, every territory should still feel recognisably different. Minor colour variations are not distinct territories.
 
+If territories keep repeating one metaphor or category convention, use
+`divergent-ideation` to change the conceptual lenses before rendering. Bring back
+distinct mechanisms and explicit failure conditions; its text shortlist is input
+to visual exploration and must pass the same rendered evidence and human gates.
+
 Do not select a winner from territory prose. A territory earns advancement only after visual evidence exists.
 
 ### 5. Experiment before polishing

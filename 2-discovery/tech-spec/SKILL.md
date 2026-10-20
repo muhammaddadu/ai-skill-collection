@@ -57,6 +57,11 @@ For each option capture:
 
 Cheap sources of a genuine second option: buy vs build, extend-existing vs new component, sync vs async, do-less (cut a requirement and simplify), and do-nothing (the baseline every option must beat). If you cannot articulate a second option, you have not explored the design space — go look at how adjacent systems solved this.
 
+When the alternatives keep repeating the same assumption or mechanism, use
+`divergent-ideation` for a bounded exploration before choosing. Bring its viable
+shortlist, baseline comparison, and unresolved assumptions back into this spec;
+the exploration does not replace feasibility evidence or the constraints above.
+
 ### Step 4: Choose and detail the design
 
 Pick an option and say **why**, referencing the trade-off analysis. Then detail it to the level the implementers need:

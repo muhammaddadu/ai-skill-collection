@@ -1,0 +1,9 @@
+Adapted from: https://github.com/UditAkhourii/adhd
+Reviewed commit: 7b91ce601ed951c1a9658c63f6f9550d2486525b
+Reviewed date: 2026-10-20
+License: MIT; retained in LICENSE
+Sources: skills/adhd/SKILL.md, SOURCE-SPEC.md, documentation/how-it-works.md, documentation/frames.md, documentation/evals.md
+
+Adopted: separate generation/evaluation, contrasting cognitive lenses, isolated branch context when authorized, mechanism-based clustering, specific trap reasons, and development into risks and concrete experiments.
+Adapted: bounded optional branching, explicit single-session fallback, baseline retained, fit and hard constraints before novelty, uncertainty distinguished from failure, and human steering inherited from the hosting workflow.
+Excluded: SDK/CLI installation, fixed branch counts and scoring weights, automatic delegation, bans on obvious solutions, clinical framing, and benchmark superiority claims. Upstream's small engineering evaluation uses model-family judging and does not establish general effectiveness.

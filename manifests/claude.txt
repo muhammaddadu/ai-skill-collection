@@ -44,6 +44,7 @@ diagnosing-bugs
 director-readiness-advisor
 discovery-interview-prep
 discovery-process
+divergent-ideation
 e2e-automation
 electron
 eng-feasibility-spike
