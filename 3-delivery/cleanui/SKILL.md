@@ -8,6 +8,15 @@ version: 1.0.0
 
 Use this as the general interface design workflow. For a marketing page led by art direction, `design-taste-frontend` is an alternative. Choose one primary aesthetic workflow; load a specific style preset only when it matches the brief. User requirements, the existing design system, and accessibility take precedence over stylistic bans below.
 
+For substantial visual work, read [visual refinement](references/visual-refinement.md)
+for direction exploration, human taste feedback, rendered critique, bounded
+iteration, subtraction, media selection, and verification. Reuse that process
+rather than adding another review loop. For a small fix, inspect the changed state.
+
+Treat aesthetic examples and limits below as diagnostics, not universal quotas.
+Choose typography, section order, components, and effects for the actual content.
+Truthful data, accessible interaction, and working behavior remain requirements.
+
 > **STOP. Before you write ANY UI code, read this file.**
 >
 > You are an AI code generator with deeply ingrained UI habits that produce recognizable "AI-looking" output. This skill exists to override those habits and produce professional, human-designed interfaces.
@@ -48,18 +57,18 @@ Then implement working code that is production-grade and functional, visually st
 
 **IMPORTANT**: Match implementation complexity to the aesthetic vision. Maximalist designs need elaborate code with extensive animations and effects. Minimalist or refined designs need restraint, precision, and careful attention to spacing, typography, and subtle details. Elegance comes from executing the vision well.
 
-Once the direction is chosen, every rule below still applies — a bold direction is not a license for sloppy execution. (This section is adapted from the frontend-design skill, Apache 2.0 — see [references/frontend-design-LICENSE.txt](references/frontend-design-LICENSE.txt).)
+Once the direction is chosen, verify execution against the brief and the shared review protocol. The examples below help diagnose defaults; a justified aesthetic choice is not a failure merely because it differs. (This section is adapted from the frontend-design skill, Apache 2.0 — see [references/frontend-design-LICENSE.txt](references/frontend-design-LICENSE.txt).)
 
 ---
 
-## HARD NO LIST — AUTOMATIC FAIL PATTERNS
+## COMMON DEFAULTS TO QUESTION
 
-If your output contains ANY of these, stop and fix before returning code.
+Use these prompts to find accidental defaults. Retain a choice when it serves the
+brief or established design system; do not replace one template with another.
 
 ### Typography
-- **BANNED:** `font-extrabold` (800), `font-black` (900), `fontWeight: "800"`, `fontWeight: "900"`
-- **USE INSTEAD:** `font-bold` (700) max. `font-semibold` (600) for section headings.
-- **SELF-CHECK:** Search your code for "extrabold" and "black". Replace all with "bold".
+- Choose weights that establish hierarchy and remain legible in the selected face.
+- Heavy display type may fit an expressive direction; avoid making every element bold.
 
 ### Logo / Trust Bars
 - **BANNED:** Company names as identical plain text in identical bordered pills/boxes
@@ -76,10 +85,9 @@ If your output contains ANY of these, stop and fix before returning code.
 - **USE INSTEAD:** Remove entirely, or use factual info: "Now in beta", "Trusted by 2,400 teams", "Free plan available"
 
 ### Hero Headlines
-- **BANNED:** Headlines wrapping to 4+ lines on desktop
-- **USE INSTEAD:** 4-8 words, max 2 lines. Rewrite shorter.
-- **BANNED:** Subtitle longer than 2 sentences
-- **USE INSTEAD:** 1-2 short sentences max.
+- Inspect wrapping, hierarchy, and reading effort at the actual viewport sizes.
+- Shorten or resize copy when it obscures the message; expressive multi-line
+  headlines and longer explanatory text may be appropriate for the content.
 
 ### Decorative Copy
 - **BANNED:** Ornamental labels like "Live pulse", "Night shift", "Operational clarity without the clutter"
@@ -189,29 +197,25 @@ See [Mobile Patterns Reference](references/mobile-patterns.md) for full iOS colo
 ### Creative Freedom + Structure
 You have freedom on: color palette, font choice, border radius values, brand personality, background treatments.
 
-You must follow: section structure, hero content limits, component patterns, responsive behavior.
+Section structure, headline wrapping, and component patterns follow the content
+and task. Responsive behavior and accessibility must be verified.
 
 ### Navigation
-- Sticky top with `backdrop-blur` and semi-transparent background
-- Logo left, nav links center, CTA buttons right
-- Mobile: hamburger menu
+- Choose navigation placement and persistence for the information architecture.
+- Show the primary action clearly; verify usable small-screen navigation.
+- Blur, stickiness, and a hamburger are options, not required styling.
 
 ### Landing Page Structure
-```
-Hero       → headline + subtitle + 2 CTAs + one trust element
-Trust      → logo bar (visually distinct logos)
-Features   → 3-column grid with icons + title + description
-How it works → 3-step process
-Testimonials → avatar + name + role + quote
-Pricing    → 2-3 tiers, featured tier visually inverted (dark bg)
-CTA        → final call to action
-Footer     → link columns + copyright
-```
+Build a narrative around the audience's actual decision: what it is, why it
+matters, credible evidence, and the relevant action. Include pricing, testimonials,
+feature grids, or a process explanation only when the product and supplied content
+justify them. Select section count, order, and composition accordingly. Never
+invent customer endorsements or add an empty section to complete a template.
 
 ### Hero
-- Headline + short subtitle + 2 buttons + one trust element. That's it.
-- Product mockup/screenshot on the right side of a two-column hero is fine.
-- Do NOT put stat cards, complex preview cards with lists, or multi-paragraph descriptions in the hero.
+- Establish the main promise and primary action with a clear reading order.
+- Choose type-led, image-led, interactive, or split composition for the brief.
+- Add secondary actions and proof only when they improve the user's decision.
 
 ### Feature Cards
 - Icon container: at least 48px with tinted background. Not tiny.
@@ -223,15 +227,13 @@ Footer     → link columns + copyright
 - Full-width CTA in each card.
 
 ### Sign-In
-- Two-column: brand panel (left, dark) + form (right).
-- Social login above email form.
-- Mobile: hide brand panel, show form with logo.
+- Prioritize a clear form, supported authentication methods, recovery, and feedback.
+- Include a brand panel or social login only when justified by the product.
 
 ### Dashboard
-- Sidebar (240-260px) + main content.
-- Sidebar: logo, nav items with icons, optional upgrade card.
-- Top bar: search + notifications + avatar.
-- Content: greeting → stat cards → filtered list with tabs → activity feed.
+- Organize around the user's recurring tasks and actual available data.
+- Choose navigation and density for those tasks; do not add greetings, stat cards,
+  upgrade prompts, or activity feeds merely to fill a dashboard skeleton.
 
 ### Dark Mode
 - Background: very dark gray, not pure black.
@@ -244,9 +246,12 @@ Footer     → link columns + copyright
 
 Before returning code, verify:
 
+Apply the aesthetic prompts below only where relevant to the chosen direction.
+Complete the evidence and subtraction checks in the shared visual-refinement
+reference; a stylistic count is not a substitute for inspecting the result.
+
 **Typography:**
-- [ ] No `font-extrabold` or `font-black` anywhere
-- [ ] Max 2 font weights used (regular + bold/semibold)
+- [ ] Type weights create a deliberate, readable hierarchy
 
 **Visual:**
 - [ ] No `tracking-[0.18em]` or wider
@@ -256,7 +261,7 @@ Before returning code, verify:
 - [ ] Consistent border radius (2-3 values max)
 
 **Hero:**
-- [ ] Headline fits in 2 lines on desktop
+- [ ] Headline wrapping and scale support the chosen hierarchy at tested sizes
 - [ ] Eyebrow badge (if present) adds new info, doesn't restate headline
 - [ ] Subtitle is 1-2 sentences, not a paragraph
 

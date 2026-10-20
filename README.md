@@ -24,6 +24,13 @@ naming, strategy, design alternatives, and choices between approaches. Simple
 questions and routine edits keep their direct path. The rule is a model instruction,
 not an enforcement mechanism; project settings or explicit user requests may override it.
 
+The same managed block routes substantial visual work to the shared visual-refinement
+reference owned by `cleanui`. Frontend, image-to-code, and brand review workflows
+reuse its evidence, bounded iteration, and subtraction procedure. Domain rubrics
+and human checkpoints remain in their original skills. An optional external-seed
+technique in `divergent-ideation` helps vary stalled visual exploration without
+randomizing requirements or replacing an established design direction.
+
 Existing instructions are preserved, updates are atomic, and each changed existing
 file receives a unique adjacent `.ideation-backup-*` copy. Repeated installs do
 not duplicate the block. Supported home/config environment overrides are honored;

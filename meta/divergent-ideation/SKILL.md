@@ -25,7 +25,10 @@ hosting workflow, using that workflow's existing document.
 ## Installation preference
 
 The repository installer runs `scripts/setup_global.py` after linking skills to
-maintain a scoped activation rule in detected local clients. A standalone skill
+maintain scoped ideation and visual-work rules in detected local clients. Visual
+guidance requires the repository's shared cleanui reference; standalone copies
+still support ideation, but setup reports a missing reference instead of installing
+a broken global pointer. A standalone skill
 copy does not execute a post-install hook automatically. For requested setup,
 preview with `python3 scripts/setup_global.py --dry-run`, apply by omitting that
 flag, or remove the managed block with `--remove`. These paths are relative to
@@ -63,6 +66,15 @@ private reasoning traces. State the actual mode when describing the result.
 Read [references/lenses.md](references/lenses.md) to choose lenses that change
 assumptions or mechanisms, rather than merely changing the speaker's job title.
 Use contrasting lenses relevant to the brief, with an unusual one when helpful.
+
+For visual exploration that keeps repeating despite different lenses, optionally
+introduce an external seed: generate a short random string with a system tool
+(for example, Python's `secrets.token_hex(24)`) and use it as a creative stimulus.
+Record the seed, interpreted design choices, and resulting prompt in existing
+project design notes so the experiment can be revisited. Keep seeds out of visible
+product copy. A seed varies the stimulus; it does not prove novelty or guarantee
+reproducible model output. Skip this technique when a precise direction already
+exists, and never randomize requirements, data, accessibility, or brand assets.
 
 Generate short candidates without ranking during this pass. Keep immutable
 constraints visible; treat a deliberately relaxed assumption as a hypothetical,

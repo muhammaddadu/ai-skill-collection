@@ -94,6 +94,36 @@ class ActivationTests(unittest.TestCase):
         result = activation.targets(self.home, {"CODEX_HOME": str(custom)})
         self.assertEqual(result[0][2], custom / "AGENTS.md")
 
+    def test_upgrade_existing_managed_rule_preserves_surrounding_bytes(self):
+        path = self.home / ".codex/AGENTS.md"
+        path.parent.mkdir()
+        prefix = b"Prior user preferences\r\n\r\n"
+        suffix = b"Other project guidance\n"
+        old = (activation.START + "\nOld activation policy\n" + activation.END + "\n\n").encode()
+        path.write_bytes(prefix + old + suffix)
+        self.run_setup()
+        updated = path.read_bytes()
+        self.assertTrue(updated.startswith(prefix))
+        self.assertTrue(updated.endswith(suffix))
+        self.assertNotIn(b"Old activation policy", updated)
+        self.assertEqual(updated.count(activation.START.encode()), 1)
+        # The installed policy points to both real, readable resources.
+        skill = SOURCE.parents[1] / "SKILL.md"
+        visual = skill.parents[2] / "3-delivery/cleanui/references/visual-refinement.md"
+        for resource in (skill, visual):
+            self.assertTrue(resource.is_file())
+            self.assertIn(resource.as_posix().encode(), updated)
+        self.run_setup()
+        self.assertEqual(path.read_bytes(), updated)
+        self.run_setup(remove=True)
+        self.assertEqual(path.read_bytes(), prefix + suffix)
+
+    def test_standalone_setup_rejects_missing_visual_reference(self):
+        fake_skill = self.home / "meta/divergent-ideation/SKILL.md"
+        with self.assertRaises(ValueError):
+            activation.rule(fake_skill)
+        self.assertEqual(list(self.home.iterdir()), [])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -2,6 +2,12 @@
 
 Use this rubric after every meaningful visual round. Review each concept independently before comparing routes.
 
+For review setup, screenshot evidence, critic context, iteration limits, and the
+subtraction pass, use the shared
+[visual refinement protocol](../../cleanui/references/visual-refinement.md).
+This rubric owns the brand-specific criteria below; do not run two parallel
+critique procedures. Existing brand checkpoints and agreed exploration scope apply.
+
 ## Review record
 
 ### What works

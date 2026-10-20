@@ -12,6 +12,9 @@ END = "<!-- skills:divergent-ideation:end -->"
 
 
 def rule(skill):
+    visual_review = skill.parents[2] / "3-delivery/cleanui/references/visual-refinement.md"
+    if not visual_review.is_file():
+        raise ValueError(f"Shared visual-review guidance missing: {visual_review}")
     return (
         f"{START}\n"
         "## Exploring alternatives\n\n"
@@ -25,6 +28,14 @@ def rule(skill):
         "Retain a conventional baseline and existing constraints. Use isolated agent "
         "branches only when available and authorized; otherwise use a single-session "
         "pass. Keep the effort proportionate and preserve the task's human decision gates.\n"
+        "\n## Substantial visual work\n\n"
+        "Establish the intended experience, explore distinct directions when needed, "
+        "inspect the rendered result, refine against concrete references, and remove "
+        "unnecessary elements. Use the relevant design skill and scale the process to "
+        "the task; preserve existing design systems and accessibility. "
+        f"Read the shared review procedure at {visual_review.as_posix()} for substantial "
+        "visual creation or redesign. Keep critique grounded in visible evidence, "
+        "use bounded iteration, and verify working behavior separately from appearance.\n"
         f"{END}\n\n"
     ).encode()
 

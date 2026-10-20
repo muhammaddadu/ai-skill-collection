@@ -83,12 +83,11 @@ detail or prove that invented text and spacing were in the original.
 
 ## 4. Compare the built result
 
-Render the implementation and compare each section with its reference at
-representative desktop, small-laptop, and mobile sizes.
-
-Check hierarchy, line wrapping, gutters, section cadence, CTA prominence,
-media crops, component proportions, palette, and cross-section consistency.
-Check actual font loading, overflow, interaction states, and asset paths.
+Use the shared [visual refinement protocol](../cleanui/references/visual-refinement.md)
+for rendered review, bounded fixes, subtraction, and verification. Compare each
+implemented section with its selected reference at representative desktop,
+small-laptop, and mobile sizes. Here the selected reference and extracted design
+relationships set the fidelity bar; do not restart concept exploration by default.
 
 Fix visible drift in code. If a reference cannot work responsively or
 accessibly, make the smallest faithful adjustment and record why. Do not

@@ -183,6 +183,10 @@ Develop motifs that live beyond the logo: frames, lines, crops, patterns, grids,
 
 After every meaningful visual round, inspect the work and apply [`references/creative-review-rubric.md`](references/creative-review-rubric.md). Record what works, what fails, strategic fit, distinctiveness, practicality, and the exact next move.
 
+The rubric routes to the shared visual-refinement protocol for evidence and
+iteration mechanics. Use the same record for human feedback and critic findings;
+keep the brand rubric and decision-maker's checkpoints as the source of judgment.
+
 Create at least two visible critique-and-iteration cycles between first sketches and final identity unless the user explicitly requests a smaller exploration. Do not praise everything. Kill weak ideas and explain why.
 
 ### 7. Select and develop the route
