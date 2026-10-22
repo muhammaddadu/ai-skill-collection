@@ -11,6 +11,13 @@ tested_with: claude-code v2.x
 <!-- Created: 2026-04-13 | v1.5 -->
 <!-- Source: OpenClaudia/openclaudia-skills (ab-test-setup concept) -->
 
+## Service lead generation and live changes
+
+For quote/enquiry funnels, CRM outcomes or campaign/budget changes, read
+[`Service lead-generation delivery checks`](../ads/references/lead-generation-delivery.md).
+Use the applicable checks; a bounded task does not require a new full audit.
+Keep unknown evidence unverified and reuse the account context already provided.
+
 ## Process
 
 1. Understand what the user wants to test (creative, audience, bidding, landing page)
@@ -46,26 +53,30 @@ BECAUSE Andromeda prioritizes diverse creative formats and UGC consistently outp
 ```
 Required Sample Size (per variant):
 
-n = (Z_alpha + Z_beta)^2 × 2 × p × (1-p) / MDE^2
+delta = p × relative_MDE
+n ≈ (Z_alpha + Z_beta)^2 × 2 × p × (1-p) / delta^2
 
 Where:
 - Z_alpha = 1.96 (for 95% confidence)
 - Z_beta = 0.84 (for 80% power)
 - p = baseline conversion rate
-- MDE = minimum detectable effect (relative %)
+- relative_MDE = relative improvement as a fraction (20% = 0.20)
+- delta = absolute rate difference (5% baseline × 20% relative = 0.01)
+- This is a planning approximation for two independent, equal-sized variants;
+  use a suitable power calculation for the actual design, especially rare events.
 
 Simplified lookup:
 ```
 
-| Baseline CVR | 5% MDE | 10% MDE | 20% MDE | 30% MDE |
-|-------------|---------|---------|---------|---------|
-| 1% | 612,000 | 153,000 | 38,300 | 17,000 |
-| 2% | 302,400 | 75,600 | 18,900 | 8,400 |
-| 5% | 116,800 | 29,200 | 7,300 | 3,200 |
-| 10% | 55,200 | 13,800 | 3,450 | 1,530 |
-| 20% | 24,600 | 6,150 | 1,540 | 680 |
+| Baseline CVR | 5% relative MDE | 10% relative MDE | 20% relative MDE | 30% relative MDE |
+|-------------|-----------------|------------------|------------------|------------------|
+| 1% | 620,928 | 155,232 | 38,808 | 17,248 |
+| 2% | 307,328 | 76,832 | 19,208 | 8,537 |
+| 5% | 119,168 | 29,792 | 7,448 | 3,311 |
+| 10% | 56,448 | 14,112 | 3,528 | 1,568 |
+| 20% | 25,088 | 6,272 | 1,568 | 697 |
 
-*Per variant, 95% confidence, 80% power*
+*Approximate per-variant samples, 95% confidence and 80% power.*
 
 ## Test Duration Estimator
 
@@ -73,7 +84,8 @@ Simplified lookup:
 Duration = Required Sample Size / Daily Traffic per Variant
 
 Minimum duration: 7 days (capture weekly patterns)
-Maximum recommended: 28 days (avoid seasonal drift)
+Plan for seasonality and conversion lag; 28 days is not a forced stopping rule.
+If volume cannot support the sample, report the test as underpowered or redesign it.
 Learning phase: Google 7-14 days, Meta 3-7 days, LinkedIn 7-14 days
 
 Inputs needed:
@@ -85,14 +97,21 @@ Inputs needed:
 
 ### Duration Quick Estimates
 
-| Daily Clicks | 2% CVR, 20% MDE | 5% CVR, 20% MDE | 10% CVR, 20% MDE |
-|-------------|-----------------|-----------------|-----------------|
-| 100 | 189 days | 73 days | 35 days |
-| 500 | 38 days | 15 days | 7 days |
-| 1,000 | 19 days | 7 days | 4 days* |
-| 5,000 | 4 days* | 2 days* | 1 day* |
+| Total daily clicks, split 50/50 | 2% CVR, 20% relative MDE | 5% CVR, 20% relative MDE | 10% CVR, 20% relative MDE |
+|-------------------------------|---------------------------|---------------------------|----------------------------|
+| 100 | 385 days | 149 days | 71 days |
+| 500 | 77 days | 30 days | 15 days |
+| 1,000 | 39 days | 15 days | 8 days |
+| 5,000 | 8 days | 3 days* | 2 days* |
 
-*Minimum 7 days recommended regardless of sample sufficiency
+*Allow weekly coverage and outcome lag even when the traffic sample arrives sooner.*
+For example, 5% baseline/20% relative MDE needs about 7,448 clicks per arm;
+100 total clicks/day split equally takes about 149 days, not 75.
+
+A bundle of new campaigns, landing changes and budget shifts is a rollout. A
+before/after comparison cannot isolate the effect of any one change. Select
+qualified/instructed outcomes where reconciled; otherwise label quote metrics
+as provisional. Do not call an underpowered city sample a winner.
 
 ## Platform-Specific Test Setup
 

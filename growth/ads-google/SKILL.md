@@ -8,6 +8,13 @@ tested_with: claude-code v2.x
 
 # Google Ads Deep Analysis
 
+## Service lead generation and live changes
+
+For quote/enquiry funnels, CRM outcomes or campaign/budget changes, read
+[`Service lead-generation delivery checks`](../ads/references/lead-generation-delivery.md).
+Use the applicable checks; a bounded task does not require a new full audit.
+Keep unknown evidence unverified and reuse the account context already provided.
+
 ## Process
 
 1. Collect Google Ads account data (export, Change History, Search Terms Report)
@@ -53,7 +60,8 @@ tested_with: claude-code v2.x
 ### Account Structure (15% weight)
 - Campaign-level organization follows business logic
 - Ad groups themed tightly (15-20 keywords max per group)
-- RSA ad groups have ≥3 active ads
+- Every serving group has an eligible, relevant RSA; additional distinct ads
+  follow the test plan and traffic, not a universal three-ad quota
 - PMax campaigns structured correctly (asset groups, signals)
 - SKAGs evaluated (migrate to themed groups if present)
 - Campaign labels/naming conventions consistent
@@ -89,7 +97,9 @@ Before analyzing data, read `../ads/references/gaql-notes.md` for known GAQL fie
 deduplication patterns, and filter scope best practices. Key rules:
 
 - Deduplicate keywords by `(ad_group_id + keyword_text + match_type)` before any analysis
-- Only analyze ENABLED campaigns and ad groups (exclude paused/removed)
+- For current serving inventory, separate enabled from paused/draft entities.
+  For historical performance, include campaigns/groups that served in the
+  reporting period even if now paused; avoid survivorship bias after replacement.
 - Filter to keywords with impressions > 0 for theme coherence checks (G03)
 - Apply legacy BMM heuristic: BROAD + Manual CPC = legacy BMM, not intentional broad (G17)
 - Only flag wasted spend on terms with >$10 spend AND 0 conversions (G16)
@@ -223,6 +233,11 @@ If Demand Gen campaigns exist, evaluate:
 - Note: frequency capping is not available. Monitor reach vs frequency manually
 
 ## Key Thresholds
+
+Treat older benchmark values as directional context, not local-currency targets
+or automatic budget/pause rules. Inspect keyword-level Quality Score components
+and missing/low-volume scores; do not optimise an aggregate Quality Score as a
+business KPI. Record conflicting Ad Strength table/detail/editor readings.
 
 | Metric | Pass | Warning | Fail |
 |--------|------|---------|------|

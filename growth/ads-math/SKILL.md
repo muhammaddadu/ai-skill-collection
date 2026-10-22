@@ -11,6 +11,13 @@ tested_with: claude-code v2.x
 <!-- Created: 2026-04-13 | v1.5 -->
 <!-- Source: itallstartedwithaidea/google-ads-skills (PPC math concept) -->
 
+## Service lead generation and live changes
+
+For quote/enquiry funnels, CRM outcomes or campaign/budget changes, read
+[`Service lead-generation delivery checks`](../ads/references/lead-generation-delivery.md).
+Use the applicable checks; a bounded task does not require a new full audit.
+Keep unknown evidence unverified and reuse the account context already provided.
+
 ## Process
 
 1. Ask the user what calculation they need (or detect from context)
@@ -40,14 +47,17 @@ Output:
 
 ```
 ROAS = Revenue from Ads / Ad Spend
-ROAS% = (Revenue - Spend) / Spend × 100
+ROAS% = Revenue / Spend × 100
+Revenue-minus-media return% = (Revenue - Spend) / Spend × 100
+Profit ROI% = (Attributable contribution before acquisition - Acquisition cost) / Acquisition cost × 100
 
 Inputs needed:
 - Total ad spend
 - Total revenue attributed to ads
 
 Output:
-- ROAS as ratio (e.g., 3.5x) and percentage (250%)
+- ROAS as ratio (e.g., 3.5x) and percentage (350%); revenue-minus-media
+  return would be 250%, which is not profit ROI without delivery/other costs
 - Break-even ROAS (based on margins if provided)
 - Comparison to platform benchmarks
 ```
@@ -111,7 +121,8 @@ Inputs needed:
 Output:
 - 3 scenarios with spend, conversions, revenue projections
 - Diminishing returns warning for aggressive scaling
-- 20% scaling rule reminder (never increase >20% at a time)
+- State assumptions, approved envelope and platform-specific budget behavior;
+  a 20% planning step is not a universal technical limit
 ```
 
 ### 6. LTV:CAC Ratio
@@ -156,6 +167,22 @@ Output:
 - Comparison to business-type benchmark
 - Note: MER captures blended efficiency including organic, brand, and retention
 ```
+
+### Lead-generation economics
+
+```
+Cost per quote = Ad spend / Valid quotes
+Cost per instructed matter = Ad spend / Actual instructed matters
+All-in acquisition cost per matter = (Ad spend + Agency fees + Other acquisition costs) / Actual instructed matters
+Expected contribution per quote before acquisition = P(instruction) × Expected contribution per instruction - Per-quote handling cost
+```
+
+Use mature, reconciled cohorts and the same date/attribution basis. Zero outcomes
+make the unit cost undefined, not zero. Expected contribution per instruction
+should allow for completion/abort rates, retained fees excluding VAT/outlays,
+delivery costs and refunds. Quoted fees and deposits are not earned revenue.
+Unknown value breakdowns must not become customer-total ROAS or an invented
+instruction rate. Conditional scenarios are not forecasts or causal evidence.
 
 ### Incrementality & Advanced Measurement
 

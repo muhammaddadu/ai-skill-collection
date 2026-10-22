@@ -10,6 +10,18 @@ tested_with: claude-code v2.x
 
 # Cross-Platform Creative Quality Audit
 
+For service-lead creative and live replacements, read
+[delivery and outcome checks](../ads/references/lead-generation-delivery.md).
+Verify claims, fee/VAT wording, approved branding and the image-to-page journey.
+Generated regional housing must not imply a photographed office, exact street or
+real client. Check the actual saved association level and policy status.
+
+Ad Strength is diagnostic, not conversion evidence. Record conflicting table,
+asset-detail and editor scores with the same ad ID; do not create duplicate ad
+versions merely to change a badge. Refresh/fatigue thresholds below are prompts
+for investigation, not automatic production/pausing rules. Separate creative
+fatigue from changes in audience, geography, budget, placement and outcome mix.
+
 ## Process
 
 1. Collect creative assets or performance data from active platforms

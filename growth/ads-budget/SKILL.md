@@ -10,6 +10,13 @@ tested_with: claude-code v2.x
 
 # Budget Allocation & Bidding Strategy
 
+## Service lead generation and live changes
+
+For quote/enquiry funnels, CRM outcomes or campaign/budget changes, read
+[`Service lead-generation delivery checks`](../ads/references/lead-generation-delivery.md).
+Use the applicable checks; a bounded task does not require a new full audit.
+Keep unknown evidence unverified and reuse the account context already provided.
+
 ## Process
 
 1. Collect budget and performance data across all active platforms
@@ -44,7 +51,10 @@ tested_with: claude-code v2.x
 | Finance | Google Search, Meta | LinkedIn | Microsoft |
 | Agency (clients) | Varies by client | N/A | N/A |
 
-### Budget Sufficiency Rules
+### Budget planning examples
+
+These amounts are planning examples, not universal platform minimums. Judge
+sufficiency against mature outcome CPA, volume and current platform requirements.
 
 | Platform | Minimum Daily | Learning Phase Budget |
 |----------|--------------|----------------------|
@@ -57,22 +67,19 @@ tested_with: claude-code v2.x
 
 ## Bidding Strategy Evaluation
 
-### Google Ads Bidding Decision Tree
+### Google Ads Bidding Decisions
 
-```
-Start
-├─ <30 conversions/month?
-│  └─ Use Maximize Clicks (cap CPC at benchmark)
-│     └─ When >30 conv/month → Maximize Conversions
-├─ 30-50 conversions/month?
-│  └─ Use Maximize Conversions
-│     └─ When stable CPA → Target CPA
-├─ >50 conversions/month?
-│  └─ Use Target CPA
-│     └─ When revenue tracking → Target ROAS
-└─ Revenue tracking active + >50 conv/month?
-   └─ Use Target ROAS
-```
+- Verify the primary outcome and signal quality first. A replacement campaign's
+  zero local history does not by itself require switching to Maximize Clicks.
+- For trustworthy lead outcomes, consider Maximize Conversions with realistic
+  budget and lag. Choose click-based bidding only with a clear diagnostic or
+  traffic objective and a justified CPC cap.
+- Consider a target CPA when mature CPA and outcome volume support a realistic
+  target; a fixed conversion-count threshold is not an automatic switch.
+- Use conversion-value bidding only when values are reconciled, meaningful and
+  available at sufficient volume. Quote totals and deposits are not revenue.
+- Preserve a working strategy during a bounded budget reallocation unless a
+  separate bidding problem justifies a change. Record necessary confounders.
 
 ### Meta Ads Bidding
 - **Lowest Cost (default)**: best for volume, may have CPA variance
@@ -135,8 +142,10 @@ Start
 - ROAS above target
 - No creative fatigue signals
 
-### 20% Rule
-Never increase budget by more than 20% at a time:
+### Conservative scaling example
+A 20% step is a planning heuristic, not a universal platform limit or a proven
+learning-reset threshold. Choose a justified step using platform documentation,
+conversion lag, signal quality and the approved total budget. Example:
 - Week 1: $100/day → $120/day
 - Week 2: $120/day → $144/day
 - Week 3: $144/day → $173/day
@@ -151,7 +160,7 @@ Never increase budget by more than 20% at a time:
 
 ## Kill List Assessment
 
-### 3x Kill Rule
+### Review thresholds, not automatic pause authority
 - Any campaign/ad group with CPA >3x target → **flag for pause**
 - Review spend in last 14 days with no conversions → **flag for pause**
 - Creative with CTR >50% below platform benchmark → **flag for creative kill**
@@ -159,7 +168,7 @@ Never increase budget by more than 20% at a time:
 ### Kill Decision Framework
 | Scenario | Data Required | Action |
 |----------|---------------|--------|
-| CPA >3x target | ≥7 days data, ≥20 clicks | Pause immediately |
+| CPA >3x target | ≥7 days data, ≥20 clicks | Review for pause after lag and tracking checks |
 | No conversions | ≥$100 spend or ≥50 clicks | Pause and diagnose |
 | CTR <50% of benchmark | ≥1,000 impressions | Kill creative, test new |
 | ROAS <50% of target | ≥14 days data | Reduce budget 50% or pause |

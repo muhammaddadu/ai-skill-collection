@@ -10,6 +10,13 @@ tested_with: claude-code v2.x
 
 # Landing Page Quality for Ad Campaigns
 
+## Service lead generation and live changes
+
+For quote/enquiry funnels, CRM outcomes or campaign/budget changes, read
+[`Service lead-generation delivery checks`](../ads/references/lead-generation-delivery.md).
+Use the applicable checks; a bounded task does not require a new full audit.
+Keep unknown evidence unverified and reuse the account context already provided.
+
 ## Process
 
 1. Collect landing page URLs from active ad campaigns
@@ -40,7 +47,8 @@ The #1 landing page issue in ad campaigns: does the page match the ad?
 
 ## Page Speed Assessment
 
-Slow pages kill conversion rates. For every 1s delay, CVR drops ~7%.
+Measure speed for the actual audience and route. Treat proposed conversion
+uplifts as test hypotheses, not guaranteed effects.
 
 ### Thresholds (Ad Landing Pages)
 | Metric | Pass | Warning | Fail |
@@ -48,8 +56,11 @@ Slow pages kill conversion rates. For every 1s delay, CVR drops ~7%.
 | LCP | <2.5s | 2.5-4.0s | >4.0s |
 | INP | <200ms | 200-500ms | >500ms |
 | CLS | <0.1 | 0.1-0.25 | >0.25 |
-| Time to Interactive | <3.0s | 3.0-5.0s | >5.0s |
 | Page weight | <2MB | 2-5MB | >5MB |
+
+Use field Core Web Vitals where available, with device/window/sample context.
+Lab diagnostics, browser smoke tests and correct image headers do not establish
+a field performance pass.
 
 ### Common Speed Issues in Ad Pages
 - Hero images not compressed (use WebP/AVIF)
@@ -60,7 +71,8 @@ Slow pages kill conversion rates. For every 1s delay, CVR drops ~7%.
 
 ## Mobile Experience
 
-75%+ of ad clicks come from mobile. Mobile experience is critical.
+Review the actual device mix; verify the complete quote journey on mobile as
+well as desktop. Do not assume a universal mobile traffic percentage.
 
 ### Mobile Checklist
 - Tap targets: ≥48x48px with ≥8px spacing
@@ -99,7 +111,8 @@ Slow pages kill conversion rates. For every 1s delay, CVR drops ~7%.
 | 9+ fields | Lowest CVR | Only for high-value offers |
 
 ### Form Best Practices
-- Pre-fill fields where possible (UTM data, known info)
+- Prefill only supported, verified and editable values; referral city and UTM
+  labels are attribution context, not confirmed customer/property answers
 - Use multi-step forms for 5+ fields (progressive disclosure)
 - Show progress indicator on multi-step forms
 - Inline validation (don't wait until submit to show errors)
@@ -129,17 +142,18 @@ Flag if any of the following are true:
 
 | Priority | Fix | Expected Impact |
 |----------|-----|-----------------|
-| 1 | Move primary CTA above the fold on all devices | +15-25% CVR |
-| 2 | Reduce form fields to essential only (name, email, one qualifier) | +10-20% CVR |
-| 3 | Add trust badges near CTA (security, guarantee, reviews) | +5-15% CVR |
-| 4 | Optimize hero image (WebP/AVIF, <200KB, proper dimensions) | -1-2s load time |
-| 5 | Fix mobile tap targets (>=48x48px with >=8px spacing) | +5-10% mobile CVR |
+| 1 | Make the primary CTA easy to find on relevant devices | Test quote completion and quality |
+| 2 | Remove unnecessary fields; retain quote/qualification requirements | Test completion and downstream instructions |
+| 3 | Show verified, relevant trust information near the CTA | Test reassurance without distracting from the form |
+| 4 | Optimize hero image format, dimensions and delivery | Measure actual loading and layout stability |
+| 5 | Improve mobile targets, labels and error recovery | Verify usability; measure completion |
 
 ## Ad-Specific Landing Page Elements
 
 ### UTM Parameter Handling
-- UTM parameters captured and stored (for attribution)
-- Click IDs preserved: gclid (Google), fbclid (Meta), ttclid (TikTok), msclkid (Microsoft)
+- Approved UTM parameters captured with consent/storage controls
+- Preserve permitted click attribution through supported platform mechanisms;
+  do not bypass consent or leak identifiers to unrelated destinations
 - Parameters passed to form submissions or CRM
 
 ### Dynamic Content

@@ -75,6 +75,11 @@ number-crunching report from a strategic deliverable. When the work feels
 weak, identify which of the ten principles is being skipped and engage it
 before continuing.
 
+For quote/enquiry funnels or live campaign changes, also read
+[service lead-generation delivery checks](references/lead-generation-delivery.md).
+Route only the specialists needed for distinct parts of the work; do not repeat
+intake or manufacture a full audit score for a bounded change.
+
 ## Orchestration Logic
 
 For `/ads audit`, collect the shared business context above, then load `ads-audit`.

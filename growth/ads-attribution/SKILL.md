@@ -8,12 +8,16 @@ tested_with: claude-code v2.x
 
 # Cross-Platform Attribution Health Audit
 
-Attribution decay is the silent revenue killer of 2026 — Consent Mode V2 EEA
-enforcement (Jul 21, 2025), iOS ATT, SKAdNetwork → AdAttributionKit migration,
-and the death of third-party cookies have moved every advertiser's
-attribution signal toward modeled, server-side, first-party data. Misaligned
-attribution windows or unverified Consent Mode setups will mis-attribute
-15-40% of conversions and silently waste budget.
+Audit attribution against the actual platforms, consent design and business
+outcomes in scope. Report observed discrepancies and missing evidence; do not
+assign a generic percentage of lost conversions to an account without data.
+
+## Service lead generation and live changes
+
+For quote/enquiry funnels, CRM outcomes or campaign/budget changes, read
+[`Service lead-generation delivery checks`](../ads/references/lead-generation-delivery.md).
+Use the applicable checks; a bounded task does not require a new full audit.
+Keep unknown evidence unverified and reuse the account context already provided.
 
 ## Process
 
@@ -62,20 +66,25 @@ attribution windows or unverified Consent Mode setups will mis-attribute
     import for the activation event
 - **Conversion lag analysis** run quarterly to validate window choice
 
-### Consent Mode V2 (EU/EEA + recommended globally)
+### Consent Mode V2
 
-- **Consent Mode V2 active** (enforcement began Jul 21, 2025 for EEA/UK)
-- **Advanced Mode** (not Basic) — Basic loses ~25% of EEA conversion signal
-- **700+ ad clicks/day over 7 days per country/domain** threshold met for
-  Advanced Mode behavioral modeling to activate
-- **Signal recovery measured**: aim 15-25% conversion recovery vs pre-CMV2
-  baseline
-- **Consent banner** correctly reads CMV2 signals (not just GDPR boilerplate)
+- Establish the approved Basic or Advanced design and relevant regional policy.
+  Basic deliberately blocks Google tags before consent; it is not an automatic
+  audit failure. Advanced can send cookieless pings and must not be enabled merely
+  to improve a measurement score.
+- Test denied defaults before configuration, saved analytics/advertising choices
+  independently, malformed/expired preferences, rejection, withdrawal, deferred
+  events and SPA navigation. Verify actual tag/network behavior, not banner copy.
+- Check all four fields: analytics_storage, ad_storage, ad_user_data and
+  ad_personalization. Do not assume analytics permission grants advertising.
+- Verify current modeling eligibility in official documentation for the specific
+  product/model; do not substitute a universal click threshold or promised uplift.
 
 ### Server-Side Attribution Stitching
 
-- **First-party server logs** stored with `user_id` + `event_id` + timestamp
-  + platform tag for every conversion event
+- **First-party reconciliation** uses minimal permitted opaque event/lead IDs,
+  timestamps and attribution; avoid logging raw personal data or identifiers
+  solely to fill an audit checklist
 - **MMP + first-party stitching**: MMP (AppsFlyer / Adjust / Branch /
   Singular) receives both client-side AND server-side events with shared
   `event_id` for deduplication
@@ -113,7 +122,7 @@ attribution windows or unverified Consent Mode setups will mis-attribute
 | Metric | Pass | Warning | Fail |
 |--------|------|---------|------|
 | GA4 attribution model | Data-Driven | Last-Click (intentional) | Last-Click (residual) |
-| Consent Mode V2 | Advanced + verified | Advanced (unverified) | Basic / Not implemented |
+| Consent handling | Approved design verified | Unverified behavior | Tags violate saved choices/defaults |
 | EMQ (Meta Purchase) | ≥8.0 | 6.0-7.9 | <6.0 |
 | Event dedup rate | ≥90% | 70-89% | <70% |
 | Server-side / client-side hit ratio | ≥80% | 50-79% | <50% |

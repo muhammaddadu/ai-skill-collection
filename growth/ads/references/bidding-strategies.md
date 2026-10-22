@@ -5,6 +5,12 @@
 
 ## Google Ads Bidding Decision Engine
 
+Conversion-count thresholds below are planning heuristics, not automatic strategy
+changes or platform eligibility rules. Check actual outcome quality, lag, current
+platform guidance and the existing campaign before switching to click/value bidding.
+CVR is a fraction: a £100 target CPA and 5% CVR imply £5 break-even CPC
+before any safety factor, not £1,333.33.
+
 ### Strategy Selection Flow
 
 ```
@@ -12,7 +18,7 @@ START → How many conversions in last 30 days?
 
 ┌─ < 15 conversions ──────────────────────────┐
 │  → Maximize Clicks (cold start)             │
-│  → Set Max CPC = Target_CPA / (CVR × 1.5)  │
+│  → Set Max CPC = Target_CPA × CVR / 1.5  │
 │  → Learning: 3-5 days                       │
 │  → Monitor until 15+ conversions achieved    │
 │  → OR use Manual CPC if full control needed  │

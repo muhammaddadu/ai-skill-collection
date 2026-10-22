@@ -12,7 +12,7 @@
 ```
 IF conversions_last_30d < 15:
   → Maximize Clicks (cold start)
-  → Max CPC = Target_CPA / (Estimated_CVR × 1.5)
+  → Max CPC = Target_CPA × Estimated_CVR / 1.5
   → Learning period: 3-5 days
   → Monitor: Wait for 15+ conversions before transitioning
 

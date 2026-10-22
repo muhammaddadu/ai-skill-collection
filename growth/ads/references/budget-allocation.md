@@ -3,6 +3,10 @@
 <!-- Updated: 2026-02-10 -->
 <!-- Sources: Google Research PDF 2, Claude Research, Gemini Research -->
 
+For live service-lead reallocations, use [delivery and outcome checks](lead-generation-delivery.md).
+Generic allocation percentages and thresholds are starting points, not proof of
+profitability or permission to exceed the approved account-wide envelope.
+
 ## Platform Selection Matrix by Business Type
 
 | Business Type | Platform 1 | Platform 2 | Platform 3 | Other | Min Monthly | Primary KPI | Time to Profit |
@@ -29,21 +33,22 @@
 
 ## Scaling Decision Tree
 
-### 20% Rule (Scale Up)
+### Conservative scaling example
 ```
 IF actual_CPA < target_CPA by > 10%
 AND conversions_last_7d >= learning_threshold
 AND campaign NOT in learning phase
 THEN increase budget by 20%
 → Wait 3-5 days before next increase
-→ Never increase more than 20% at once on Meta (triggers learning reset)
+→ A 20% step is a planning heuristic; verify current platform guidance
+→ Do not claim a universal reset threshold or guaranteed improvement
 ```
 
 ### 3× Kill Rule (Pause)
 ```
 IF spend > 3× target_CPA
 AND conversions == 0
-THEN pause ad/ad set/campaign immediately
+THEN flag for pause/review after checking lag, tracking, sample and authority
 → Review: creative, targeting, landing page, tracking
 → Don't restart without changes
 ```
