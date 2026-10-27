@@ -32,6 +32,7 @@ brand-creation-studio
 business-health-diagnostic
 cleanui
 co-intelligence
+comic-sketch-story
 company-intel
 company-research
 context-engineering-advisor

@@ -1,0 +1,433 @@
+<title>Story Sketch</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Caveat:wght@400;700&family=Patrick+Hand&display=swap">
+<style>
+/* A hand-drawn comic page: panels in a snake, narration boxes, speech bubbles, an optional loop back, sticky notes.
+   Deliberately single-theme: it is a sketch on paper. Edit the STORY block in the script, not the engine. */
+:root {
+  --paper: #FCFCFA;
+  --grid: #E4EAF3;
+  --ink: #252A35;
+  --pencil: #8C919B;
+  --accent: #6B1F8F;
+  --accent2: #2B3E90;
+  --sticky: #FFE89A;
+  --hand: "Patrick Hand", "Comic Sans MS", "Segoe Print", cursive;
+  --comic: "Bangers", "Impact", "Arial Black", sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--paper); color: var(--ink); }
+body {
+  font-family: var(--hand);
+  background-image: radial-gradient(var(--grid) 1.4px, transparent 1.6px);
+  background-size: 14px 14px;
+}
+.sheet { padding-block: 16px 24px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.scroll { overflow-x: auto; }
+svg#sketch { display: block; width: 100%; min-width: 980px; max-width: 1480px; height: auto; margin: 0 auto; }
+svg text { font-family: var(--hand); }
+.bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; max-width: 1480px; margin: 0 auto 10px; font-size: 17px; }
+.bar button { font: 20px/1 var(--comic); letter-spacing: 1px; color: var(--ink); background: var(--sticky);
+  border: 2.5px solid var(--ink); border-radius: 6px; padding: 8px 14px 6px; box-shadow: 3px 3px 0 var(--ink); cursor: pointer; }
+.bar button:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+.bar button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+.bar button:focus-visible, .bar a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.bar a { color: var(--accent); font-weight: 700; }
+.bar span { color: var(--ink); opacity: .75; }
+#exJson { display: block; width: 100%; max-width: 1480px; height: 90px; margin: 0 auto 10px; font: 12px ui-monospace, Menlo, monospace; }
+#exJson[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) { .bar button:hover, .bar button:active { transform: none; } }
+</style>
+
+<div class="sheet">
+  <div class="bar">
+    <button type="button" id="exCopy">Copy for Excalidraw</button>
+    <a href="https://excalidraw.com" target="_blank" rel="noopener">Open Excalidraw</a>
+    <span id="exMsg" role="status">Copies every shape and label. Paste it into a blank Excalidraw canvas.</span>
+  </div>
+  <textarea id="exJson" hidden readonly aria-label="Excalidraw scene data"></textarea>
+  <div class="scroll">
+    <svg id="sketch" role="img" aria-label=""></svg>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.js"></script>
+<script>
+/* ======================= STORY: edit this block ======================= */
+/* Example content. Replace every string with the real story; keep captions to two lines of ~34 characters. */
+var STORY = {
+  title: 'ONE RECOMMENDATION',
+  subtitle: 'from data to the front line',
+  stamp: 'DRAFT',
+  description: 'Sketch: one dataset; a person or a detector spots something; a recommendation with its reason; a person approves it; it goes to test sites; the front line acts with the reason; a readout decides whether it stays; if it worked it is saved as a detection.',
+  panels: [
+    { title: 'One dataset', caption: 'Orders, menu, kitchen and staffing\ndata, joined by site, item and day.',
+      prop: 'laptop', left: 'orders\nprices\nstock', right: 'kitchen\nshifts\nstaff' },
+    { title: 'Someone spots it', caption: 'A leader finds it in the data,\nor a detector flags it.',
+      prop: 'split', people: 2, peopleLabel: 'Leaders', peopleNote: 'human in the loop', botLabel: 'Detector', sfx: 'BEEP!' },
+    { title: 'A recommendation', caption: 'The change, the sites, the expected\neffect and the evidence behind it.',
+      prop: 'card', fields: ['What', 'Where', 'Why'], accentField: 'Why' },
+    { title: 'Someone approves it', caption: 'Anything the detector flags gets a\nperson’s yes before it goes out.',
+      prop: 'approve', labels: ['approver', 'owner'], bubble: 'Yes, go.', sfx: 'APPROVED', accent: true, dots: true },
+    { title: 'Sent to test sites', caption: 'Similar sites don’t get it,\nso there is something to compare.',
+      prop: 'stores', testLabel: 'test', controlLabel: 'control', sfx: 'WHOOSH!' },
+    { title: 'Front line acts', caption: 'The team carries out the change,\nwith the reason in front of them.',
+      prop: 'phone', personLabel: 'team lead', bubble: 'Got it!', app: 'Alert', body: 'Do: new price\nfrom today', why: 'Why: tap to see' },
+    { title: 'The readout', caption: 'Kept if all three hold up.\nOtherwise it is rolled back.',
+      prop: 'chart', checks: ['sales up', 'margin holds', 'quality steady'], accent: true, dots: true },
+    { title: 'Saved as a detection', caption: 'Next time the pattern shows up,\nthe detector sends it out.',
+      prop: 'rule', rule: ['Seen again?', '→ to sites'], botSays: 'I’ll watch for this one.', accent2: true }
+  ],
+  // optional: an arrow from one panel back to an earlier one (0-based indexes)
+  loop: { from: 7, to: 1, label: 'keeps watching' },
+  // optional: small labels on panels. quiet = grey pencil note above the panel; otherwise a boxed sticker
+  tags: [
+    { panel: 0, text: 'via the reporting tool', quiet: true }
+  ],
+  // optional: sticky notes under the strip
+  notes: { heading: 'Other cases that would follow the same steps',
+    items: ['Item off on delivery\napps but in stock', 'Next action\nfor the shift', 'Which site to\nvisit next', 'Coaching question\nfor the lead', 'Prep amounts\nfrom the forecast'] }
+};
+/* ===================== END STORY: engine below ===================== */
+
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var svg = document.getElementById('sketch');
+  var C = { ink: '#252A35', pencil: '#8C919B', sense: '#6B1F8F', navy: '#2B3E90', sticky: '#FFE89A', white: '#FFFFFF', cream: '#FFF6DE' };
+
+  // rough.js if it loaded; otherwise plain SVG shapes so the sheet still reads
+  function plain() {
+    function el(tag, a, o) {
+      o = o || {};
+      var e = document.createElementNS(NS, tag);
+      for (var k in a) e.setAttribute(k, a[k]);
+      e.setAttribute('stroke', o.stroke || C.ink);
+      e.setAttribute('stroke-width', o.strokeWidth || 1.5);
+      e.setAttribute('fill', o.fill || 'none');
+      if (o.strokeLineDash) e.setAttribute('stroke-dasharray', o.strokeLineDash.join(' '));
+      return e;
+    }
+    var pts = function (p) { return p.map(function (q) { return q.join(','); }).join(' '); };
+    return {
+      rectangle: function (x, y, w, h, o) { return el('rect', { x: x, y: y, width: w, height: h, rx: 4 }, o); },
+      line: function (a, b, c, d, o) { return el('line', { x1: a, y1: b, x2: c, y2: d }, o); },
+      ellipse: function (x, y, w, h, o) { return el('ellipse', { cx: x, cy: y, rx: w / 2, ry: h / 2 }, o); },
+      circle: function (x, y, d, o) { return el('circle', { cx: x, cy: y, r: d / 2 }, o); },
+      polygon: function (p, o) { return el('polygon', { points: pts(p) }, o); },
+      curve: function (p, o) { o = Object.assign({}, o, { fill: 'none' }); return el('polyline', { points: pts(p) }, o); },
+      linearPath: function (p, o) { o = Object.assign({}, o, { fill: 'none' }); return el('polyline', { points: pts(p) }, o); }
+    };
+  }
+  var rs = (window.rough && window.rough.svg) ? window.rough.svg(svg) : plain();
+  var seed = 7;
+  function O(o) { return Object.assign({ stroke: C.ink, strokeWidth: 1.6, roughness: 1.3, bowing: 1.2, seed: seed++ }, o || {}); }
+  function add(n) { svg.appendChild(n); return n; }
+
+  // every shape is also recorded as an Excalidraw element, so the sheet can be copied into Excalidraw
+  var EX = [];
+  function rnd() { return Math.floor(Math.random() * 2e9); }
+  function exBase(type, x, y, w, h, o) {
+    var bg = o.fill && o.fill !== 'none' && o.fill.indexOf('url') < 0 ? o.fill : 'transparent';
+    var e = { id: 'sk' + EX.length + '-' + rnd().toString(36), type: type, x: x, y: y, width: w, height: h, angle: 0,
+      strokeColor: o.stroke || C.ink, backgroundColor: bg, fillStyle: o.fillStyle === 'solid' ? 'solid' : 'hachure',
+      strokeWidth: Math.max(1, Math.round(o.strokeWidth || 1.6)), strokeStyle: o.strokeLineDash ? 'dashed' : 'solid',
+      roughness: 1, opacity: 100, groupIds: [], frameId: null, roundness: null, seed: rnd(), version: 1, versionNonce: rnd(),
+      isDeleted: false, boundElements: null, updated: Date.now(), link: null, locked: false };
+    EX.push(e); return e;
+  }
+  function exLine(pts, o, closed, round) {
+    var x0 = pts[0][0], y0 = pts[0][1];
+    var rel = pts.map(function (q) { return [q[0] - x0, q[1] - y0]; });
+    if (closed) rel.push([0, 0]);
+    var xs = rel.map(function (q) { return q[0]; }), ys = rel.map(function (q) { return q[1]; });
+    var e = exBase('line', x0, y0, Math.max.apply(null, xs) - Math.min.apply(null, xs), Math.max.apply(null, ys) - Math.min.apply(null, ys), o);
+    e.points = rel; e.lastCommittedPoint = null; e.startBinding = null; e.endBinding = null;
+    e.startArrowhead = null; e.endArrowhead = null;
+    if (closed) e.polygon = true; else e.backgroundColor = 'transparent';
+    if (round) e.roundness = { type: 2 };
+    return e;
+  }
+  function tagEx(n, e) { n.__ex = e; return n; }
+  function rect(x, y, w, h, o) { o = O(o); return tagEx(add(rs.rectangle(x, y, w, h, o)), exBase('rectangle', x, y, w, h, o)); }
+  function line(a, b, c, d, o) { o = O(o); return tagEx(add(rs.line(a, b, c, d, o)), exLine([[a, b], [c, d]], o)); }
+  function ell(x, y, w, h, o) { o = O(o); return tagEx(add(rs.ellipse(x, y, w, h, o)), exBase('ellipse', x - w / 2, y - h / 2, w, h, o)); }
+  function circ(x, y, d, o) { o = O(o); return tagEx(add(rs.circle(x, y, d, o)), exBase('ellipse', x - d / 2, y - d / 2, d, d, o)); }
+  function poly(p, o) { o = O(o); return tagEx(add(rs.polygon(p, o)), exLine(p, o, true)); }
+  function curve(p, o) { o = O(o); return tagEx(add(rs.curve(p, o)), exLine(p, o, false, true)); }
+  function lpath(p, o) { o = O(o); return tagEx(add(rs.linearPath(p, o)), exLine(p, o)); }
+  function turn(n, deg) { n.setAttribute('transform', 'rotate(' + deg + ' ' + n.__cx + ' ' + n.__cy + ')'); if (n.__ex) n.__ex.angle = deg * Math.PI / 180; }
+
+  function text(x, y, s, o) {
+    o = o || {};
+    var t = document.createElementNS(NS, 'text');
+    t.setAttribute('x', x); t.setAttribute('y', y);
+    t.setAttribute('font-size', o.size || 20);
+    t.setAttribute('font-weight', o.weight || 400);
+    t.setAttribute('fill', o.fill || C.ink);
+    t.setAttribute('text-anchor', o.anchor || 'start');
+    if (o.font === 'comic') { t.setAttribute('font-family', 'Bangers, Impact, sans-serif'); t.setAttribute('letter-spacing', o.ls || 1); }
+    if (o.font === 'pencil') t.setAttribute('font-family', 'Caveat, cursive');
+    if (o.outline) { t.setAttribute('stroke', o.outline); t.setAttribute('stroke-width', 5); t.setAttribute('paint-order', 'stroke'); t.setAttribute('stroke-linejoin', 'round'); }
+    if (o.rot) t.setAttribute('transform', 'rotate(' + o.rot + ' ' + x + ' ' + y + ')');
+    var lh = o.lh || (o.size || 20) * 1.08;
+    String(s).split('\n').forEach(function (ln, i) {
+      var sp = document.createElementNS(NS, 'tspan');
+      sp.setAttribute('x', x); sp.setAttribute('dy', i === 0 ? 0 : lh);
+      sp.textContent = ln; t.appendChild(sp);
+    });
+    // Excalidraw's hand font (Virgil) runs wider than the page fonts, so the export uses a smaller size
+    var lines = String(s).split('\n'), fs = Math.round((o.size || 20) * (o.font === 'comic' ? 0.7 : o.font === 'pencil' ? 0.85 : 0.74));
+    var widest = lines.reduce(function (m, l) {
+      var up = l.replace(/[^A-Z0-9]/g, '').length;
+      return Math.max(m, (l.length - up) * 0.56 + up * 0.7);
+    }, 0);
+    var tw = Math.ceil(widest * fs) + 6, th = lines.length * fs * 1.25;
+    var tx = o.anchor === 'middle' ? x - tw / 2 : o.anchor === 'end' ? x - tw : x;
+    var e = exBase('text', tx, y - fs * 1.05, tw, th, { stroke: o.fill || C.ink });
+    e.text = String(s); e.originalText = String(s); e.fontSize = fs; e.fontFamily = 1;
+    e.textAlign = o.anchor === 'middle' ? 'center' : o.anchor === 'end' ? 'right' : 'left';
+    e.verticalAlign = 'top'; e.containerId = null; e.lineHeight = 1.25; e.autoResize = true;
+    if (o.rot) e.angle = o.rot * Math.PI / 180;
+    return add(t);
+  }
+  function arrow(x1, y1, x2, y2, o) {
+    o = o || {};
+    line(x1, y1, x2, y2, { stroke: o.stroke || C.ink, strokeWidth: o.w || 2 });
+    var a = Math.atan2(y2 - y1, x2 - x1), L = 13;
+    line(x2, y2, x2 - L * Math.cos(a - 0.45), y2 - L * Math.sin(a - 0.45), { stroke: o.stroke || C.ink, strokeWidth: o.w || 2 });
+    line(x2, y2, x2 - L * Math.cos(a + 0.45), y2 - L * Math.sin(a + 0.45), { stroke: o.stroke || C.ink, strokeWidth: o.w || 2 });
+  }
+  function person(x, y, col) {
+    col = col || C.ink;
+    circ(x, y, 24, { stroke: col, strokeWidth: 2.2, fill: C.white, fillStyle: 'solid' });
+    circ(x - 4, y - 2, 3, { stroke: col, fill: col, fillStyle: 'solid', roughness: 0.4 });
+    circ(x + 4, y - 2, 3, { stroke: col, fill: col, fillStyle: 'solid', roughness: 0.4 });
+    curve([[x - 5, y + 4], [x, y + 7], [x + 5, y + 4]], { stroke: col, strokeWidth: 1.4, roughness: 0.5 });
+    line(x, y + 12, x, y + 46, { stroke: col, strokeWidth: 2 });
+    line(x - 16, y + 24, x + 16, y + 24, { stroke: col, strokeWidth: 1.8 });
+    line(x, y + 46, x - 12, y + 66, { stroke: col, strokeWidth: 1.8 });
+    line(x, y + 46, x + 12, y + 66, { stroke: col, strokeWidth: 1.8 });
+  }
+  function robot(x, y, w, h) {
+    rect(x, y, w, h, { fill: C.white, fillStyle: 'solid', strokeWidth: 2 });
+    var r = Math.max(6, h * 0.22);
+    circ(x + w * 0.3, y + h * 0.45, r, { fill: C.sense, fillStyle: 'solid', stroke: C.sense });
+    circ(x + w * 0.7, y + h * 0.45, r, { fill: C.sense, fillStyle: 'solid', stroke: C.sense });
+    line(x + w / 2, y, x + w / 2, y - h * 0.4); circ(x + w / 2, y - h * 0.4 - 4, 8);
+  }
+  function house(x, y, col, fill) {
+    rect(x, y, 38, 28, { stroke: col, fill: fill, fillStyle: 'hachure', hachureGap: 5, fillWeight: 1 });
+    poly([[x - 5, y], [x + 19, y - 18], [x + 43, y]], { stroke: col });
+  }
+  function bubble(x, y, w, h, tx, ty, str, o) {
+    o = o || {};
+    poly([[x + w * 0.3, y + h - 4], [x + w * 0.45, y + h - 4], [tx, ty]], { fill: C.white, fillStyle: 'solid', strokeWidth: 2, roughness: 0.8 });
+    ell(x + w / 2, y + h / 2, w, h, { fill: C.white, fillStyle: 'solid', strokeWidth: 2, roughness: 0.8 });
+    text(x + w / 2, y + h / 2 + 6, str, { size: o.size || 17, anchor: 'middle', fill: o.fill || C.ink });
+  }
+  function sfx(x, y, str, col, rot, size) {
+    text(x, y, str, { size: size || 24, font: 'comic', fill: col, outline: C.white, rot: rot || 0, ls: 2 });
+  }
+  function tag(x, y, label, col, quiet) {
+    if (quiet) { text(x + 6, y + 18, label, { size: 18, fill: C.pencil, rot: -2, font: 'pencil' }); return; }
+    var r = rect(x, y, label.length * 7.4 + 18, 26, { fill: C.white, fillStyle: 'solid', stroke: col, strokeWidth: 1.8, roughness: 1.2 });
+    r.__cx = x; r.__cy = y; turn(r, -2);
+    text(x + 10, y + 19, label, { size: 18, weight: 700, fill: col, rot: -2 });
+  }
+  (function () {
+    var defs = document.createElementNS(NS, 'defs');
+    defs.innerHTML = '<pattern id="halftone" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="1.3" fill="#6B1F8F" fill-opacity="0.16"/></pattern>';
+    svg.appendChild(defs);
+  })();
+
+  function panelFrame(n, x, y, p) {
+    var col = p.accent ? C.sense : p.accent2 ? C.navy : C.ink;
+    rect(x, y, 300, 270, { fill: C.white, fillStyle: 'solid', strokeWidth: 3.2, roughness: 1.1 });
+    if (p.dots) {
+      var d = document.createElementNS(NS, 'rect');
+      d.setAttribute('x', x + 4); d.setAttribute('y', y + 4); d.setAttribute('width', 292); d.setAttribute('height', 262);
+      d.setAttribute('fill', 'url(#halftone)'); add(d);
+    }
+    var label = n + ' · ' + p.title.toUpperCase(), w = Math.min(284, label.length * 10.4 + 20);
+    rect(x + 8, y + 8, w, 30, { fill: C.sticky, fillStyle: 'solid', strokeWidth: 2, roughness: 0.8 });
+    text(x + 18, y + 31, label, { size: 21, font: 'comic', fill: col });
+    rect(x + 8, y + 212, 284, 50, { fill: '#FFFBEA', fillStyle: 'solid', strokeWidth: 2, roughness: 0.8 });
+    text(x + 16, y + 233, p.caption, { size: 17, lh: 19 });
+  }
+
+  // ---------- props: one drawing per panel type, drawn inside y+44..y+208 ----------
+  var PROPS = {
+    laptop: function (x, y, p) {
+      if (p.left) text(x + 14, y + 80, p.left, { size: 16, lh: 22, fill: C.pencil });
+      if (p.right) text(x + 238, y + 80, p.right, { size: 16, lh: 22, fill: C.pencil });
+      rect(x + 70, y + 58, 160, 98, { fill: C.white, fillStyle: 'solid' });
+      [0, 1, 2].forEach(function (i) { line(x + 74, y + 84 + i * 24, x + 226, y + 84 + i * 24, { stroke: C.pencil, strokeWidth: 1 }); });
+      [0, 1, 2].forEach(function (i) { line(x + 110 + i * 40, y + 62, x + 110 + i * 40, y + 152, { stroke: C.pencil, strokeWidth: 1 }); });
+      poly([[x + 58, y + 158], [x + 242, y + 158], [x + 262, y + 178], [x + 38, y + 178]]);
+    },
+    split: function (x, y, p) {
+      line(x + 150, y + 56, x + 150, y + 186, { stroke: C.pencil, strokeLineDash: [4, 5], strokeWidth: 1 });
+      var n = p.people || 2;
+      for (var i = 0; i < n; i++) person(x + 34 + i * 38, y + 70);
+      circ(x + 112, y + 86, 28, { stroke: C.sense, strokeWidth: 2.2 });
+      line(x + 121, y + 96, x + 134, y + 110, { stroke: C.sense, strokeWidth: 3 });
+      if (p.peopleLabel) text(x + 74, y + 150, p.peopleLabel, { size: 19, weight: 700, anchor: 'middle' });
+      if (p.peopleNote) text(x + 74, y + 165, p.peopleNote, { size: 15, anchor: 'middle', fill: C.sense });
+      robot(x + 188, y + 82, 54, 40);
+      curve([[x + 250, y + 78], [x + 262, y + 100], [x + 250, y + 124]], { stroke: C.pencil });
+      curve([[x + 260, y + 70], [x + 276, y + 100], [x + 260, y + 132]], { stroke: C.pencil });
+      line(x + 196, y + 122, x + 196, y + 136); line(x + 234, y + 122, x + 234, y + 136);
+      if (p.botLabel) text(x + 215, y + 150, p.botLabel, { size: 19, weight: 700, anchor: 'middle', fill: C.sense });
+      if (p.sfx) sfx(x + 238, y + 66, p.sfx, C.sense, 8);
+    },
+    card: function (x, y, p) {
+      rect(x + 55, y + 54, 190, 128, { fill: C.cream, fillStyle: 'solid' });
+      (p.fields || []).slice(0, 3).forEach(function (f, i) {
+        text(x + 70, y + 88 + i * 36, f, { size: 24, weight: 700, fill: f === p.accentField ? C.sense : C.ink });
+        line(x + 70 + f.length * 12 + 10, y + 84 + i * 36, x + 230, y + 84 + i * 36, { stroke: C.pencil, strokeWidth: 1, roughness: 2.2 });
+      });
+    },
+    approve: function (x, y, p) {
+      var l = p.labels || ['approver'];
+      l.slice(0, 2).forEach(function (s, i) { person(x + 42 + i * 70, y + 70); text(x + 42 + i * 70, y + 158, s, { size: 16, anchor: 'middle' }); });
+      rect(x + 150, y + 62, 120, 96, { fill: C.white, fillStyle: 'solid' });
+      lpath([[x + 172, y + 104], [x + 196, y + 128], [x + 250, y + 72]], { stroke: C.sense, strokeWidth: 4, roughness: 1.6 });
+      if (p.sfx) sfx(x + 156, y + 152, p.sfx, C.sense, -8, 22);
+      if (p.bubble) bubble(x + 58, y + 42, 76, 26, x + 48, y + 60, p.bubble, { size: 16 });
+    },
+    stores: function (x, y, p) {
+      [0, 1, 2].forEach(function (i) { house(x + 30 + i * 52, y + 96, C.sense, C.sense); });
+      [0, 1, 2].forEach(function (i) { house(x + 30 + i * 52, y + 162, C.pencil, 'none'); });
+      text(x + 200, y + 112, p.testLabel || 'test', { size: 22, weight: 700, fill: C.sense });
+      text(x + 200, y + 182, p.controlLabel || 'control', { size: 22, fill: C.pencil });
+      if (p.sfx) sfx(x + 196, y + 70, p.sfx, C.navy, -6);
+    },
+    phone: function (x, y, p) {
+      person(x + 62, y + 84);
+      if (p.personLabel) text(x + 62, y + 172, p.personLabel, { size: 16, anchor: 'middle' });
+      if (p.bubble) bubble(x + 12, y + 44, 90, 26, x + 56, y + 72, p.bubble, { size: 16 });
+      rect(x + 128, y + 52, 136, 134, { fill: C.white, fillStyle: 'solid', roughness: 1 });
+      line(x + 182, y + 178, x + 210, y + 178, { strokeWidth: 2.5 });
+      if (p.app) text(x + 138, y + 76, p.app, { size: 18, weight: 700, fill: C.sense });
+      if (p.body) text(x + 138, y + 98, p.body, { size: 16, lh: 17 });
+      if (p.why) {
+        rect(x + 134, y + 140, 124, 40, { stroke: C.sense, fill: C.cream, fillStyle: 'solid', roughness: 1 });
+        text(x + 140, y + 156, p.why, { size: 15, fill: C.sense, weight: 700 });
+      }
+    },
+    chart: function (x, y, p) {
+      line(x + 30, y + 178, x + 170, y + 178); line(x + 30, y + 58, x + 30, y + 178);
+      line(x + 92, y + 58, x + 92, y + 178, { stroke: C.navy, strokeLineDash: [5, 5], strokeWidth: 1.4 });
+      text(x + 96, y + 70, 'live', { size: 16, fill: C.navy });
+      curve([[x + 34, y + 138], [x + 60, y + 134], [x + 92, y + 140], [x + 130, y + 134], [x + 166, y + 132]], { stroke: C.pencil, strokeWidth: 2, strokeLineDash: [6, 5] });
+      curve([[x + 34, y + 140], [x + 60, y + 136], [x + 92, y + 141], [x + 130, y + 108], [x + 166, y + 86]], { stroke: C.sense, strokeWidth: 2.6 });
+      text(x + 140, y + 84, 'test', { size: 17, fill: C.sense, weight: 700 });
+      text(x + 136, y + 160, 'control', { size: 17, fill: C.pencil });
+      var checks = (p.checks || []).slice(0, 3).map(function (c) { return '✓ ' + c; }).join('\n');
+      if (checks) text(x + 182, y + 92, checks, { size: 20, lh: 30, weight: 600 });
+    },
+    rule: function (x, y, p) {
+      rect(x + 22, y + 58, 150, 70, { fill: C.cream, fillStyle: 'solid' });
+      var r = p.rule || [];
+      if (r[0]) text(x + 32, y + 80, r[0], { size: 18, weight: 700 });
+      if (r[1]) text(x + 32, y + 101, r[1], { size: 18, weight: 700, fill: C.sense });
+      arrow(x + 178, y + 92, x + 206, y + 92, { stroke: C.sense });
+      house(x + 220, y + 84, C.sense, C.sense);
+      if (p.botSays) {
+        robot(x + 24, y + 156, 36, 28);
+        bubble(x + 82, y + 140, 196, 34, x + 64, y + 166, p.botSays, { size: 17, fill: C.sense });
+      }
+    },
+    none: function () {}
+  };
+
+  // ---------- layout: rows of four, snaking left-right then right-left ----------
+  var S = STORY, N = S.panels.length, COLS = 4, PW = 300, PH = 270, GX = 40, GY = 60, TOP = 120;
+  var rows = Math.ceil(N / COLS);
+  var pos = S.panels.map(function (_, i) {
+    var r = Math.floor(i / COLS), c = i % COLS;
+    if (r % 2 === 1) c = COLS - 1 - c;
+    return { x: 40 + c * (PW + GX), y: TOP + r * (PH + GY), r: r };
+  });
+  var notesTop = TOP + rows * (PH + GY) + 6;
+  var H = S.notes ? notesTop + 110 : notesTop;
+  svg.setAttribute('viewBox', '0 0 1400 ' + H);
+  svg.setAttribute('aria-label', S.description || S.title);
+
+  text(40, 68, S.title, { size: 54, font: 'comic', ls: 2 });
+  if (S.subtitle) text(40 + S.title.length * 30 + 24, 66, S.subtitle, { size: 30 });
+  if (S.stamp) {
+    rect(1180, 28, 180, 56, { stroke: C.sense, roughness: 2 });
+    text(1270, 66, S.stamp, { size: 32, font: 'comic', anchor: 'middle', fill: C.sense, rot: -3 });
+  }
+
+  S.panels.forEach(function (p, i) {
+    var q = pos[i];
+    panelFrame(String(i + 1), q.x, q.y, p);
+    (PROPS[p.prop] || PROPS.none)(q.x, q.y, p);
+  });
+
+  // arrows between consecutive panels
+  for (var i = 0; i < N - 1; i++) {
+    var a = pos[i], b = pos[i + 1], col = S.panels[i + 1].accent ? C.sense : C.ink;
+    if (a.r === b.r) {
+      if (b.x > a.x) arrow(a.x + PW + 6, a.y + 150, b.x - 8, b.y + 150, { stroke: col });
+      else arrow(a.x - 6, a.y + 150, b.x + PW + 8, b.y + 150, { stroke: col });
+    } else {
+      arrow(a.x + 150, a.y + PH + 6, b.x + 150, b.y - 8, { stroke: col });
+    }
+  }
+
+  // optional loop back
+  if (S.loop && pos[S.loop.from] && pos[S.loop.to]) {
+    var f = pos[S.loop.from], t = pos[S.loop.to];
+    var ex = t.x + 228, ey = t.y + PH + 10;
+    curve([[f.x + 150, f.y - 4], [f.x + 200, f.y - 30], [t.x + 160, t.y + PH + 42], [ex, ey]], { stroke: C.navy, strokeWidth: 2.2 });
+    arrow(ex - 14, ey + 14, ex, ey, { stroke: C.navy });
+    if (S.loop.label) text(f.x + 170, f.y - 12, S.loop.label, { size: 17, fill: C.navy });
+  }
+
+  // optional tags
+  (S.tags || []).forEach(function (g) {
+    var q = pos[g.panel]; if (!q) return;
+    var at = g.at || 'top';
+    var x = at === 'bottom-left' ? q.x + 14 : at === 'bottom-right' ? q.x + 176 : q.x + 150;
+    var y = at === 'top' ? q.y - 26 : q.y + 174;
+    tag(x, y, g.text, C.sense, g.quiet);
+  });
+
+  // optional sticky notes
+  if (S.notes) {
+    text(40, notesTop + 8, S.notes.heading.toUpperCase(), { size: 28, font: 'comic', ls: 1.5 });
+    S.notes.items.slice(0, 5).forEach(function (s, i) {
+      var sx = 40 + i * 266, sy = notesTop + 24, r = [-1.5, 1.2, -0.8, 1.6, -1.2][i];
+      var g = rect(sx, sy, 246, 66, { fill: C.sticky, fillStyle: 'solid', stroke: '#C9A93A', roughness: 1 });
+      g.__cx = sx + 123; g.__cy = sy + 33; turn(g, r);
+      text(sx + 16, sy + 29, s, { size: 22, lh: 23, rot: r });
+    });
+  }
+
+  // ---------- export ----------
+  var scene = { type: 'excalidraw/clipboard', elements: EX, files: {} };
+  window.__excalidrawFile = function () {
+    return { type: 'excalidraw', version: 2, source: 'https://excalidraw.com', elements: EX,
+      appState: { viewBackgroundColor: '#FCFCFA', gridSize: null }, files: {} };
+  };
+  var btn = document.getElementById('exCopy'), msg = document.getElementById('exMsg'), box = document.getElementById('exJson');
+  btn.addEventListener('click', function () {
+    var json = JSON.stringify(scene);
+    function fallback() {
+      box.value = json; box.hidden = false; box.focus(); box.select();
+      msg.textContent = 'Copy blocked here. The text below is selected: press Ctrl/Cmd+C, then paste into Excalidraw.';
+    }
+    try {
+      navigator.clipboard.writeText(json).then(function () {
+        msg.textContent = 'Copied. Open Excalidraw and paste with Ctrl/Cmd+V.';
+      }, fallback);
+    } catch (err) { fallback(); }
+  });
+})();
+</script>

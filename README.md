@@ -72,7 +72,7 @@ Exploration -> Sign-Off -> Discovery -> Sign-Off -> Delivery -> Learn & Iterate.
 | `4-iteration/` | Learn & Iterate + operate | learn-iterate, SaaS/finance metrics, business health, pricing, incident-postmortem, sentry-cli, eol-message |
 | `growth/` | (pack, off-blueprint) | `ads-*` marketing pack, acquisition/organic growth |
 | `career/` | (pack, off-blueprint) | PM career coaching |
-| `utilities/` | (pack) | outlook, pdf, ffmpeg, screenshot, gpt-image, humanizer |
+| `utilities/` | (pack) | outlook, pdf, ffmpeg, screenshot, gpt-image, humanizer, comic-sketch-story |
 | `meta/` | (pack) | find-skills, skill authoring, workshop-facilitation protocol |
 | `commands/` | — | slash-command .md files (linked into both tools) |
 | `retired/` | — | history only; never linked |
