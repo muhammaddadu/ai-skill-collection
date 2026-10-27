@@ -9,7 +9,7 @@ description: "Make polished videos with ffmpeg: a production pipeline plus vette
 
 Two things in one skill: a **command library** of vetted ffmpeg recipes for everyday media jobs, and a **production pipeline** for making videos that actually look intentional. Treat ffmpeg as the final compositor and encoder — the renderer — and bring in helper tools for the parts ffmpeg is clumsy at (asset design, animation, captions, 3D). Use it whenever a request touches media: converting, resizing, building GIFs, pulling audio, editing, or producing a finished video for marketing, demos, tutorials, launches, social, explainers, app-store previews, or pitches.
 
-**Version:** 2.0.0
+**Version:** 2.1.0
 **Needs:** ffmpeg ≥ 4.0; `ffprobe` recommended. Other tools (below) are optional and used only when they earn their place.
 
 ## When to apply
@@ -221,11 +221,26 @@ For good-looking videos, use ffmpeg as the final compositor/encoder, not as the 
 4. **Create reusable assets** — transparent text overlays, frames, masks, backgrounds, captions, logos.
 5. **Compose scene-by-scene** with ffmpeg, one short clip per beat.
 6. **Add motion** — pan, zoom, scroll, parallax, easing, transitions.
-7. **Add audio** — voiceover, music, sound effects, captions, and loudness normalisation.
+7. **Edit to final narration** — choose coherent continuous speech or modular takes, time picture emphasis to the final words, then mix music and captions.
 8. **Render preview frames / contact sheets** before the final export.
 9. **Verify with `ffprobe`.**
 
-Prefer several short scenes over one long continuous recording — easier to time, replace, review, and reuse.
+Prefer several short picture captures over one long recording when product state can drift. This does not require separate voice clips: a continuous sentence can span several shots.
+
+## Narrated product walkthroughs
+
+Use this treatment for a real website/product explainer when the audience needs to understand a connected journey. Deliver a versioned MP4 with source/capture provenance, a narration/cue record and encoded-master QA in the project's output/review folders for the intended viewers.
+
+1. **Let the sentence carry the cut.** Write conversational passages and record/generate coherent takes. Lay one narration track across the picture timeline; change images while speech continues (J/L cuts), rather than pausing at every scene. Use modular takes only when the format calls for them. Choose the runtime from necessary explanation; a 30–45-second executive cut can work without becoming a universal duration target.
+2. **Preserve voice continuity.** When asked for an earlier voice, verify the supplied reference/model/settings and reuse an exact-script asset when possible. Fingerprint script and output-affecting settings. Keep local/offline generation available; a configured video API does not authorise speech/music spend or external messaging.
+3. **Capture a credible desktop page with height.** Start around 1280 CSS pixels wide with 1100–1200 pixels of height at DPR 2 when it exposes useful context. Preserve the actual responsive layout and aspect ratio. Compose the taller capture inside a browser frame; never stretch it. In landscape, try clear explanation on the left and a larger browser on the right, separated by whitespace or a rule. Crop/zoom genuine pixels for detail and inspect at intended playback size.
+4. **Keep comparison geometry stable.** Dissolve location pages in place rather than sliding every page. A rapid coverage montage can use roughly 0.6–1 second per page with a short dissolve, but reserve longer holds for copy viewers must read. A journey can move across a connected canvas with arrows/progress: landing page → CTA → actual form destination.
+5. **Show the consequence of an input.** For intent/location changes, capture real before/after states, show the changed parameter and label/highlight the actual headline, supporting copy and image at the spoken cue. Introduce location separately from intent. A URL alone is insufficient explanation. Do not imply form completion or preselection from a screenshot of arrival.
+6. **Connect acquisition to the journey.** Show example search → matching saved advert → relevant page → next step when supported by evidence. Label keyword targets versus observed search terms and illustrative ad layouts versus guaranteed served combinations. Keep launched routes distinct from website capability. Avoid unsupported uplift claims.
+7. **Align after performance.** Measure raw speech before locking picture; tighten copy or adjust the edit before accelerating delivery. Modest pitch-preserving tempo changes need listening review and new alignment. Derive cue times/captions from final audio; transcripts help locate words but do not approve pronunciation. Keep brand names under review.
+8. **Mix once across scenes.** Balance and duck instrumental music beneath speech, then retain a short musical closing hold. Preserve reusable sources; an edit, aspect ratio or mix change does not justify regenerating unchanged speech/music. Score style follows the brief: one project's piano rejection is not a general prohibition.
+9. **Verify the delivered sequence.** Recheck updated live assets before export; preserve the previous capture set and record URLs, viewport/DPR, time and loaded images. Inspect exact cut boundaries and motion in the encoded result. For frame timelines, use rounded absolute start/end boundaries to avoid cumulative rounding overlap. Browser tile/blank defects need a final-frame scan plus visual review; test lower concurrency/software capture when that defect appears, rather than making those settings universal. Contact sheets and ASR do not replace a full-speed viewing/listening review.
+
 
 **Normalise clip timing** with `setpts=(target/actual)*PTS`, e.g. retime an 8s clip to 6s:
 ```bash
@@ -289,22 +304,26 @@ Music and sound: use open-licensed music when publishing commercially and keep t
 # Fade music in and out
 -af "afade=t=in:ss=0:d=1,afade=t=out:st=27:d=1"
 
-# Mix voice and music
--filter_complex "[voice][music]amix=inputs=2:duration=first"
+# Continuous voice + ducked music; 36 seconds is an example picture duration.
+# Split voice because the audible mix and sidechain each consume a stream.
+ffmpeg -i narration.wav -i music.wav -filter_complex \
+  "[0:a]asplit=2[voice][control];[1:a]volume=0.3[music];[music][control]sidechaincompress=threshold=0.025:ratio=6:attack=15:release=220[ducked];[voice][ducked]amix=inputs=2:duration=longest:normalize=0,loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000,apad=whole_dur=36,atrim=duration=36[mix]" \
+  -map "[mix]" -c:a pcm_s24le mix-unpadded.wav
 
-# Duck (sidechain) music under voice
--filter_complex "[music][voice]sidechaincompress=threshold=0.04:ratio=8:attack=20:release=250[ducked];[voice][ducked]amix=inputs=2"
+# A separate final padding pass avoids a short tail from filter flush/resampling.
+ffmpeg -i mix-unpadded.wav -af "apad=whole_dur=36,atrim=duration=36" \
+  -ar 48000 -c:a pcm_s24le mix.wav
 
 # Loop music to fit the video without retiming the picture
 ffmpeg -y -i silent.mp4 -stream_loop -1 -i music.mp3 -map 0:v:0 -map 1:a:0 \
   -shortest -c:v copy -c:a aac -b:a 192k -movflags +faststart final.mp4
 ```
 
-Voiceover guidance: one short line per scene, matched to what's on screen; use punctuation to control rhythm; nudge TTS speed up slightly if it sounds flat; leave pauses between beats; generate captions from the **final** voiceover, not the draft script.
+Voiceover guidance: use natural punctuation and intentional breathing space, not mandatory silence between shots. For flowing explainers follow the continuous approach above; for modular takes match each line to its intended window. Generate captions from the **final** voiceover. Probe encoded audio and video durations separately so the closing music hold is not truncated; check loudness and true peak after encoding, not only on the WAV.
 
 ### Motion and animation
 
-Static compositions feel like slideshows. Add subtle motion to every scene: slow push-in, gentle pan, device parallax, background drift, screen scroll, text ease-in then hold, fast-but-readable transitions on the beat, light zoom for emphasis. Prefer smooth easing over linear movement; animate once at a beat's start, then hold.
+Use motion to guide attention: push in to a CTA, move between connected states, or dissolve page variants. Keep geometry still during comparisons and allow reading holds. Avoid adding movement merely because a scene is static. Prefer smooth easing over linear movement; animate a meaningful change, then settle.
 
 ```bash
 # Ease-out slide-in for a text overlay PNG (smooth, no flicker)
@@ -321,7 +340,7 @@ zoompan=z='min(zoom+0.0015,1.08)':d=150:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)
 
 When footage shows an app, website, or product, frame it so it reads as a real object rather than a flat rectangle.
 
-- Compose on the target canvas (e.g. `1080x1920`) and keep text in top/bottom bands, off the footage.
+- Compose for the target canvas. Vertical work can use top/bottom text bands; landscape website walkthroughs can use a separate text column and taller browser stage. Keep explanation clear of important UI.
 - Fit footage into the screen area, preserving aspect ratio:
   ```bash
   ffmpeg -y -i clip.mp4 -vf "scale=564:1284:force_original_aspect_ratio=decrease,pad=564:1284:(ow-iw)/2:(oh-ih)/2:black,fps=30,format=rgba" screen.mp4
@@ -360,9 +379,9 @@ Before final delivery:
   ffmpeg -y -ss 00:00:03 -i final.mp4 -frames:v 1 -update 1 preview-03.png
   ```
 - Check text readability on mobile and that captions don't overlap important content.
-- Check audio starts and ends cleanly and that voiceover matches what's on screen.
+- Check audio starts and ends cleanly, speech flows across intended cuts, and highlights match the final spoken cues. Listen at normal speed; technical metadata and ASR are not perceptual approval.
 - Check for debug overlays, reload flashes, cursor artifacts, or stale screens.
-- Confirm the export uses `yuv420p` and `+faststart`.
+- Confirm the export uses `yuv420p` and `+faststart`. Browser/JPEG sources may be full-range: inspect range metadata and perform a genuine range conversion when delivery requires limited-range BT.709; do not merely relabel the pixels.
 
 Recommended final export:
 ```bash

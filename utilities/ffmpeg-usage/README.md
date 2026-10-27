@@ -56,6 +56,10 @@ Detection keys off each agent's config directory or CLI on your `PATH`. Useful f
 | "Prep for Instagram Stories" | 9:16 padded fit, capped at 15s |
 | "Convert every MOV here to MP4" | Batch loop over the folder |
 
+## Narrated walkthrough treatment
+
+The production workflow includes continuous narration across picture cuts, taller genuine desktop captures in a separated text/browser layout, connected journey states, and explicit before/after intent highlights. It also distinguishes keyword targets from observed searches and keeps technical checks separate from viewing/listening approval. See the narrated product walkthrough section in [the skill](SKILL.md).
+
 ## Requirements
 
 - **ffmpeg ≥ 4.0** (ships with `ffprobe`). The installer warns if it's missing but won't block.
