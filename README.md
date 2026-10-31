@@ -138,3 +138,20 @@ react-native-skills, web-design-guidelines).
 
 > Watch item: Expo now ships official intent skills — dedupe the `expo-*`
 > pack against them at the next portfolio audit.
+
+## UK accounting and compliance
+
+The UK accounting pack adapts four MIT-licensed AccountsOS skills into
+evidence-first company accounting, expense review, tax deadline and VAT workflows.
+It also includes property-company bookkeeping, statutory filing review and
+Corporation Tax reminder handling. The pack uses current official guidance for
+rates, fees and penalties rather than copying frozen tax tables. It requires no
+AccountsOS account or connector. Client evidence and personal information belong
+in the target workspace, not the shared skills.
+
+Use `uk-accounting` for company-level questions, `uk-expense-review` for cost
+treatment, `uk-tax-deadlines` for calendars, and `uk-vat-review` for VAT. The
+`uk-property-company-books`, `uk-company-filing-review` and
+`uk-corporation-tax-reminders` skills own their narrower execution workflows.
+Installing instructions does not authorize financial actions or establish filing
+or payment completion.

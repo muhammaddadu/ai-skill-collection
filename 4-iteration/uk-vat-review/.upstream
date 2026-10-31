@@ -1,0 +1,6 @@
+Adapted from: https://github.com/thriveventurelabs/accountsos-agent-plugin
+Commit: 7c32af0a5f39b87e69da14aa915f904036ff39d4
+Source: skills/vat-rules/SKILL.md
+License: MIT; upstream notice retained in LICENSE.
+
+Local adaptation, 2026-10-31: entity/period/evidence-first workflow; effective-date primary-source verification instead of frozen tax tables; corrected rate/association, long-first-period, property and director-loan distinctions. Removed AccountsOS account/connector requirements and broad automatic triggers. No private company data included.

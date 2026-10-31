@@ -141,3 +141,12 @@ industrial-brutalist-ui
 minimalist-ui
 redesign-existing-projects
 stitch-design-taste
+
+# UK accounting and compliance
+uk-accounting
+uk-company-filing-review
+uk-corporation-tax-reminders
+uk-expense-review
+uk-property-company-books
+uk-tax-deadlines
+uk-vat-review
